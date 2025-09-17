@@ -30,226 +30,229 @@ export default function Home() {
       <NeonBackground />
       <Navbar />
 
-      {/* HERO */}
+      {/* HERO SECTION - Fortune 500 Level */}
       <Section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        {/* Neon gradient overlays */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-purple-900/20" />
-          <div className="absolute top-0 left-0 w-full h-full">
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-cyan-500/20 to-transparent rounded-full blur-3xl animate-pulse" />
-            <div className="absolute top-3/4 right-1/4 w-80 h-80 bg-gradient-to-l from-pink-500/20 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-yellow-500/20 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }} />
-          </div>
-        </div>
-
-        {/* Floating geometric shapes */}
-        <div className="absolute inset-0 overflow-hidden">
-          {Array.from({ length: 8 }).map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-2 h-2 bg-primary/40 rounded-full"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                y: [0, -100, 0],
-                x: [0, Math.random() * 50 - 25, 0],
-                opacity: [0.2, 0.8, 0.2],
-                scale: [0.5, 1.5, 0.5],
-              }}
-              transition={{
-                duration: 8 + Math.random() * 4,
-                repeat: Infinity,
-                delay: Math.random() * 3,
-                ease: "easeInOut",
-              }}
-            />
-          ))}
+        {/* Professional dark background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-800" />
+        
+        {/* Subtle geometric patterns */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-cyan-500/10 to-transparent rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-l from-pink-500/10 to-transparent rounded-full blur-3xl" />
         </div>
 
         {/* Main content */}
         <motion.div
-          className="relative z-10 text-center max-w-6xl mx-auto px-6"
+          className="relative z-10 max-w-7xl mx-auto px-6"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
         >
-          {/* Professional badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          >
-            <Pill variant="primary" size="lg" className="mb-8">
-              <div className="w-2 h-2 bg-gradient-to-r from-primary to-secondary rounded-full animate-pulse mr-3" />
-              Next-Generation Infrastructure
-            </Pill>
-          </motion.div>
-
-          {/* Neon Logo */}
-          <motion.div
-            className="mb-8"
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-          >
-            <NeonLogo size="xl" animated={true} />
-          </motion.div>
-
-          {/* Neon-styled heading */}
-          <motion.h1 
-            className="text-5xl md:text-7xl font-bold leading-tight mb-8"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <span 
-              className="block text-white mb-4"
-              style={{ 
-                textShadow: '0 0 20px #00ffff, 0 0 40px #00ffff',
-                filter: 'drop-shadow(0 0 10px #00ffff)'
-              }}
-            >
-              Liberation Tech
-            </span>
-            <span 
-              className="block text-3xl md:text-4xl text-pink-400 font-light"
-              style={{ 
-                textShadow: '0 0 15px #ff00ff, 0 0 30px #ff00ff',
-                filter: 'drop-shadow(0 0 8px #ff00ff)'
-              }}
-            >
-              for Next Generation
-            </span>
-          </motion.h1>
-
-          {/* Neon value proposition */}
-          <motion.p 
-            className="text-xl md:text-2xl text-cyan-300 max-w-3xl mx-auto leading-relaxed mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            style={{ 
-              textShadow: '0 0 10px #00ffff',
-              filter: 'drop-shadow(0 0 5px #00ffff)'
-            }}
-          >
-            We build ethical infrastructure that turns real-world assets into programmable opportunities. 
-            Professional execution, mindful innovation, sustainable impact.
-          </motion.p>
-
-          {/* Neon CTA buttons */}
-          <motion.div 
-            className="flex flex-col sm:flex-row items-center justify-center gap-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <motion.button
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-xl font-semibold text-lg transition-all duration-300 relative overflow-hidden group"
-              style={{
-                boxShadow: '0 0 20px #00ffff, 0 0 40px #00ffff, inset 0 0 20px rgba(0, 255, 255, 0.1)',
-                textShadow: '0 0 10px #ffffff'
-              }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span className="relative z-10">Get Started</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </motion.button>
-            
-            <motion.button
-              onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-4 border-2 border-pink-400 text-pink-400 rounded-xl font-semibold text-lg hover:bg-pink-400/10 transition-all duration-300 relative overflow-hidden group"
-              style={{
-                boxShadow: '0 0 20px #ff00ff, 0 0 40px #ff00ff, inset 0 0 20px rgba(255, 0, 255, 0.1)',
-                textShadow: '0 0 10px #ff00ff'
-              }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span className="relative z-10">Learn More</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </motion.button>
-          </motion.div>
-
-          {/* Scroll indicator */}
-          <motion.div
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.5 }}
-          >
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left side - Logo and branding */}
             <motion.div
-              className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center"
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
+              className="text-center lg:text-left"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, delay: 0.2 }}
             >
+              {/* Professional badge */}
               <motion.div
-                className="w-1 h-3 bg-white/60 rounded-full mt-2"
-                animate={{ opacity: [0.3, 1, 0.3] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
+                className="inline-block mb-8"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+              >
+                <div className="px-4 py-2 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded-full">
+                  <span className="text-cyan-300 text-sm font-medium">Next-Generation Infrastructure</span>
+                </div>
+              </motion.div>
+
+              {/* Logo */}
+              <motion.div
+                className="mb-8"
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, delay: 0.4 }}
+              >
+                <NeonLogo size="xl" animated={true} />
+              </motion.div>
+
+              {/* Mission statement */}
+              <motion.p 
+                className="text-lg text-gray-300 leading-relaxed max-w-lg"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                Building the future of conscious technology through ethical design, 
+                mindful innovation, and sustainable impact.
+              </motion.p>
             </motion.div>
-          </motion.div>
+
+            {/* Right side - Main content */}
+            <motion.div
+              className="text-center lg:text-left"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, delay: 0.4 }}
+            >
+              {/* Main heading */}
+              <motion.h1 
+                className="text-6xl md:text-8xl font-bold leading-tight mb-8"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                <span 
+                  className="block text-white mb-4"
+                  style={{ 
+                    textShadow: '0 0 20px #00ffff, 0 0 40px #00ffff',
+                    filter: 'drop-shadow(0 0 10px #00ffff)'
+                  }}
+                >
+                  Liberation Tech
+                </span>
+                <span 
+                  className="block text-4xl md:text-5xl text-pink-400 font-light"
+                  style={{ 
+                    textShadow: '0 0 15px #ff00ff, 0 0 30px #ff00ff',
+                    filter: 'drop-shadow(0 0 8px #ff00ff)'
+                  }}
+                >
+                  for Next Generation
+                </span>
+              </motion.h1>
+
+              {/* Value proposition */}
+              <motion.p 
+                className="text-xl text-gray-300 max-w-2xl leading-relaxed mb-12"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+              >
+                We build ethical infrastructure that turns real-world assets into programmable opportunities. 
+                Professional execution, mindful innovation, sustainable impact.
+              </motion.p>
+
+              {/* CTA buttons */}
+              <motion.div 
+                className="flex flex-col sm:flex-row items-center lg:items-start gap-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1.0 }}
+              >
+                <motion.button
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-xl font-semibold text-lg transition-all duration-300 relative overflow-hidden group"
+                  style={{
+                    boxShadow: '0 0 20px #00ffff, 0 0 40px #00ffff, inset 0 0 20px rgba(0, 255, 255, 0.1)',
+                    textShadow: '0 0 10px #ffffff'
+                  }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span className="relative z-10">Get Started</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </motion.button>
+                
+                <motion.button
+                  onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="px-8 py-4 border-2 border-pink-400 text-pink-400 rounded-xl font-semibold text-lg hover:bg-pink-400/10 transition-all duration-300 relative overflow-hidden group"
+                  style={{
+                    boxShadow: '0 0 20px #ff00ff, 0 0 40px #ff00ff, inset 0 0 20px rgba(255, 0, 255, 0.1)',
+                    textShadow: '0 0 10px #ff00ff'
+                  }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span className="relative z-10">Learn More</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </motion.button>
+              </motion.div>
+            </motion.div>
+          </div>
         </motion.div>
       </Section>
 
 
-      {/* ABOUT */}
-      <Section id="about" className="py-24 bg-white/5">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
+      {/* ABOUT - Fortune 500 Level */}
+      <Section id="about" className="py-24 bg-gradient-to-br from-gray-900/50 to-black/50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <motion.h2 
+              className="text-5xl md:text-7xl font-bold text-white mb-8"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
               What We Do
-            </h2>
-            <p className="text-xl text-white/70 max-w-3xl mx-auto">
+            </motion.h2>
+            <motion.p 
+              className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
               We build ethical infrastructure that transforms real-world assets into programmable opportunities.
-            </p>
+            </motion.p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-2xl font-bold text-white mb-6">Our Mission</h3>
-              <p className="text-white/70 text-lg leading-relaxed mb-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-3xl font-bold text-white mb-8">Our Mission</h3>
+              <p className="text-gray-300 text-lg leading-relaxed mb-10">
                 We're pioneering the next generation of conscious technology infrastructure. 
                 Our mission is to create tools that serve humanity's highest potential through 
                 ethical design, mindful innovation, and sustainable impact.
               </p>
               
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span className="text-white">Decentralized access to technology</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-secondary rounded-full"></div>
-                  <span className="text-white">Ethical automation systems</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-accent rounded-full"></div>
-                  <span className="text-white">Earth-first sustainable solutions</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span className="text-white">Human agency and empowerment</span>
-                </div>
+              <div className="grid gap-6">
+                {[
+                  "Decentralized access to technology",
+                  "Ethical automation systems", 
+                  "Earth-first sustainable solutions",
+                  "Human agency and empowerment"
+                ].map((item, index) => (
+                  <motion.div 
+                    key={item}
+                    className="flex items-center gap-4"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="w-3 h-3 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"></div>
+                    <span className="text-white text-lg">{item}</span>
+                  </motion.div>
+                ))}
               </div>
-            </div>
+            </motion.div>
 
-            <div className="bg-white/5 rounded-2xl p-8 border border-white/10">
-              <h4 className="text-xl font-semibold text-white mb-4">Featured Project</h4>
-              <h5 className="text-lg font-medium text-primary mb-3">Coinscious Building</h5>
-              <p className="text-white/70 mb-6">
+            <motion.div 
+              className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-3xl p-10 border border-gray-700/50 backdrop-blur-sm"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <h4 className="text-2xl font-bold text-white mb-6">Featured Project</h4>
+              <h5 className="text-xl font-semibold text-cyan-400 mb-4">Coinscious Building</h5>
+              <p className="text-gray-300 text-lg leading-relaxed mb-8">
                 Real-estate RWA infrastructure: auditing, KYC/KYB, liquidity pools, and the essentials 
                 teams need to launch tokenized, fractional real-estate at scale.
               </p>
-              <button className="text-primary hover:text-primary/80 font-medium">
+              <button className="text-cyan-400 hover:text-cyan-300 font-semibold text-lg transition-colors duration-300">
                 Learn More →
               </button>
-            </div>
+            </motion.div>
           </div>
         </div>
       </Section>
