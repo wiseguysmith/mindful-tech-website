@@ -1,0 +1,10 @@
+- Use Next.js App Router, TypeScript, Tailwind, Framer Motion.
+- Aesthetic: dark, futuristic, spiritual-professional with abstract sacred geometry + neon glows.
+- Palette: bg #0B0F1A, primary #63F5FF, secondary #B95CFF, accent #F5D061, earth #58A055.
+- Typography: Inter/Plus Jakarta Sans (body); Space Grotesk/Sora (headings).
+- Components must be modular: GlowCard, Section (via .section class), CTA buttons.
+- Motion: balanced; disable heavy animations on mobile and when prefers-reduced-motion is set.
+- Client-side validation only on forms; show success alerts; TODO comments for future backend.
+- Accessibility: semantic headings, WCAG contrast, visible focus.
+- Prioritize Coinscious Building on the landing; Agentic Studio as a dated teaser (Sep 20, 2025).
+- Keep copy centralized in /content; no long strings in components.
