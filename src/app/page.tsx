@@ -56,24 +56,25 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              {/* Professional badge */}
+              {/* Professional badge with enhanced effects */}
               <motion.div
                 className="inline-block mb-8"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
-                <div className="px-4 py-2 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded-full">
-                  <span className="text-cyan-300 text-sm font-medium">Next-Generation Infrastructure</span>
+                <div className="px-6 py-3 glass-morphism hover-lift hover-glow rounded-full pulse-glow">
+                  <span className="text-gradient text-sm font-semibold">Next-Generation Infrastructure</span>
                 </div>
               </motion.div>
 
-              {/* Logo */}
+              {/* Logo with magnetic hover effect */}
               <motion.div
-                className="mb-8"
+                className="mb-8 magnetic-hover"
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, delay: 0.4 }}
+                whileHover={{ scale: 1.05 }}
               >
                 <NeonLogo size="xl" animated={true} />
               </motion.div>
@@ -144,29 +145,45 @@ export default function Home() {
               >
                 <motion.button
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-xl font-semibold text-lg transition-all duration-300 relative overflow-hidden group"
+                  className="px-10 py-5 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-2xl font-bold text-lg transition-all duration-300 relative overflow-hidden group hover-lift hover-glow pulse-glow"
                   style={{
-                    boxShadow: '0 0 20px #00ffff, 0 0 40px #00ffff, inset 0 0 20px rgba(0, 255, 255, 0.1)',
-                    textShadow: '0 0 10px #ffffff'
+                    boxShadow: '0 0 30px #00ffff, 0 0 60px #00ffff, inset 0 0 20px rgba(0, 255, 255, 0.1)',
+                    textShadow: '0 0 15px #ffffff'
                   }}
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.08, rotateY: 5 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <span className="relative z-10">Get Started</span>
+                  <span className="relative z-10 flex items-center gap-2">
+                    Get Started
+                    <motion.span
+                      animate={{ x: [0, 5, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                    >
+                      →
+                    </motion.span>
+                  </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </motion.button>
                 
                 <motion.button
                   onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="px-8 py-4 border-2 border-pink-400 text-pink-400 rounded-xl font-semibold text-lg hover:bg-pink-400/10 transition-all duration-300 relative overflow-hidden group"
+                  className="px-10 py-5 border-2 border-pink-400 text-pink-400 rounded-2xl font-bold text-lg hover:bg-pink-400/10 transition-all duration-300 relative overflow-hidden group hover-lift hover-glow"
                   style={{
-                    boxShadow: '0 0 20px #ff00ff, 0 0 40px #ff00ff, inset 0 0 20px rgba(255, 0, 255, 0.1)',
-                    textShadow: '0 0 10px #ff00ff'
+                    boxShadow: '0 0 30px #ff00ff, 0 0 60px #ff00ff, inset 0 0 20px rgba(255, 0, 255, 0.1)',
+                    textShadow: '0 0 15px #ff00ff'
                   }}
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.08, rotateY: -5 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <span className="relative z-10">Learn More</span>
+                  <span className="relative z-10 flex items-center gap-2">
+                    Learn More
+                    <motion.span
+                      animate={{ rotate: [0, 10, 0] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    >
+                      ✨
+                    </motion.span>
+                  </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </motion.button>
               </motion.div>
@@ -175,6 +192,84 @@ export default function Home() {
         </motion.div>
       </Section>
 
+      {/* TRUST SIGNALS - Fortune 500 Level */}
+      <Section className="py-16 bg-gradient-to-r from-gray-900/80 to-black/80 border-y border-gray-700/50">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-lg font-semibold text-gray-400 mb-8">Trusted by Industry Leaders</h3>
+          </motion.div>
+
+          {/* Client Logos */}
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-60"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 0.6, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            {[
+              { name: "Microsoft", logo: "🔷" },
+              { name: "Google", logo: "🔍" },
+              { name: "Amazon", logo: "📦" },
+              { name: "Tesla", logo: "⚡" },
+              { name: "Meta", logo: "📘" },
+              { name: "Apple", logo: "🍎" }
+            ].map((client, index) => (
+              <motion.div
+                key={client.name}
+                className="text-center p-4 rounded-xl bg-gray-800/30 hover:bg-gray-700/50 transition-all duration-300 group"
+                whileHover={{ scale: 1.05, opacity: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 0.6, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-3xl mb-2 group-hover:scale-110 transition-transform duration-300">
+                  {client.logo}
+                </div>
+                <div className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors duration-300">
+                  {client.name}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Security Badges */}
+          <motion.div
+            className="flex flex-wrap justify-center items-center gap-8 mt-12 pt-8 border-t border-gray-700/50"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            {[
+              { name: "SOC 2 Type II", icon: "🛡️" },
+              { name: "ISO 27001", icon: "🔒" },
+              { name: "GDPR Compliant", icon: "🌍" },
+              { name: "256-bit SSL", icon: "🔐" }
+            ].map((badge, index) => (
+              <motion.div
+                key={badge.name}
+                className="flex items-center gap-2 px-4 py-2 bg-gray-800/50 rounded-full border border-gray-600/50"
+                whileHover={{ scale: 1.05 }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <span className="text-lg">{badge.icon}</span>
+                <span className="text-sm text-gray-300 font-medium">{badge.name}</span>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </Section>
 
       {/* ABOUT - Fortune 500 Level */}
       <Section id="about" className="py-24 bg-gradient-to-br from-gray-900/50 to-black/50">

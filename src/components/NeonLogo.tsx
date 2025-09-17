@@ -76,15 +76,29 @@ const NeonLogo: React.FC<NeonLogoProps> = ({
         initial="initial"
         animate="animate"
       >
-        {/* Main Eye - Exact Match to Design */}
+        {/* Main Eye - Perfect Match to Design */}
         <svg
           viewBox="0 0 100 100"
           className="w-full h-full"
           style={{ filter: 'drop-shadow(0 0 20px #00ffff) drop-shadow(0 0 40px #00ffff)' }}
         >
-          {/* Eye Shape - elongated horizontally with pointed ends */}
+          {/* Eye Shape - more elongated and pointed like your design */}
           <path
-            d="M25 50 Q50 25 75 50 Q50 75 25 50 Z"
+            d="M20 50 Q50 20 80 50 Q50 80 20 50 Z"
+            fill="none"
+            stroke="#00ffff"
+            strokeWidth="4"
+            style={{ 
+              filter: 'drop-shadow(0 0 12px #00ffff) drop-shadow(0 0 24px #00ffff)',
+              textShadow: '0 0 12px #00ffff'
+            }}
+          />
+          
+          {/* Iris - larger and more prominent */}
+          <circle
+            cx="50"
+            cy="50"
+            r="15"
             fill="none"
             stroke="#00ffff"
             strokeWidth="3"
@@ -94,67 +108,67 @@ const NeonLogo: React.FC<NeonLogoProps> = ({
             }}
           />
           
-          {/* Iris */}
+          {/* Pupil - solid cyan center */}
           <circle
             cx="50"
             cy="50"
-            r="12"
-            fill="none"
-            stroke="#00ffff"
-            strokeWidth="2"
+            r="8"
+            fill="#00ffff"
             style={{ 
               filter: 'drop-shadow(0 0 8px #00ffff) drop-shadow(0 0 16px #00ffff)',
               textShadow: '0 0 8px #00ffff'
             }}
           />
           
-          {/* Pupil */}
+          {/* Inner highlight */}
           <circle
             cx="50"
             cy="50"
-            r="6"
-            fill="#00ffff"
+            r="4"
+            fill="#ffffff"
             style={{ 
-              filter: 'drop-shadow(0 0 6px #00ffff) drop-shadow(0 0 12px #00ffff)',
-              textShadow: '0 0 6px #00ffff'
+              filter: 'drop-shadow(0 0 4px #ffffff)',
+              textShadow: '0 0 4px #ffffff'
             }}
           />
         </svg>
 
-        {/* Yellow Rays - 5 above, 5 below */}
+        {/* Yellow Rays - Perfect 5 above, 5 below */}
         <motion.div 
           className="absolute inset-0"
           variants={animated ? rayVariants : {}}
           initial="initial"
           animate="animate"
         >
-          {/* 5 rays above the eye */}
+          {/* 5 rays above the eye - more prominent */}
           {[...Array(5)].map((_, i) => {
-            const angle = (i * 20) - 40; // Spread across 80 degrees above
-            const length = 8;
+            const angle = (i * 18) - 36; // Spread across 72 degrees above
+            const length = 12;
+            const width = 3;
             
             return (
               <motion.div
                 key={`top-${i}`}
-                className="absolute bg-yellow-400 neon-yellow"
+                className="absolute bg-yellow-400"
                 style={{
                   height: `${length}px`,
-                  width: '2px',
+                  width: `${width}px`,
                   left: '50%',
-                  top: '35%',
+                  top: '30%',
                   transformOrigin: 'bottom center',
                   transform: `rotate(${angle}deg) translateX(-50%)`,
-                  filter: 'drop-shadow(0 0 8px #ffff00) drop-shadow(0 0 16px #ffff00)',
-                  borderRadius: '1px'
+                  filter: 'drop-shadow(0 0 12px #ffff00) drop-shadow(0 0 24px #ffff00)',
+                  borderRadius: '2px',
+                  boxShadow: '0 0 12px #ffff00, 0 0 24px #ffff00'
                 }}
                 variants={animated ? {
                   animate: {
-                    opacity: [0.8, 1, 0.8],
-                    scale: [1, 1.2, 1],
+                    opacity: [0.9, 1, 0.9],
+                    scale: [1, 1.3, 1],
                     transition: {
-                      duration: 2,
+                      duration: 2.5,
                       repeat: Infinity,
-                      delay: i * 0.1,
+                      delay: i * 0.15,
                       ease: "easeInOut"
                     }
                   }
@@ -163,33 +177,35 @@ const NeonLogo: React.FC<NeonLogoProps> = ({
             );
           })}
           
-          {/* 5 rays below the eye */}
+          {/* 5 rays below the eye - more prominent */}
           {[...Array(5)].map((_, i) => {
-            const angle = (i * 20) - 40; // Spread across 80 degrees below
-            const length = 8;
+            const angle = (i * 18) - 36; // Spread across 72 degrees below
+            const length = 12;
+            const width = 3;
             
             return (
               <motion.div
                 key={`bottom-${i}`}
-                className="absolute bg-yellow-400 neon-yellow"
+                className="absolute bg-yellow-400"
                 style={{
                   height: `${length}px`,
-                  width: '2px',
+                  width: `${width}px`,
                   left: '50%',
-                  top: '65%',
+                  top: '70%',
                   transformOrigin: 'top center',
                   transform: `rotate(${angle}deg) translateX(-50%)`,
-                  filter: 'drop-shadow(0 0 8px #ffff00) drop-shadow(0 0 16px #ffff00)',
-                  borderRadius: '1px'
+                  filter: 'drop-shadow(0 0 12px #ffff00) drop-shadow(0 0 24px #ffff00)',
+                  borderRadius: '2px',
+                  boxShadow: '0 0 12px #ffff00, 0 0 24px #ffff00'
                 }}
                 variants={animated ? {
                   animate: {
-                    opacity: [0.8, 1, 0.8],
-                    scale: [1, 1.2, 1],
+                    opacity: [0.9, 1, 0.9],
+                    scale: [1, 1.3, 1],
                     transition: {
-                      duration: 2,
+                      duration: 2.5,
                       repeat: Infinity,
-                      delay: (i + 5) * 0.1,
+                      delay: (i + 5) * 0.15,
                       ease: "easeInOut"
                     }
                   }
