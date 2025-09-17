@@ -4,6 +4,8 @@ import { coinscious, brand } from "@/content/site";
 import AnimatedChart from "@/components/AnimatedChart";
 import MagneticButton from "@/components/MagneticButton";
 import Logo from "@/components/Logo";
+import NeonLogo from "@/components/NeonLogo";
+import NeonBackground from "@/components/NeonBackground";
 import Navbar from "@/components/Navbar";
 import Section from "@/components/Section";
 import Button from "@/components/ui/Button";
@@ -25,17 +27,18 @@ export default function Home() {
 
   return (
     <>
+      <NeonBackground />
       <Navbar />
 
       {/* HERO */}
       <Section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        {/* Dynamic background with morphing gradients */}
+        {/* Neon gradient overlays */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-bg via-bg to-primary/5" />
+          <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-purple-900/20" />
           <div className="absolute top-0 left-0 w-full h-full">
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-primary/30 to-transparent rounded-full blur-3xl animate-pulse" />
-            <div className="absolute top-3/4 right-1/4 w-80 h-80 bg-gradient-to-l from-secondary/30 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-accent/20 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }} />
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-cyan-500/20 to-transparent rounded-full blur-3xl animate-pulse" />
+            <div className="absolute top-3/4 right-1/4 w-80 h-80 bg-gradient-to-l from-pink-500/20 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-yellow-500/20 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }} />
           </div>
         </div>
 
@@ -84,62 +87,92 @@ export default function Home() {
             </Pill>
           </motion.div>
 
-          {/* Logo */}
+          {/* Neon Logo */}
           <motion.div
             className="mb-8"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
           >
-            <Logo size="xl" animated={true} />
+            <NeonLogo size="xl" animated={true} />
           </motion.div>
 
-          {/* Clean, focused heading */}
+          {/* Neon-styled heading */}
           <motion.h1 
             className="text-5xl md:text-7xl font-bold leading-tight mb-8"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <span className="block text-white mb-4">
-              Conscious Technology
+            <span 
+              className="block text-white mb-4"
+              style={{ 
+                textShadow: '0 0 20px #00ffff, 0 0 40px #00ffff',
+                filter: 'drop-shadow(0 0 10px #00ffff)'
+              }}
+            >
+              Liberation Tech
             </span>
-            <span className="block text-3xl md:text-4xl text-white/70 font-light">
-              Infrastructure for the Future
+            <span 
+              className="block text-3xl md:text-4xl text-pink-400 font-light"
+              style={{ 
+                textShadow: '0 0 15px #ff00ff, 0 0 30px #ff00ff',
+                filter: 'drop-shadow(0 0 8px #ff00ff)'
+              }}
+            >
+              for Next Generation
             </span>
           </motion.h1>
 
-          {/* Clear value proposition */}
+          {/* Neon value proposition */}
           <motion.p 
-            className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12"
+            className="text-xl md:text-2xl text-cyan-300 max-w-3xl mx-auto leading-relaxed mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
+            style={{ 
+              textShadow: '0 0 10px #00ffff',
+              filter: 'drop-shadow(0 0 5px #00ffff)'
+            }}
           >
             We build ethical infrastructure that turns real-world assets into programmable opportunities. 
             Professional execution, mindful innovation, sustainable impact.
           </motion.p>
 
-          {/* Clean CTA buttons */}
+          {/* Neon CTA buttons */}
           <motion.div 
             className="flex flex-col sm:flex-row items-center justify-center gap-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <button
+            <motion.button
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-4 bg-primary text-white rounded-xl font-semibold text-lg hover:bg-primary/80 transition-colors duration-200"
+              className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-xl font-semibold text-lg transition-all duration-300 relative overflow-hidden group"
+              style={{
+                boxShadow: '0 0 20px #00ffff, 0 0 40px #00ffff, inset 0 0 20px rgba(0, 255, 255, 0.1)',
+                textShadow: '0 0 10px #ffffff'
+              }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              Get Started
-            </button>
+              <span className="relative z-10">Get Started</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </motion.button>
             
-            <button
+            <motion.button
               onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-4 border border-white/30 text-white rounded-xl font-semibold text-lg hover:bg-white/10 transition-colors duration-200"
+              className="px-8 py-4 border-2 border-pink-400 text-pink-400 rounded-xl font-semibold text-lg hover:bg-pink-400/10 transition-all duration-300 relative overflow-hidden group"
+              style={{
+                boxShadow: '0 0 20px #ff00ff, 0 0 40px #ff00ff, inset 0 0 20px rgba(255, 0, 255, 0.1)',
+                textShadow: '0 0 10px #ff00ff'
+              }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              Learn More
-            </button>
+              <span className="relative z-10">Learn More</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </motion.button>
           </motion.div>
 
           {/* Scroll indicator */}
@@ -866,7 +899,7 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <div className="mb-6">
-                <Logo size="md" animated={false} />
+                <NeonLogo size="md" animated={false} />
               </div>
               <p className="text-white/70 text-sm leading-relaxed mb-6">
                 Building the future of conscious technology through ethical design, 

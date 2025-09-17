@@ -4,6 +4,65 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Neon Effects */
+.neon-cyan {
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+}
+
+.neon-magenta {
+  color: #ff00ff;
+  text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+}
+
+.neon-yellow {
+  color: #ffff00;
+  text-shadow: 0 0 10px #ffff00, 0 0 20px #ffff00, 0 0 30px #ffff00;
+}
+
+.neon-white {
+  color: #ffffff;
+  text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff;
+}
+
+.neon-gray {
+  color: #9ca3af;
+  text-shadow: 0 0 5px #9ca3af, 0 0 10px #9ca3af;
+}
+
+/* Neon Glow Animations */
+@keyframes neon-pulse {
+  0%, 100% {
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+  50% {
+    text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
+  }
+}
+
+.neon-pulse {
+  animation: neon-pulse 2s ease-in-out infinite;
+}
+
+/* Neon Button Effects */
+.neon-button-cyan {
+  background: linear-gradient(45deg, #00ffff, #0080ff);
+  box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, inset 0 0 20px rgba(0, 255, 255, 0.1);
+  text-shadow: 0 0 10px #ffffff;
+}
+
+.neon-button-pink {
+  background: linear-gradient(45deg, #ff00ff, #ff0080);
+  box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, inset 0 0 20px rgba(255, 0, 255, 0.1);
+  text-shadow: 0 0 10px #ffffff;
+}
+
+.neon-button-yellow {
+  background: linear-gradient(45deg, #ffff00, #ffaa00);
+  box-shadow: 0 0 20px #ffff00, 0 0 40px #ffff00, inset 0 0 20px rgba(255, 255, 0, 0.1);
+  text-shadow: 0 0 10px #000000;
+}
+
 :root {
   color-scheme: dark; 
   --font-inter: 'Inter', sans-serif;
