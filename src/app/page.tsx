@@ -50,7 +50,7 @@ export default function Home() {
         >
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left side - Logo and branding */}
-            <motion.div
+          <motion.div
               className="text-center lg:text-left"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -59,25 +59,25 @@ export default function Home() {
               {/* Professional badge with enhanced effects */}
               <motion.div
                 className="inline-block mb-8"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
                 <div className="px-6 py-3 glass-morphism hover-lift hover-glow rounded-full pulse-glow">
                   <span className="text-gradient text-sm font-semibold">Next-Generation Infrastructure</span>
                 </div>
-              </motion.div>
+          </motion.div>
 
               {/* Logo with magnetic hover effect */}
-              <motion.div
+          <motion.div
                 className="mb-8 magnetic-hover"
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, delay: 0.4 }}
                 whileHover={{ scale: 1.05 }}
-              >
+          >
                 <NeonLogo size="xl" animated={true} />
-              </motion.div>
+          </motion.div>
 
               {/* Mission statement */}
               <motion.p 
@@ -99,10 +99,10 @@ export default function Home() {
               transition={{ duration: 1, delay: 0.4 }}
             >
               {/* Main heading */}
-              <motion.h1 
+          <motion.h1 
                 className="text-6xl md:text-8xl font-bold leading-tight mb-8"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
                 <span 
@@ -113,7 +113,7 @@ export default function Home() {
                   }}
                 >
                   Liberation Tech
-                </span>
+            </span>
                 <span 
                   className="block text-4xl md:text-5xl text-pink-400 font-light"
                   style={{ 
@@ -122,25 +122,25 @@ export default function Home() {
                   }}
                 >
                   for Next Generation
-                </span>
-              </motion.h1>
+            </span>
+          </motion.h1>
 
               {/* Value proposition */}
-              <motion.p 
+          <motion.p 
                 className="text-xl text-gray-300 max-w-2xl leading-relaxed mb-12"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
               >
                 We build ethical infrastructure that turns real-world assets into programmable opportunities. 
                 Professional execution, mindful innovation, sustainable impact.
-              </motion.p>
+          </motion.p>
 
               {/* CTA buttons */}
-              <motion.div 
+          <motion.div 
                 className="flex flex-col sm:flex-row items-center lg:items-start gap-6"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.0 }}
               >
                 <motion.button
@@ -154,14 +154,14 @@ export default function Home() {
                   whileTap={{ scale: 0.95 }}
                 >
                   <span className="relative z-10 flex items-center gap-2">
-                    Get Started
-                    <motion.span
-                      animate={{ x: [0, 5, 0] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                    >
-                      →
-                    </motion.span>
-                  </span>
+                Get Started
+                <motion.span
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                  →
+                </motion.span>
+              </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </motion.button>
                 
@@ -176,17 +176,17 @@ export default function Home() {
                   whileTap={{ scale: 0.95 }}
                 >
                   <span className="relative z-10 flex items-center gap-2">
-                    Learn More
-                    <motion.span
+                Learn More
+                <motion.span
                       animate={{ rotate: [0, 10, 0] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    >
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
                       ✨
-                    </motion.span>
-                  </span>
+                </motion.span>
+              </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </motion.button>
-              </motion.div>
+          </motion.div>
             </motion.div>
           </div>
         </motion.div>
@@ -206,13 +206,13 @@ export default function Home() {
           </motion.div>
 
           {/* Client Logos */}
-          <motion.div
+            <motion.div
             className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-60"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 0.6, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
+              viewport={{ once: true }}
+            >
             {[
               { name: "Microsoft", logo: "🔷" },
               { name: "Google", logo: "🔍" },
@@ -232,10 +232,10 @@ export default function Home() {
               >
                 <div className="text-3xl mb-2 group-hover:scale-110 transition-transform duration-300">
                   {client.logo}
-                </div>
+                    </div>
                 <div className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors duration-300">
                   {client.name}
-                </div>
+                  </div>
               </motion.div>
             ))}
           </motion.div>
@@ -278,9 +278,9 @@ export default function Home() {
             <motion.h2 
               className="text-5xl md:text-7xl font-bold text-white mb-8"
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+            viewport={{ once: true }}
             >
               What We Do
             </motion.h2>
@@ -296,12 +296,12 @@ export default function Home() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div
+          <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
+            viewport={{ once: true }}
+          >
               <h3 className="text-3xl font-bold text-white mb-8">Our Mission</h3>
               <p className="text-gray-300 text-lg leading-relaxed mb-10">
                 We're pioneering the next generation of conscious technology infrastructure. 
@@ -316,22 +316,22 @@ export default function Home() {
                   "Earth-first sustainable solutions",
                   "Human agency and empowerment"
                 ].map((item, index) => (
-                  <motion.div 
+                <motion.div
                     key={item}
                     className="flex items-center gap-4"
-                    initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                  >
+                >
                     <div className="w-3 h-3 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"></div>
                     <span className="text-white text-lg">{item}</span>
-                  </motion.div>
+                </motion.div>
                 ))}
               </div>
-            </motion.div>
-
-            <motion.div 
+                </motion.div>
+                
+                <motion.div
               className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-3xl p-10 border border-gray-700/50 backdrop-blur-sm"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -347,7 +347,7 @@ export default function Home() {
               <button className="text-cyan-400 hover:text-cyan-300 font-semibold text-lg transition-colors duration-300">
                 Learn More →
               </button>
-            </motion.div>
+                </motion.div>
           </div>
         </div>
       </Section>
@@ -379,7 +379,7 @@ export default function Home() {
               <p className="text-white/70">
                 Ethical AI automation that serves humanity's highest potential through conscious design.
               </p>
-            </div>
+              </div>
 
             <div className="bg-white/5 rounded-2xl p-8 border border-white/10">
               <div className="text-4xl mb-4">🌐</div>
@@ -403,7 +403,7 @@ export default function Home() {
               We're building the foundational infrastructure for a more conscious, connected, and sustainable future. 
               Our technology serves communities, empowers individuals, and creates positive impact at scale.
             </p>
-          </div>
+            </div>
 
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
@@ -692,13 +692,13 @@ export default function Home() {
                   <label className="block text-white/80 text-lg font-medium mb-3">
                     Email Address
                   </label>
-                  <input 
+          <input 
                     className="w-full rounded-2xl bg-white/5 border border-white/10 px-6 py-4 text-white placeholder-white/40 focus:border-primary/50 focus:outline-none transition-colors duration-300 text-lg"
-                    placeholder="you@example.com" 
-                    type="email" 
-                    required 
-                    aria-label="Email address"
-                  />
+            placeholder="you@example.com" 
+            type="email" 
+            required 
+            aria-label="Email address"
+          />
                 </div>
                 
                 <motion.button
@@ -708,7 +708,7 @@ export default function Home() {
                   whileTap={{ scale: 0.98 }}
                 >
                   <span className="flex items-center justify-center gap-3">
-                    Subscribe
+            Subscribe
                     <motion.span
                       animate={{ x: [0, 3, 0] }}
                       transition={{ duration: 1.5, repeat: Infinity }}
@@ -717,7 +717,7 @@ export default function Home() {
                     </motion.span>
                   </span>
                 </motion.button>
-              </form>
+        </form>
               
               {/* Animated border */}
               <div className="absolute inset-0 rounded-3xl border border-white/10 group-hover:border-primary/30 transition-colors duration-300" />
@@ -759,7 +759,7 @@ export default function Home() {
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
                     <span className="text-xl">📧</span>
-                  </div>
+          </div>
                   <h3 className="text-2xl font-bold text-white">Contact Us</h3>
                 </div>
                 
@@ -812,12 +812,12 @@ export default function Home() {
                       <label className="block text-white/80 text-sm font-medium mb-2">
                         What is your name?
                       </label>
-                      <input 
+              <input 
                         className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-white placeholder-white/40 focus:border-primary/50 focus:outline-none transition-colors duration-300"
                         placeholder="Enter your full name" 
-                        required 
-                        aria-label="Your name"
-                      />
+                required 
+                aria-label="Your name"
+              />
                     </div>
                     
                     <div>
@@ -877,10 +877,10 @@ export default function Home() {
                       <label className="block text-white/80 text-sm font-medium mb-2">
                         Company Size
                       </label>
-                      <select 
+              <select 
                         className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-white focus:border-primary/50 focus:outline-none transition-colors duration-300" 
-                        defaultValue="" 
-                        required
+                defaultValue="" 
+                required
                         aria-label="Company size"
                       >
                         <option value="" disabled className="text-white/40">Select company size</option>
@@ -889,7 +889,7 @@ export default function Home() {
                         <option value="50-100" className="text-white">50-100</option>
                         <option value="100-500" className="text-white">100-500</option>
                         <option value="more-than-500" className="text-white">More than 500</option>
-                      </select>
+              </select>
                     </div>
                   </div>
                   
@@ -954,10 +954,10 @@ export default function Home() {
                     <label className="block text-white/80 text-sm font-medium mb-2">
                       Message
                     </label>
-                    <textarea 
+              <textarea 
                       className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-white placeholder-white/40 focus:border-primary/50 focus:outline-none transition-colors duration-300 resize-none"
                       placeholder="Tell us about your project and how we can help..."
-                      rows={4}
+                rows={4}
                       aria-label="Message"
                     />
                   </div>
@@ -977,8 +977,8 @@ export default function Home() {
                         →
                       </motion.span>
                     </span>
-                  </Button>
-                </form>
+              </Button>
+            </form>
               </Card>
             </motion.div>
           </div>

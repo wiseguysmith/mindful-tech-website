@@ -77,7 +77,7 @@ const NeonBackground: React.FC = () => {
         vx,
         vy,
         size: Math.random() * 3 + 1,
-        color: colors[Math.floor(Math.random() * colors.length)],
+        color: colors[Math.floor(Math.random() * colors.length)] || '#00ffff',
         alpha: Math.random() * 0.8 + 0.2,
         life: 1
       });
