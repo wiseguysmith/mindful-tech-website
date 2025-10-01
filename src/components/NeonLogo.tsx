@@ -36,7 +36,7 @@ const NeonLogo: React.FC<NeonLogoProps> = ({
       transition: {
         duration: 4,
         repeat: Infinity,
-        ease: "easeInOut"
+        ease: "easeInOut" as const
       }
     }
   };
@@ -49,7 +49,7 @@ const NeonLogo: React.FC<NeonLogoProps> = ({
       transition: {
         duration: 2,
         repeat: Infinity,
-        ease: "easeInOut",
+        ease: "easeInOut" as const,
         staggerChildren: 0.1
       }
     }
@@ -62,7 +62,7 @@ const NeonLogo: React.FC<NeonLogoProps> = ({
       y: 0,
       transition: {
         duration: 0.8,
-        ease: "easeOut"
+        ease: "easeOut" as const
       }
     }
   };

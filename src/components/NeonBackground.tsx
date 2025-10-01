@@ -77,7 +77,7 @@ const NeonBackground: React.FC = () => {
         vx,
         vy,
         size: Math.random() * 3 + 1,
-        color: colors[Math.floor(Math.random() * colors.length)] || '#00ffff',
+        color: colors[Math.floor(Math.random() * colors.length)] ?? '#00ffff',
         alpha: Math.random() * 0.8 + 0.2,
         life: 1
       });
@@ -95,6 +95,12 @@ const NeonBackground: React.FC = () => {
       // Update and draw particles
       for (let i = particles.length - 1; i >= 0; i--) {
         const particle = particles[i];
+        
+        // Type guard to ensure particle exists
+        if (!particle) {
+          particles.splice(i, 1);
+          continue;
+        }
         
         particle.x += particle.vx;
         particle.y += particle.vy;

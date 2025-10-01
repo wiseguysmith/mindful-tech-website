@@ -1,11 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { coinscious, brand } from "@/content/site";
-import AnimatedChart from "@/components/AnimatedChart";
-import MagneticButton from "@/components/MagneticButton";
 import Logo from "@/components/Logo";
-import NeonLogo from "@/components/NeonLogo";
-import NeonBackground from "@/components/NeonBackground";
 import Navbar from "@/components/Navbar";
 import Section from "@/components/Section";
 import Button from "@/components/ui/Button";
@@ -14,146 +11,151 @@ import Pill from "@/components/ui/Pill";
 
 export default function Home() {
   const year = new Date().getFullYear();
+  const [isEmailLoading, setIsEmailLoading] = useState(false);
+  const [isApplyLoading, setIsApplyLoading] = useState(false);
+  const [emailSuccess, setEmailSuccess] = useState(false);
+  const [applySuccess, setApplySuccess] = useState(false);
 
-  const emailSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const emailSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    alert("Thanks, you're on the list."); // TODO: wire up backend later
+    setIsEmailLoading(true);
+    
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    
+    setIsEmailLoading(false);
+    setEmailSuccess(true);
+    
+    // Reset success message after 3 seconds
+    setTimeout(() => setEmailSuccess(false), 3000);
   };
 
-  const applySubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const applySubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    alert("Thanks! We'll be in touch."); // TODO: wire up backend later
+    setIsApplyLoading(true);
+    
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    
+    setIsApplyLoading(false);
+    setApplySuccess(true);
+    
+    // Reset success message after 3 seconds
+    setTimeout(() => setApplySuccess(false), 3000);
   };
 
   return (
     <>
-      <NeonBackground />
       <Navbar />
 
-      {/* HERO SECTION - Fortune 500 Level */}
-      <Section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        {/* Professional dark background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-800" />
-        
-        {/* Subtle geometric patterns */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-cyan-500/10 to-transparent rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-l from-pink-500/10 to-transparent rounded-full blur-3xl" />
+      {/* HERO */}
+      <Section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Dynamic background with morphing gradients */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-bg via-bg to-primary/5" />
+          <div className="absolute top-0 left-0 w-full h-full">
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-primary/30 to-transparent rounded-full blur-3xl animate-pulse" />
+            <div className="absolute top-3/4 right-1/4 w-80 h-80 bg-gradient-to-l from-secondary/30 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-accent/20 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }} />
+          </div>
+        </div>
+
+        {/* Floating geometric shapes */}
+        <div className="absolute inset-0 overflow-hidden">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 bg-primary/40 rounded-full"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                y: [0, -100, 0],
+                x: [0, Math.random() * 50 - 25, 0],
+                opacity: [0.2, 0.8, 0.2],
+                scale: [0.5, 1.5, 0.5],
+              }}
+              transition={{
+                duration: 8 + Math.random() * 4,
+                repeat: Infinity,
+                delay: Math.random() * 3,
+                ease: "easeInOut",
+              }}
+            />
+          ))}
         </div>
 
         {/* Main content */}
         <motion.div
-          className="relative z-10 max-w-7xl mx-auto px-6"
+          className="relative z-10 text-center max-w-6xl mx-auto px-6"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
         >
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left side - Logo and branding */}
+          {/* Professional badge */}
           <motion.div
-              className="text-center lg:text-left"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, delay: 0.2 }}
-            >
-              {/* Professional badge with enhanced effects */}
-              <motion.div
-                className="inline-block mb-8"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-              >
-                <div className="px-6 py-3 glass-morphism hover-lift hover-glow rounded-full pulse-glow">
-                  <span className="text-gradient text-sm font-semibold">Next-Generation Infrastructure</span>
-                </div>
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          >
+            <Pill variant="primary" size="lg" className="mb-8">
+              <div className="w-2 h-2 bg-gradient-to-r from-primary to-secondary rounded-full animate-pulse mr-3" />
+              Next-Generation Infrastructure
+            </Pill>
           </motion.div>
 
-              {/* Logo with magnetic hover effect */}
+          {/* Logo */}
           <motion.div
-                className="mb-8 magnetic-hover"
+            className="mb-8"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1, delay: 0.4 }}
-                whileHover={{ scale: 1.05 }}
+            transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
           >
-                <NeonLogo size="xl" animated={true} />
+            <Logo size="xl" animated={true} />
           </motion.div>
 
-              {/* Mission statement */}
-              <motion.p 
-                className="text-lg text-gray-300 leading-relaxed max-w-lg"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-              >
-                Building the future of conscious technology through ethical design, 
-                mindful innovation, and sustainable impact.
-              </motion.p>
-            </motion.div>
-
-            {/* Right side - Main content */}
-            <motion.div
-              className="text-center lg:text-left"
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, delay: 0.4 }}
-            >
-              {/* Main heading */}
+          {/* Professional main heading */}
           <motion.h1 
-                className="text-6xl md:text-8xl font-bold leading-tight mb-8"
+            className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-              >
-                <span 
-                  className="block text-white mb-4"
-                  style={{ 
-                    textShadow: '0 0 20px #00ffff, 0 0 40px #00ffff',
-                    filter: 'drop-shadow(0 0 10px #00ffff)'
-                  }}
-                >
-                  Liberation Tech
+            transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
+          >
+            <span className="block bg-gradient-to-r from-white via-primary to-secondary bg-clip-text text-transparent">
+              Mindful Tech
             </span>
-                <span 
-                  className="block text-4xl md:text-5xl text-pink-400 font-light"
-                  style={{ 
-                    textShadow: '0 0 15px #ff00ff, 0 0 30px #ff00ff',
-                    filter: 'drop-shadow(0 0 8px #ff00ff)'
-                  }}
-                >
-                  for Next Generation
+            <span className="block text-3xl md:text-4xl lg:text-5xl mt-4 text-white/80 font-light">
+              Liberation Technology for the Next Generation
             </span>
           </motion.h1>
 
-              {/* Value proposition */}
+          {/* Enhanced subtitle */}
           <motion.p 
-                className="text-xl text-gray-300 max-w-2xl leading-relaxed mb-12"
+            className="text-xl md:text-2xl text-ink-dim max-w-4xl mx-auto leading-relaxed mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-              >
-                We build ethical infrastructure that turns real-world assets into programmable opportunities. 
-                Professional execution, mindful innovation, sustainable impact.
+            transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+          >
+            We build ethical infrastructure that transforms real-world assets into programmable opportunities. 
+            Professional execution, <span className="text-primary font-semibold">mindful innovation</span>, 
+            <span className="text-secondary font-semibold">sustainable impact</span>.
           </motion.p>
 
-              {/* CTA buttons */}
+          {/* Enhanced CTA buttons */}
           <motion.div 
-                className="flex flex-col sm:flex-row items-center lg:items-start gap-6"
+            className="flex flex-col sm:flex-row items-center justify-center gap-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.0 }}
-              >
-                <motion.button
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="px-10 py-5 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-2xl font-bold text-lg transition-all duration-300 relative overflow-hidden group hover-lift hover-glow pulse-glow"
-                  style={{
-                    boxShadow: '0 0 30px #00ffff, 0 0 60px #00ffff, inset 0 0 20px rgba(0, 255, 255, 0.1)',
-                    textShadow: '0 0 15px #ffffff'
-                  }}
-                  whileHover={{ scale: 1.08, rotateY: 5 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <span className="relative z-10 flex items-center gap-2">
+            transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
+          >
+            <Button
+              size="lg"
+              variant="primary"
+              onClick={() => document.getElementById('apply')?.scrollIntoView({ behavior: 'smooth' })}
+              className="group"
+            >
+              <span className="flex items-center gap-3">
                 Get Started
                 <motion.span
                   animate={{ x: [0, 5, 0] }}
@@ -162,290 +164,376 @@ export default function Home() {
                   →
                 </motion.span>
               </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </motion.button>
-                
-                <motion.button
-                  onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="px-10 py-5 border-2 border-pink-400 text-pink-400 rounded-2xl font-bold text-lg hover:bg-pink-400/10 transition-all duration-300 relative overflow-hidden group hover-lift hover-glow"
-                  style={{
-                    boxShadow: '0 0 30px #ff00ff, 0 0 60px #ff00ff, inset 0 0 20px rgba(255, 0, 255, 0.1)',
-                    textShadow: '0 0 15px #ff00ff'
-                  }}
-                  whileHover={{ scale: 1.08, rotateY: -5 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <span className="relative z-10 flex items-center gap-2">
+            </Button>
+            
+            <Button
+              size="lg"
+              variant="outline"
+              onClick={() => document.getElementById('newsletter')?.scrollIntoView({ behavior: 'smooth' })}
+              className="group"
+            >
+              <span className="flex items-center gap-3">
                 Learn More
                 <motion.span
-                      animate={{ rotate: [0, 10, 0] }}
+                  animate={{ rotate: [0, 10, -10, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
-                      ✨
+                  ↓
                 </motion.span>
               </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </motion.button>
+            </Button>
           </motion.div>
+
+          {/* Scroll indicator */}
+          <motion.div
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.5 }}
+          >
+            <motion.div
+              className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center"
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              <motion.div
+                className="w-1 h-3 bg-white/60 rounded-full mt-2"
+                animate={{ opacity: [0.3, 1, 0.3] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
             </motion.div>
-          </div>
+          </motion.div>
         </motion.div>
       </Section>
 
-      {/* TRUST SIGNALS - Fortune 500 Level */}
-      <Section className="py-16 bg-gradient-to-r from-gray-900/80 to-black/80 border-y border-gray-700/50">
+      {/* ABOUT */}
+      <Section id="about" className="relative py-24 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
+            className="text-center mb-16"
           >
-            <h3 className="text-lg font-semibold text-gray-400 mb-8">Trusted by Industry Leaders</h3>
-          </motion.div>
-
-          {/* Client Logos */}
             <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-60"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 0.6, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+              className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-primary/20 to-secondary/20 border border-primary/30 mb-6"
+              initial={{ scale: 0.8, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-            {[
-              { name: "Microsoft", logo: "🔷" },
-              { name: "Google", logo: "🔍" },
-              { name: "Amazon", logo: "📦" },
-              { name: "Tesla", logo: "⚡" },
-              { name: "Meta", logo: "📘" },
-              { name: "Apple", logo: "🍎" }
-            ].map((client, index) => (
+              <span className="text-sm font-semibold text-gradient">About Mindful Tech</span>
+            </motion.div>
+            
+            <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
+              <span className="bg-gradient-to-r from-white via-primary to-secondary bg-clip-text text-transparent">
+                Conscious Technology
+              </span>
+              <br />
+              <span className="text-white/60 text-3xl md:text-5xl font-light">
+                for a better tomorrow
+              </span>
+            </h2>
+            
+            <p className="text-xl md:text-2xl text-white/70 max-w-5xl mx-auto leading-relaxed font-light">
+              We&apos;re pioneering the next generation of mindful technology infrastructure. 
+              Our mission is to create tools that serve humanity&apos;s highest potential through 
+              ethical design, conscious innovation, and sustainable impact.
+            </p>
+          </motion.div>
+
+          {/* 3D Value Cards */}
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {brand.values.map((value, index) => (
               <motion.div
-                key={client.name}
-                className="text-center p-4 rounded-xl bg-gray-800/30 hover:bg-gray-700/50 transition-all duration-300 group"
-                whileHover={{ scale: 1.05, opacity: 1 }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 0.6, y: 0 }}
+                key={value}
+                className="group perspective"
+                initial={{ opacity: 0, y: 50, rotateX: -15 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+                transition={{ 
+                  duration: 0.8, 
+                  delay: index * 0.1, 
+                  ease: "easeOut" 
+                }}
+                viewport={{ once: true }}
+                whileHover={{ 
+                  y: -10,
+                  rotateX: 5,
+                  rotateY: 5,
+                  scale: 1.05
+                }}
+              >
+                <Card 
+                  variant="glow" 
+                  padding="lg" 
+                  className="relative h-56 transform-3d hover-lift hover-glow group"
+                >
+                  {/* Sophisticated icon */}
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 border border-primary/30 flex items-center justify-center mb-6 group-hover:animate-glow-pulse group-hover:border-primary/60 transition-all duration-300">
+                    <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
+                      <div className="w-4 h-4 bg-white/90 rounded-sm" />
+                    </div>
+                  </div>
+                  
+                  {/* Content */}
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-gradient transition-colors duration-300">
+                    {value}
+                  </h3>
+                  
+                  <p className="text-white/60 text-sm leading-relaxed group-hover:text-white/80 transition-colors duration-300">
+                    {value === "Ethical" && "Building technology that serves humanity's highest potential"}
+                    {value === "Innovative" && "Pioneering the next generation of conscious infrastructure"}
+                    {value === "Sustainable" && "Creating solutions that benefit future generations"}
+                    {value === "Collaborative" && "Working together to build a better tomorrow"}
+                  </p>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Floating elements */}
+          <div className="absolute top-1/4 left-10 w-2 h-2 bg-primary/60 rounded-full animate-float-up" />
+          <div className="absolute top-3/4 right-20 w-3 h-3 bg-secondary/60 rounded-full animate-float-up" style={{ animationDelay: '2s' }} />
+          <div className="absolute top-1/2 left-1/4 w-1 h-1 bg-accent/80 rounded-full animate-float-up" style={{ animationDelay: '4s' }} />
+        </div>
+      </Section>
+
+      {/* TESTIMONIALS */}
+      <Section className="relative py-24 overflow-hidden bg-gradient-to-br from-bg/50 via-bg to-primary/5">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">
+              <span className="bg-gradient-to-r from-white via-primary to-secondary bg-clip-text text-transparent">
+                Trusted by Builders
+              </span>
+            </h2>
+            <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+              Join the community of developers and organizations building the future
+            </p>
+          </motion.div>
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                name: "Sarah Chen",
+                role: "CTO, DeFi Protocol",
+                company: "Ethereum Foundation",
+                content: "Mindful Tech's infrastructure transformed our RWA tokenization process. Their ethical approach to technology is exactly what the industry needs.",
+                avatar: "👩‍💻"
+              },
+              {
+                name: "Marcus Rodriguez",
+                role: "Lead Developer",
+                company: "Polygon Labs",
+                content: "The level of professionalism and attention to detail is unmatched. They don't just build software, they build the future.",
+                avatar: "👨‍🚀"
+              },
+              {
+                name: "Dr. Aisha Patel",
+                role: "Head of Innovation",
+                company: "ConsenSys",
+                content: "Working with Mindful Tech has been transformative. Their conscious approach to technology development sets a new standard.",
+                avatar: "👩‍🔬"
+              }
+            ].map((testimonial, index) => (
+              <motion.div
+                key={index}
+                className="card p-8 hover-lift hover-glow group"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                whileHover={{ scale: 1.02 }}
               >
-                <div className="text-3xl mb-2 group-hover:scale-110 transition-transform duration-300">
-                  {client.logo}
-                    </div>
-                <div className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors duration-300">
-                  {client.name}
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-2xl">
+                    {testimonial.avatar}
                   </div>
+                  <div>
+                    <h4 className="font-semibold text-white">{testimonial.name}</h4>
+                    <p className="text-sm text-white/60">{testimonial.role}</p>
+                    <p className="text-xs text-primary">{testimonial.company}</p>
+                  </div>
+                </div>
+                <blockquote className="text-white/80 italic leading-relaxed">
+                  &ldquo;{testimonial.content}&rdquo;
+                </blockquote>
+                <div className="flex mt-4">
+                  {[...Array(5)].map((_, i) => (
+                    <motion.span
+                      key={i}
+                      className="text-yellow-400 text-lg"
+                      initial={{ opacity: 0, scale: 0 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3, delay: 0.5 + i * 0.1 }}
+                      viewport={{ once: true }}
+                    >
+                      ⭐
+                    </motion.span>
+                  ))}
+                </div>
               </motion.div>
             ))}
-          </motion.div>
-
-          {/* Security Badges */}
-          <motion.div
-            className="flex flex-wrap justify-center items-center gap-8 mt-12 pt-8 border-t border-gray-700/50"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            {[
-              { name: "SOC 2 Type II", icon: "🛡️" },
-              { name: "ISO 27001", icon: "🔒" },
-              { name: "GDPR Compliant", icon: "🌍" },
-              { name: "256-bit SSL", icon: "🔐" }
-            ].map((badge, index) => (
-              <motion.div
-                key={badge.name}
-                className="flex items-center gap-2 px-4 py-2 bg-gray-800/50 rounded-full border border-gray-600/50"
-                whileHover={{ scale: 1.05 }}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <span className="text-lg">{badge.icon}</span>
-                <span className="text-sm text-gray-300 font-medium">{badge.name}</span>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </Section>
-
-      {/* ABOUT - Fortune 500 Level */}
-      <Section id="about" className="py-24 bg-gradient-to-br from-gray-900/50 to-black/50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-20">
-            <motion.h2 
-              className="text-5xl md:text-7xl font-bold text-white mb-8"
-              initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            >
-              What We Do
-            </motion.h2>
-            <motion.p 
-              className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              We build ethical infrastructure that transforms real-world assets into programmable opportunities.
-            </motion.p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-              <h3 className="text-3xl font-bold text-white mb-8">Our Mission</h3>
-              <p className="text-gray-300 text-lg leading-relaxed mb-10">
-                We're pioneering the next generation of conscious technology infrastructure. 
-                Our mission is to create tools that serve humanity's highest potential through 
-                ethical design, mindful innovation, and sustainable impact.
-              </p>
-              
-              <div className="grid gap-6">
-                {[
-                  "Decentralized access to technology",
-                  "Ethical automation systems", 
-                  "Earth-first sustainable solutions",
-                  "Human agency and empowerment"
-                ].map((item, index) => (
-                <motion.div
-                    key={item}
-                    className="flex items-center gap-4"
-                  initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                >
-                    <div className="w-3 h-3 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"></div>
-                    <span className="text-white text-lg">{item}</span>
-                </motion.div>
-                ))}
-              </div>
-                </motion.div>
-                
-                <motion.div
-              className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-3xl p-10 border border-gray-700/50 backdrop-blur-sm"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <h4 className="text-2xl font-bold text-white mb-6">Featured Project</h4>
-              <h5 className="text-xl font-semibold text-cyan-400 mb-4">Coinscious Building</h5>
-              <p className="text-gray-300 text-lg leading-relaxed mb-8">
-                Real-estate RWA infrastructure: auditing, KYC/KYB, liquidity pools, and the essentials 
-                teams need to launch tokenized, fractional real-estate at scale.
-              </p>
-              <button className="text-cyan-400 hover:text-cyan-300 font-semibold text-lg transition-colors duration-300">
-                Learn More →
-              </button>
-                </motion.div>
-          </div>
-        </div>
-      </Section>
-
-      {/* FEATURES */}
-      <Section id="features" className="py-24">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
-              Our Services
-            </h2>
-            <p className="text-xl text-white/70 max-w-3xl mx-auto">
-              We provide comprehensive solutions for conscious technology implementation.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white/5 rounded-2xl p-8 border border-white/10">
-              <div className="text-4xl mb-4">🏗️</div>
-              <h3 className="text-xl font-bold text-white mb-4">Asset Tokenization</h3>
-              <p className="text-white/70">
-                Transform real-world assets into programmable digital tokens with full compliance and transparency.
-              </p>
-            </div>
-
-            <div className="bg-white/5 rounded-2xl p-8 border border-white/10">
-              <div className="text-4xl mb-4">🤖</div>
-              <h3 className="text-xl font-bold text-white mb-4">AI Agents</h3>
-              <p className="text-white/70">
-                Ethical AI automation that serves humanity's highest potential through conscious design.
-              </p>
-              </div>
-
-            <div className="bg-white/5 rounded-2xl p-8 border border-white/10">
-              <div className="text-4xl mb-4">🌐</div>
-              <h3 className="text-xl font-bold text-white mb-4">Infrastructure</h3>
-              <p className="text-white/70">
-                Decentralized systems that empower communities and resist censorship.
-              </p>
-            </div>
           </div>
         </div>
       </Section>
 
       {/* MISSION */}
-      <Section id="mission" className="py-24 bg-white/5">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
-              Our Mission
+      <Section id="mission" className="relative py-24 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
+              <span className="bg-gradient-to-r from-white via-primary to-secondary bg-clip-text text-transparent">
+                Our Mission
+              </span>
             </h2>
-            <p className="text-xl text-white/70 max-w-4xl mx-auto">
-              We're building the foundational infrastructure for a more conscious, connected, and sustainable future. 
+            <p className="text-xl md:text-2xl text-white/70 max-w-5xl mx-auto leading-relaxed font-light">
+              We&apos;re building the foundational infrastructure for a more conscious, connected, and sustainable future. 
               Our technology serves communities, empowers individuals, and creates positive impact at scale.
             </p>
-            </div>
-
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold text-primary mb-2">50+</div>
-              <div className="text-white font-semibold mb-2">Professionals Trained</div>
-              <div className="text-white/60">In conscious technology</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-secondary mb-2">15+</div>
-              <div className="text-white font-semibold mb-2">Projects Completed</div>
-              <div className="text-white/60">Across industries</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-accent mb-2">8+</div>
-              <div className="text-white font-semibold mb-2">Solutions Built</div>
-              <div className="text-white/60">Custom implementations</div>
-            </div>
-          </div>
+          </motion.div>
         </div>
       </Section>
 
-      {/* DEMO SECTION */}
-      <Section className="py-24 bg-white/5">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
-              See It In Action
+      {/* AI DEMO SECTION */}
+      <Section className="relative py-24 overflow-hidden bg-gradient-to-br from-bg via-bg/50 to-primary/5">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <motion.div
+              className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-accent/20 to-primary/20 border border-accent/30 mb-6"
+              initial={{ scale: 0.8, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <span className="text-sm font-semibold text-gradient">Live Demo</span>
+            </motion.div>
+            
+            <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
+              <span className="bg-gradient-to-r from-white via-accent to-primary bg-clip-text text-transparent">
+                Experience the Future
+              </span>
             </h2>
-            <p className="text-xl text-white/70 max-w-3xl mx-auto">
-              Our technology transforms real-world assets into programmable opportunities.
+            <p className="text-xl md:text-2xl text-white/70 max-w-5xl mx-auto leading-relaxed font-light">
+              Witness our technology in action through interactive demonstrations and real-time examples
             </p>
-          </div>
+          </motion.div>
 
-          <div className="bg-white/5 rounded-2xl p-8 border border-white/10">
-            <div className="bg-black/50 rounded-xl p-6 font-mono text-sm">
-              <div className="text-green-400 mb-4">$ mindful-tech build</div>
-              <div className="text-white mb-2">✓ Asset tokenization pipeline initialized</div>
-              <div className="text-white mb-2">✓ Compliance checks configured</div>
-              <div className="text-white mb-2">✓ Liquidity pool created</div>
-              <div className="text-green-400">✓ Ready for deployment</div>
+          {/* Interactive Demo Card */}
+          <motion.div
+            className="relative max-w-5xl mx-auto"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <div className="glass-strong rounded-3xl p-8 md:p-12 relative overflow-hidden">
+              {/* Terminal-style header */}
+              <div className="flex items-center gap-3 mb-8">
+                <div className="flex gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                  <div className="w-3 h-3 rounded-full bg-green-500" />
+                </div>
+                <div className="text-sm text-ink-dim font-mono">mindful-tech@infrastructure:~$</div>
+              </div>
+
+              {/* Animated code display */}
+              <div className="space-y-4 font-mono text-sm">
+                <motion.div
+                  className="text-primary"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 1 }}
+                >
+                  <span className="text-accent">const</span> infrastructure = <span className="text-secondary">await</span> mindfulTech.build();
+                </motion.div>
+                
+                <motion.div
+                  className="text-ink-dim"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 1.5 }}
+                >
+                  <span className="text-accent">#</span> Real-world asset tokenization
+                </motion.div>
+                
+                <motion.div
+                  className="text-primary"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 2 }}
+                >
+                  <span className="text-accent">const</span> result = <span className="text-secondary">await</span> infrastructure.tokenize(asset);
+                </motion.div>
+                
+                <motion.div
+                  className="text-green-400"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 2.5 }}
+                >
+                  <span className="text-accent">✓</span> Asset successfully tokenized
+                </motion.div>
+                
+                <motion.div
+                  className="text-green-400"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 3 }}
+                >
+                  <span className="text-accent">✓</span> Liquidity pool created
+                </motion.div>
+                
+                <motion.div
+                  className="text-green-400"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 3.5 }}
+                >
+                  <span className="text-accent">✓</span> Compliance checks passed
+                </motion.div>
+              </div>
+
+              {/* Animated progress bar */}
+              <motion.div
+                className="mt-8 bg-white/10 rounded-full h-2 overflow-hidden"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 4 }}
+              >
+                <motion.div
+                  className="h-full bg-gradient-to-r from-primary to-secondary rounded-full"
+                  initial={{ width: "0%" }}
+                  animate={{ width: "100%" }}
+                  transition={{ duration: 2, delay: 4.5 }}
+                />
+              </motion.div>
+
+              {/* Floating elements */}
+              <div className="absolute top-4 right-4 w-2 h-2 bg-primary/60 rounded-full animate-float-up" />
+              <div className="absolute bottom-4 left-4 w-3 h-3 bg-secondary/60 rounded-full animate-float-up" style={{ animationDelay: '2s' }} />
             </div>
-          </div>
+          </motion.div>
         </div>
       </Section>
 
@@ -588,7 +676,7 @@ export default function Home() {
       </Section>
 
       {/* UPDATES */}
-      <Section id="updates" className="relative py-24 overflow-hidden bg-gradient-to-br from-bg/50 via-bg to-primary/5">
+      <Section id="updates" className="relative py-24 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -597,49 +685,37 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <motion.div
-              className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-accent/20 to-primary/20 border border-accent/30 mb-8"
-              initial={{ scale: 0.8, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <span className="text-lg font-semibold text-gradient">Latest Updates</span>
-            </motion.div>
-            
-            <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
-              <span className="bg-gradient-to-r from-white via-primary to-secondary bg-clip-text text-transparent">
-                What&apos;s New
-              </span>
+            <h2 className="text-4xl md:text-6xl font-bold mb-6">
+              <span className="text-gradient">Latest Updates</span>
             </h2>
           </motion.div>
 
           <motion.div
-            className="max-w-5xl mx-auto"
+            className="max-w-4xl mx-auto"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="glass-strong rounded-3xl p-12 relative overflow-hidden group hover-lift hover-glow">
-              <div className="flex items-start gap-6">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0 group-hover:animate-glow-pulse">
-                  <span className="text-2xl">🚀</span>
+            <div className="glass-strong rounded-3xl p-8 relative overflow-hidden">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0">
+                  <div className="w-6 h-6 bg-white/80 rounded" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-3xl font-bold text-white mb-4 group-hover:text-gradient transition-colors duration-300">Agentic Studio</h3>
-                  <p className="text-white/80 text-xl leading-relaxed mb-6">
+                  <h3 className="text-xl font-semibold text-white mb-2">Agentic Studio</h3>
+                  <p className="text-ink-dim text-lg leading-relaxed mb-4">
                     {brand.agenticStudio}
                   </p>
                   <motion.a 
                     href="#newsletter" 
-                    className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-secondary to-accent rounded-2xl font-bold text-white text-lg hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-accent/25"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-secondary to-accent rounded-xl font-semibold text-white hover:scale-105 transition-transform duration-300"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     Get Notified
                     <motion.span
-                      animate={{ x: [0, 5, 0] }}
+                      animate={{ x: [0, 3, 0] }}
                       transition={{ duration: 1.5, repeat: Infinity }}
                     >
                       →
@@ -649,492 +725,113 @@ export default function Home() {
               </div>
               
               {/* Animated border */}
-              <div className="absolute inset-0 rounded-3xl border border-white/10 group-hover:border-primary/30 transition-colors duration-300" />
-              
-              {/* Floating elements */}
-              <div className="absolute top-4 right-4 w-3 h-3 bg-primary/60 rounded-full animate-float-up" />
-              <div className="absolute bottom-4 left-4 w-2 h-2 bg-secondary/60 rounded-full animate-float-up" style={{ animationDelay: '2s' }} />
+              <div className="absolute inset-0 rounded-3xl border border-white/10" />
             </div>
           </motion.div>
         </div>
       </Section>
 
       {/* JOIN */}
-      <Section id="newsletter" className="relative py-24 overflow-hidden bg-gradient-to-br from-bg via-bg/50 to-secondary/5">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
-              <span className="bg-gradient-to-r from-white via-primary to-secondary bg-clip-text text-transparent">
-                Join the Movement
-              </span>
-            </h2>
-            <p className="text-xl md:text-2xl text-white/70 max-w-4xl mx-auto leading-relaxed font-light">
-              Be first to pilots, drops, and roles.
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="max-w-2xl mx-auto"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <div className="glass-strong rounded-3xl p-8 relative overflow-hidden group hover-lift hover-glow">
-              <form className="space-y-6" onSubmit={emailSubmit}>
-                <div>
-                  <label className="block text-white/80 text-lg font-medium mb-3">
-                    Email Address
-                  </label>
+      <Section id="newsletter" className="section">
+        <h2 className="h2">Join the Movement</h2>
+        <p className="subtle mt-2">Be first to pilots, drops, and roles.</p>
+        <form className="mt-6 card p-4 md:p-6 max-w-lg" onSubmit={emailSubmit}>
           <input 
-                    className="w-full rounded-2xl bg-white/5 border border-white/10 px-6 py-4 text-white placeholder-white/40 focus:border-primary/50 focus:outline-none transition-colors duration-300 text-lg"
+            className="w-full rounded-xl2 bg-white/5 border border-white/10 px-4 py-3"
             placeholder="you@example.com" 
             type="email" 
             required 
             aria-label="Email address"
+            disabled={isEmailLoading}
           />
-                </div>
-                
-                <motion.button
-                  type="submit"
-                  className="w-full px-8 py-4 bg-gradient-to-r from-primary to-secondary rounded-2xl font-bold text-white text-lg shadow-2xl hover:shadow-primary/25 transition-all duration-300 group"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <span className="flex items-center justify-center gap-3">
-            Subscribe
-                    <motion.span
-                      animate={{ x: [0, 3, 0] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                    >
-                      →
-                    </motion.span>
-                  </span>
-                </motion.button>
+          <Button 
+            className="mt-3" 
+            type="submit" 
+            variant="primary"
+            loading={isEmailLoading}
+            loadingText="Subscribing..."
+            disabled={isEmailLoading}
+          >
+            {emailSuccess ? "✓ Subscribed!" : "Subscribe"}
+          </Button>
+          {emailSuccess && (
+            <motion.p
+              className="mt-2 text-sm text-green-400"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              Welcome to the movement! 🚀
+            </motion.p>
+          )}
         </form>
-              
-              {/* Animated border */}
-              <div className="absolute inset-0 rounded-3xl border border-white/10 group-hover:border-primary/30 transition-colors duration-300" />
-            </div>
-          </motion.div>
-        </div>
       </Section>
 
       {/* CONTACT & APPLY */}
-      <Section id="contact" className="relative py-24 overflow-hidden bg-gradient-to-br from-bg/50 via-bg to-primary/5">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
-              <span className="bg-gradient-to-r from-white via-primary to-secondary bg-clip-text text-transparent">
-                Contact & Apply
-              </span>
-            </h2>
-            <p className="text-xl md:text-2xl text-white/70 max-w-4xl mx-auto leading-relaxed font-light">
-              Ready to join the future of conscious technology? Let&apos;s build something amazing together.
-            </p>
-          </motion.div>
-
-          <div className="grid gap-8 lg:grid-cols-2">
-            {/* Contact Info */}
-            <motion.div
-              className="group"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <Card variant="glow" padding="lg" className="h-full hover-lift hover-glow">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                    <span className="text-xl">📧</span>
+      <Section id="contact" className="section">
+        <h2 className="h2">Contact & Apply</h2>
+        <div className="grid gap-6 md:grid-cols-2 mt-6">
+          <div className="card p-6">
+            <p className="font-medium">Contact Us</p>
+            <p className="subtle mt-2">{brand.email}</p>
           </div>
-                  <h3 className="text-2xl font-bold text-white">Contact Us</h3>
-                </div>
-                
-                <div className="space-y-4">
-                  <div>
-                    <p className="text-white/60 text-sm mb-2">Email</p>
-                    <p className="text-white text-lg font-medium">{brand.email}</p>
-                  </div>
-                  
-                  <div>
-                    <p className="text-white/60 text-sm mb-2">Response Time</p>
-                    <p className="text-white text-lg font-medium">Within 24 hours</p>
-                  </div>
-                  
-                  <div>
-                    <p className="text-white/60 text-sm mb-2">Office Hours</p>
-                    <p className="text-white text-lg font-medium">Monday - Friday, 9 AM - 6 PM PST</p>
-                  </div>
-                </div>
-
-                <div className="mt-8 pt-6 border-t border-white/10">
-                  <p className="text-white/60 text-sm leading-relaxed">
-                    Have questions about our technology, partnerships, or just want to say hello? 
-                    We&apos;d love to hear from you.
-                  </p>
-                </div>
-              </Card>
-            </motion.div>
-
-            {/* Application Form */}
-            <motion.div
-              id="apply"
-              className="group"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              <Card variant="glow" padding="lg" className="h-full hover-lift hover-glow">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-secondary to-accent flex items-center justify-center">
-                    <span className="text-xl">🚀</span>
-                  </div>
-                  <h3 className="text-2xl font-bold text-white">Apply to Join the Team</h3>
-                </div>
-                
-                <form className="space-y-6" onSubmit={applySubmit}>
-                  <div className="grid gap-4 md:grid-cols-2">
-                    <div>
-                      <label className="block text-white/80 text-sm font-medium mb-2">
-                        What is your name?
-                      </label>
+          <div id="apply" className="card p-6">
+            <p className="font-medium">Apply to Join the Team</p>
+            <form className="mt-4" onSubmit={applySubmit}>
               <input 
-                        className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-white placeholder-white/40 focus:border-primary/50 focus:outline-none transition-colors duration-300"
-                        placeholder="Enter your full name" 
+                className="w-full rounded-xl2 bg-white/5 border border-white/10 px-4 py-3"
+                placeholder="Your name" 
                 required 
                 aria-label="Your name"
+                disabled={isApplyLoading}
               />
-                    </div>
-                    
-                    <div>
-                      <label className="block text-white/80 text-sm font-medium mb-2">
-                        What is your email?
-                      </label>
-                      <input 
-                        type="email"
-                        className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-white placeholder-white/40 focus:border-primary/50 focus:outline-none transition-colors duration-300"
-                        placeholder="your@email.com" 
-                        required 
-                        aria-label="Your email"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="grid gap-4 md:grid-cols-2">
-                    <div>
-                      <label className="block text-white/80 text-sm font-medium mb-2">
-                        What is your role in the company?
-                      </label>
-                      <input 
-                        className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-white placeholder-white/40 focus:border-primary/50 focus:outline-none transition-colors duration-300"
-                        placeholder="e.g., CTO, Developer, Designer" 
-                        required 
-                        aria-label="Your role"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label className="block text-white/80 text-sm font-medium mb-2">
-                        Company Name
-                      </label>
-                      <input 
-                        className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-white placeholder-white/40 focus:border-primary/50 focus:outline-none transition-colors duration-300"
-                        placeholder="Your company name" 
-                        required 
-                        aria-label="Company name"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="grid gap-4 md:grid-cols-2">
-                    <div>
-                      <label className="block text-white/80 text-sm font-medium mb-2">
-                        Company Website
-                      </label>
-                      <input 
-                        type="url"
-                        className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-white placeholder-white/40 focus:border-primary/50 focus:outline-none transition-colors duration-300"
-                        placeholder="https://yourcompany.com" 
-                        aria-label="Company website"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label className="block text-white/80 text-sm font-medium mb-2">
-                        Company Size
-                      </label>
               <select 
-                        className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-white focus:border-primary/50 focus:outline-none transition-colors duration-300" 
+                className="w-full rounded-xl2 bg-white/5 border border-white/10 px-4 py-3 mt-3" 
                 defaultValue="" 
                 required
-                        aria-label="Company size"
-                      >
-                        <option value="" disabled className="text-white/40">Select company size</option>
-                        <option value="less-than-20" className="text-white">Less than 20</option>
-                        <option value="20-50" className="text-white">20-50</option>
-                        <option value="50-100" className="text-white">50-100</option>
-                        <option value="100-500" className="text-white">100-500</option>
-                        <option value="more-than-500" className="text-white">More than 500</option>
+                aria-label="Role interest"
+                disabled={isApplyLoading}
+              >
+                <option value="" disabled>Role interest</option>
+                <option>Frontend</option>
+                <option>Smart Contracts</option>
+                <option>AI/Agents</option>
+                <option>Ops/Partnerships</option>
               </select>
-                    </div>
-                  </div>
-                  
-                  <div className="grid gap-4 md:grid-cols-2">
-                    <div>
-                      <label className="block text-white/80 text-sm font-medium mb-2">
-                        Company&apos;s Annual Revenue
-                      </label>
-                      <select 
-                        className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-white focus:border-primary/50 focus:outline-none transition-colors duration-300" 
-                        defaultValue="" 
-                        required
-                        aria-label="Annual revenue"
-                      >
-                        <option value="" disabled className="text-white/40">Select revenue range</option>
-                        <option value="less-than-100k" className="text-white">Less than $100K</option>
-                        <option value="100k-500k" className="text-white">$100K-$500K</option>
-                        <option value="500k-1m" className="text-white">$500K-$1M</option>
-                        <option value="1m-2m" className="text-white">$1M-$2M</option>
-                        <option value="more-than-2m" className="text-white">More than $2M</option>
-                      </select>
-                    </div>
-                    
-                    <div>
-                      <label className="block text-white/80 text-sm font-medium mb-2">
-                        Project Budget
-                      </label>
-                      <select 
-                        className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-white focus:border-primary/50 focus:outline-none transition-colors duration-300" 
-                        defaultValue="" 
-                        required
-                        aria-label="Project budget"
-                      >
-                        <option value="" disabled className="text-white/40">Select budget range</option>
-                        <option value="less-than-10k" className="text-white">Less than $10K</option>
-                        <option value="10k-50k" className="text-white">$10K-$50K</option>
-                        <option value="50k-100k" className="text-white">$50K-$100K</option>
-                        <option value="more-than-100k" className="text-white">More than $100K</option>
-                      </select>
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <label className="block text-white/80 text-sm font-medium mb-2">
-                      What services are you interested in?
-                    </label>
-                    <select 
-                      className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-white focus:border-primary/50 focus:outline-none transition-colors duration-300" 
-                      defaultValue="" 
-                      required
-                      aria-label="Services interest"
-                    >
-                      <option value="" disabled className="text-white/40">Select service</option>
-                      <option value="identify" className="text-white">Identifying conscious technology opportunities</option>
-                      <option value="educate" className="text-white">Educating your team on conscious technology</option>
-                      <option value="develop" className="text-white">Developing custom conscious technology solutions</option>
-                      <option value="all" className="text-white">All of the above</option>
-                    </select>
-                  </div>
-                  
-                  <div>
-                    <label className="block text-white/80 text-sm font-medium mb-2">
-                      Message
-                    </label>
               <textarea 
-                      className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-white placeholder-white/40 focus:border-primary/50 focus:outline-none transition-colors duration-300 resize-none"
-                      placeholder="Tell us about your project and how we can help..."
+                className="w-full rounded-xl2 bg-white/5 border border-white/10 px-4 py-3 mt-3"
+                placeholder="Why you + Mindful Tech?" 
                 rows={4}
-                      aria-label="Message"
-                    />
-                  </div>
-                  
-                  <Button 
-                    type="submit" 
-                    variant="primary" 
-                    size="lg"
-                    className="w-full group"
-                  >
-                    <span className="flex items-center justify-center gap-2">
-                      Send Inquiry
-                      <motion.span
-                        animate={{ x: [0, 3, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity }}
-                      >
-                        →
-                      </motion.span>
-                    </span>
+                aria-label="Why you + Mindful Tech?"
+                disabled={isApplyLoading}
+              />
+              <Button 
+                className="mt-3" 
+                type="submit" 
+                variant="primary"
+                loading={isApplyLoading}
+                loadingText="Submitting..."
+                disabled={isApplyLoading}
+              >
+                {applySuccess ? "✓ Application Sent!" : "Submit"}
               </Button>
+              {applySuccess && (
+                <motion.p
+                  className="mt-2 text-sm text-green-400"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  We&apos;ll be in touch soon! ✨
+                </motion.p>
+              )}
             </form>
-              </Card>
-            </motion.div>
           </div>
         </div>
       </Section>
 
-      {/* FOOTER */}
-      <footer className="relative py-16 overflow-hidden bg-gradient-to-t from-bg via-bg/80 to-primary/5 border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4 mb-12">
-            {/* Company Info */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              <div className="mb-6">
-                <NeonLogo size="md" animated={false} />
-              </div>
-              <p className="text-white/70 text-sm leading-relaxed mb-6">
-                Building the future of conscious technology through ethical design, 
-                mindful innovation, and sustainable impact.
-              </p>
-              <div className="flex items-center gap-4">
-                <a 
-                  href="mailto:hello@mindfultech.org"
-                  className="w-10 h-10 rounded-lg bg-white/10 hover:bg-primary/20 flex items-center justify-center transition-colors duration-300"
-                >
-                  <span className="text-sm">📧</span>
-                </a>
-                <a 
-                  href="https://twitter.com/mindfultech"
-                  className="w-10 h-10 rounded-lg bg-white/10 hover:bg-primary/20 flex items-center justify-center transition-colors duration-300"
-                >
-                  <span className="text-sm">🐦</span>
-                </a>
-                <a 
-                  href="https://github.com/mindfultech"
-                  className="w-10 h-10 rounded-lg bg-white/10 hover:bg-primary/20 flex items-center justify-center transition-colors duration-300"
-                >
-                  <span className="text-sm">💻</span>
-                </a>
-              </div>
-            </motion.div>
-
-            {/* Products */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-white font-semibold mb-6">Products</h3>
-              <ul className="space-y-3">
-                {[
-                  { name: "Coinscious Building", href: "/projects/coinscious-building" },
-                  { name: "Agentic Studio", href: "#updates" },
-                  { name: "RWA Infrastructure", href: "#features" },
-                  { name: "AI Agents", href: "#features" }
-                ].map((item) => (
-                  <li key={item.name}>
-                    <a 
-                      href={item.href}
-                      className="text-white/70 hover:text-white transition-colors duration-300 text-sm"
-                    >
-                      {item.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-
-            {/* Company */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-white font-semibold mb-6">Company</h3>
-              <ul className="space-y-3">
-                {[
-                  { name: "About", href: "#about" },
-                  { name: "Mission", href: "#mission" },
-                  { name: "Careers", href: "#apply" },
-                  { name: "Contact", href: "#contact" }
-                ].map((item) => (
-                  <li key={item.name}>
-                    <a 
-                      href={item.href}
-                      className="text-white/70 hover:text-white transition-colors duration-300 text-sm"
-                    >
-                      {item.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-
-            {/* Resources */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-white font-semibold mb-6">Resources</h3>
-              <ul className="space-y-3">
-                {[
-                  { name: "Documentation", href: "#" },
-                  { name: "Blog", href: "#" },
-                  { name: "Community", href: "#" },
-                  { name: "Support", href: "#contact" }
-                ].map((item) => (
-                  <li key={item.name}>
-                    <a 
-                      href={item.href}
-                      className="text-white/70 hover:text-white transition-colors duration-300 text-sm"
-                    >
-                      {item.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          </div>
-
-          {/* Bottom Bar */}
-          <motion.div
-            className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <div className="text-white/60 text-sm">
-              © {year} Mindful Tech. All rights reserved.
-            </div>
-            <div className="flex items-center gap-6 text-sm">
-              <a href="#" className="text-white/60 hover:text-white transition-colors duration-300">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-white/60 hover:text-white transition-colors duration-300">
-                Terms of Service
-              </a>
-              <a href="#" className="text-white/60 hover:text-white transition-colors duration-300">
-                Cookie Policy
-              </a>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Background Elements */}
-        <div className="absolute top-0 left-1/4 w-2 h-2 bg-primary/40 rounded-full animate-float-up" />
-        <div className="absolute bottom-1/4 right-1/3 w-3 h-3 bg-secondary/40 rounded-full animate-float-up" style={{ animationDelay: '2s' }} />
+      <footer className="section pt-0">
+        <div className="subtle">© {year} Mindful Tech</div>
       </footer>
     </>
   );
