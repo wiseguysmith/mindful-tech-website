@@ -102,33 +102,35 @@ const NeonBackground: React.FC = () => {
           continue;
         }
         
-        particle.x += particle.vx;
-        particle.y += particle.vy;
-        particle.life -= 0.01;
-        particle.alpha = particle.life * 0.8;
+        // Now TypeScript knows particle is defined
+        const p = particle;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.life -= 0.01;
+        p.alpha = p.life * 0.8;
 
-        if (particle.life <= 0) {
+        if (p.life <= 0) {
           particles.splice(i, 1);
           continue;
         }
 
         // Draw particle with glow
         ctx.save();
-        ctx.globalAlpha = particle.alpha;
+        ctx.globalAlpha = p.alpha;
         
         // Outer glow
-        ctx.shadowColor = particle.color;
+        ctx.shadowColor = p.color;
         ctx.shadowBlur = 20;
-        ctx.fillStyle = particle.color;
+        ctx.fillStyle = p.color;
         ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size * 2, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, p.size * 2, 0, Math.PI * 2);
         ctx.fill();
         
         // Inner bright core
         ctx.shadowBlur = 0;
         ctx.fillStyle = '#ffffff';
         ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size * 0.5, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, p.size * 0.5, 0, Math.PI * 2);
         ctx.fill();
         
         ctx.restore();
