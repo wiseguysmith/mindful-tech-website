@@ -1,58 +1,39 @@
 import "./globals.css";
 import "./theme.css";
 import { ReactNode } from "react";
-import { seo, getOrgSchema, getWebsiteSchema } from "@/lib/seo";
 import SacredBackground from "@/components/SacredBackground";
-import InteractiveCursor from "@/components/InteractiveCursor";
-import AdvancedParticles from "@/components/AdvancedParticles";
-import NeuralNetwork from "@/components/NeuralNetwork";
-import MorphingBlobs from "@/components/MorphingBlobs";
-import DataStream from "@/components/DataStream";
-import SkipToContent from "@/components/SkipToContent";
-import ProgressBar from "@/components/ProgressBar";
 
 export const metadata = {
-  title: seo.title,
-  description: seo.description,
-  keywords: seo.keywords,
+  title: "Mindful Tech - Liberation Tech for the Future",
+  description: "AI + Blockchain services for solopreneurs and communities. Building the future of conscious technology.",
+  keywords: "AI, blockchain, solopreneurs, communities, conscious technology, liberation tech",
   authors: [{ name: "Mindful Tech" }],
   creator: "Mindful Tech",
   publisher: "Mindful Tech",
-  robots: seo.robots,
-  openGraph: seo.openGraph,
-  twitter: seo.twitter,
+  robots: "index, follow",
+  openGraph: {
+    title: "Mindful Tech - Liberation Tech for the Future",
+    description: "AI + Blockchain services for solopreneurs and communities.",
+    url: "https://mindfultech.services",
+    siteName: "Mindful Tech",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mindful Tech - Liberation Tech for the Future",
+    description: "AI + Blockchain services for solopreneurs and communities.",
+  },
   alternates: {
-    canonical: seo.openGraph.url,
+    canonical: "https://mindfultech.services",
   },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="dark">
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(getOrgSchema()),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(getWebsiteSchema()),
-          }}
-        />
-      </head>
-      <body className="relative min-h-screen antialiased overflow-x-hidden">
-        <SkipToContent />
-        <ProgressBar />
+      <body className="relative min-h-screen antialiased overflow-x-hidden bg-black">
         <SacredBackground />
-        <NeuralNetwork />
-        <MorphingBlobs />
-        <AdvancedParticles />
-        <DataStream />
-        <InteractiveCursor />
-        <main id="main">
+        <main id="main" className="relative z-10">
           {children}
         </main>
       </body>
