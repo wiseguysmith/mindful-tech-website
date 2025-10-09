@@ -1,7 +1,21 @@
 import "./globals.css";
 import "./theme.css";
 import { ReactNode } from "react";
+import { Space_Grotesk, Inter } from "next/font/google";
 import SacredBackground from "@/components/SacredBackground";
+
+// Configure fonts
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 export const metadata = {
   title: "Mindful Tech - Liberation Tech for the Future",
@@ -31,7 +45,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="dark">
-      <body className="relative min-h-screen antialiased overflow-x-hidden bg-black">
+      <body className={`${spaceGrotesk.variable} ${inter.variable} relative min-h-screen antialiased overflow-x-hidden bg-black`}>
         <SacredBackground />
         <main id="main" className="relative z-10">
           {children}

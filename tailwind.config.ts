@@ -9,6 +9,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        space: ["var(--font-space-grotesk)", "sans-serif"],
+        inter: ["var(--font-inter)", "sans-serif"],
+      },
       colors: {
         bg: "#0B0F1A",
         primary: "#63F5FF",   // neon cyan
