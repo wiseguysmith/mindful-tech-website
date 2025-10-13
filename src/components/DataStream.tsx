@@ -68,10 +68,10 @@ export default function DataStream() {
         return (
           <motion.line
             key={`${point.id}-${nextPoint.id}`}
-            x1={`${point.x}%`}
-            y1={`${point.y}%`}
-            x2={`${nextPoint.x}%`}
-            y2={`${nextPoint.y}%`}
+            x1={point.x}
+            y1={point.y}
+            x2={nextPoint.x}
+            y2={nextPoint.y}
             stroke={point.color}
             strokeWidth="1"
             opacity="0.3"
