@@ -9,12 +9,15 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "calc-polyfill": "^0.1.0",
     "framer-motion": "^12.23.13",
     "lucide-react": "^0.544.0",
     "next": "15.5.3",
     "openai": "^6.3.0",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "reduce-css": "^6.2.0",
+    "terser": "^5.44.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
