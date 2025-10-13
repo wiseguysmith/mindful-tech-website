@@ -234,8 +234,7 @@ export default function Sofia() {
                      fontSize: "1rem",
                      outline: "none",
                      backgroundColor: isLoading ? "#f9f9f9" : "white",
-                     color: "#333",
-                     placeholderColor: "#999"
+                     color: "#333"
                    }}
                  />
         <button
