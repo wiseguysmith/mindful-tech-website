@@ -27,7 +27,7 @@ export default function AdvancedParticles() {
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
         size: Math.random() * 4 + 1,
-        color: colors[Math.floor(Math.random() * colors.length)],
+        color: colors[Math.floor(Math.random() * colors.length)] || '#63F5FF',
         speed: Math.random() * 0.5 + 0.1,
         direction: Math.random() * Math.PI * 2,
         opacity: Math.random() * 0.6 + 0.2,

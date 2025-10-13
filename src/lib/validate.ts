@@ -51,13 +51,13 @@ export const commonRules = {
   ],
   name: [
     { validate: isRequired, message: "Name is required" },
-    { validate: (v) => minLength(v, 2), message: "Name must be at least 2 characters" },
-    { validate: (v) => maxLength(v, 50), message: "Name must be less than 50 characters" }
+    { validate: (v: string) => minLength(v, 2), message: "Name must be at least 2 characters" },
+    { validate: (v: string) => maxLength(v, 50), message: "Name must be less than 50 characters" }
   ],
   message: [
     { validate: isRequired, message: "Message is required" },
-    { validate: (v) => minLength(v, 10), message: "Message must be at least 10 characters" },
-    { validate: (v) => maxLength(v, 1000), message: "Message must be less than 1000 characters" }
+    { validate: (v: string) => minLength(v, 10), message: "Message must be at least 10 characters" },
+    { validate: (v: string) => maxLength(v, 1000), message: "Message must be less than 1000 characters" }
   ]
 };
 

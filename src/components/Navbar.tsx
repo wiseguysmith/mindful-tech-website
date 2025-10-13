@@ -9,6 +9,7 @@ const navItems = [
   { href: "#features", label: "Features" },
   { href: "#mission", label: "Mission" },
   { href: "#projects", label: "Projects" },
+  { href: "/sofia", label: "Sofia", external: true },
   { href: "#updates", label: "Updates" },
   { href: "#contact", label: "Contact" },
 ];
@@ -20,6 +21,10 @@ export default function Navbar() {
   );
 
   const scrollToSection = (href: string) => {
+    if (href.startsWith('/')) {
+      window.location.href = href;
+      return;
+    }
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ 
@@ -51,13 +56,16 @@ export default function Navbar() {
                     isActive 
                       ? "text-white font-semibold" 
                       : "text-white/70 hover:text-white"
-                  }`}
+                  } ${item.external ? 'text-secondary hover:text-secondary/80' : ''}`}
                   aria-current={isActive ? "page" : undefined}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   {item.label}
-                  {isActive && (
+                  {item.external && (
+                    <span className="ml-1 text-xs">↗</span>
+                  )}
+                  {isActive && !item.external && (
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-lg border border-primary/30"
                       layoutId="activeTab"
