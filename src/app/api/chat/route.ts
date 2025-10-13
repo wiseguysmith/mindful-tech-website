@@ -29,12 +29,16 @@ export async function POST(req: Request) {
     }
 
     // Ensure environment variable exists
-    if (!process.env.OPENAI_API_KEY) {
+    const apiKey = process.env.OPENAI_API_KEY;
+    if (!apiKey) {
+      console.error('OPENAI_API_KEY not found in environment variables');
       return new Response(
-        JSON.stringify({ error: 'Missing OpenAI API Key' }),
+        JSON.stringify({ error: 'Missing OpenAI API Key - check environment variables' }),
         { status: 500, headers: { 'Content-Type': 'application/json' } }
       );
     }
+
+    console.log('API Key found, length:', apiKey.length);
 
     // Prepare messages for OpenAI
     const openaiMessages = [
@@ -49,7 +53,7 @@ export async function POST(req: Request) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
+        'Authorization': `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
         model: 'gpt-4o',
@@ -61,7 +65,9 @@ export async function POST(req: Request) {
     });
 
     if (!response.ok) {
-      throw new Error(`OpenAI API error: ${response.status}`);
+      const errorText = await response.text();
+      console.error('OpenAI API error:', response.status, errorText);
+      throw new Error(`OpenAI API error: ${response.status} - ${errorText}`);
     }
 
     // Create streaming response
