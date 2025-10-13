@@ -39,6 +39,8 @@ export async function POST(req: Request) {
     }
 
     console.log('API Key found, length:', apiKey.length);
+    console.log('API Key starts with:', apiKey.substring(0, 10));
+    console.log('Environment variables available:', Object.keys(process.env).filter(key => key.includes('OPENAI')));
 
     // Prepare messages for OpenAI
     const openaiMessages = [
