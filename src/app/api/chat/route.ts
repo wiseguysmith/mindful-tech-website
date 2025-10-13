@@ -41,6 +41,23 @@ export async function POST(req: Request) {
     console.log('API Key found, length:', apiKey.length);
     console.log('API Key starts with:', apiKey.substring(0, 10));
     console.log('Environment variables available:', Object.keys(process.env).filter(key => key.includes('OPENAI')));
+    
+    // Test if the API key looks valid
+    if (!apiKey.startsWith('sk-proj-')) {
+      console.error('API key does not start with sk-proj-');
+      return new Response(
+        JSON.stringify({ error: 'Invalid API key format' }),
+        { status: 500, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+    
+    if (apiKey.length < 50 || apiKey.length > 100) {
+      console.error('API key length is unusual:', apiKey.length);
+      return new Response(
+        JSON.stringify({ error: `API key length is ${apiKey.length}, expected 50-100 characters` }),
+        { status: 500, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
 
     // Prepare messages for OpenAI
     const openaiMessages = [
