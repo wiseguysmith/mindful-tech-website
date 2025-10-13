@@ -220,22 +220,24 @@ export default function Sofia() {
           alignItems: "flex-end"
         }}
       >
-        <input
-          type="text"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          placeholder="Ask Sofia about bookings, transport, activities..."
-          disabled={isLoading}
-          style={{
-            flex: 1,
-            padding: "0.75rem",
-            border: "1px solid #e5e5e5",
-            borderRadius: "1rem",
-            fontSize: "1rem",
-            outline: "none",
-            backgroundColor: isLoading ? "#f9f9f9" : "white"
-          }}
-        />
+                 <input
+                   type="text"
+                   value={inputValue}
+                   onChange={(e) => setInputValue(e.target.value)}
+                   placeholder="Ask Sofia about bookings, transport, activities..."
+                   disabled={isLoading}
+                   style={{
+                     flex: 1,
+                     padding: "0.75rem",
+                     border: "1px solid #e5e5e5",
+                     borderRadius: "1rem",
+                     fontSize: "1rem",
+                     outline: "none",
+                     backgroundColor: isLoading ? "#f9f9f9" : "white",
+                     color: "#333",
+                     placeholderColor: "#999"
+                   }}
+                 />
         <button
           type="submit"
           disabled={!inputValue.trim() || isLoading}
