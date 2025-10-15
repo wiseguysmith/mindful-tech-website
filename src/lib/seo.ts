@@ -1,4 +1,4 @@
-export const baseUrl = "https://mindfultech.org";
+export const baseUrl = "https://mindfultech.services";
 
 export const seo = {
   title: "Mindful Tech — Liberation tech for the next generation",

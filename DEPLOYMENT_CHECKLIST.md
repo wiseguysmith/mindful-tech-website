@@ -40,9 +40,9 @@ OPENAI_API_KEY=sk-proj-...your-key...
 ## 🌐 Live URLs
 
 ### Production
-- **Main Site**: https://mindfultech.org
-- **Sofia Chat**: https://mindfultech.org/sofia
-- **API Endpoint**: https://mindfultech.org/api/chat
+- **Main Site**: https://mindfultech.services
+- **Sofia Chat**: https://mindfultech.services/sofia
+- **API Endpoint**: https://mindfultech.services/api/chat
 
 ### Local
 - **Main Site**: http://localhost:3001
@@ -93,7 +93,7 @@ OPENAI_API_KEY=sk-proj-...your-key...
 3. **Commit**: `git add .` → `git commit -m "Update Sofia chat"`
 4. **Push**: `git push origin main`
 5. **Netlify auto-deploys** (usually 2-3 minutes)
-6. **Verify**: https://mindfultech.org/sofia
+6. **Verify**: https://mindfultech.services/sofia
 
 ### Netlify Build Settings
 ```toml
@@ -285,7 +285,7 @@ You now have a production-ready, white-label AI concierge chat that:
 - ✅ Has clean, mobile-responsive UI
 - ✅ Handles errors gracefully
 
-**Your site**: https://mindfultech.org/sofia
+**Your site**: https://mindfultech.services/sofia
 
 Test it now and let me know if you need any adjustments!
 
