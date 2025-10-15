@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { coinscious, brand } from "@/content/site";
+import { brand } from "@/content/site";
 import Logo from "@/components/Logo";
 import Navbar from "@/components/Navbar";
 import Section from "@/components/Section";
