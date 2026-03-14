@@ -19,17 +19,17 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: {
-    default: 'MindfulTech Services | Digital Workers & Capital Rails',
-    template: '%s | MindfulTech Services',
+    default: 'MindfulTech | Infrastructure for Digital Workers & Connected Systems',
+    template: '%s | MindfulTech',
   },
-  description: 'Digital Workers (AI Agents + automation) and Capital Rails (tokenization + deal structuring for cash-flowing assets). Structure-first, tokens-second.',
+  description: 'Infrastructure for digital workers, connected systems, and protocol-ready businesses. Deploy AI agents, automate workflows, and plug into next-generation protocol infrastructure.',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://mindfultech.services',
-    siteName: 'MindfulTech Services',
-    title: 'MindfulTech Services | Digital Workers & Capital Rails',
-    description: 'Digital Workers (AI Agents + automation) and Capital Rails (tokenization + deal structuring for cash-flowing assets).',
+    siteName: 'MindfulTech',
+    title: 'MindfulTech | Infrastructure for Digital Workers & Connected Systems',
+    description: 'Infrastructure for digital workers, connected systems, and protocol-ready businesses.',
   },
 }
 

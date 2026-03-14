@@ -24,7 +24,8 @@
     ],
     "paths": {
       "@/*": [
-        "./*"
+        "./*",
+        "./src/*"
       ]
     }
   },
@@ -37,6 +38,8 @@
   ],
   "exclude": [
     "node_modules",
-    "mindfultech"
+    "mindfultech",
+    "src/app",
+    "src/components"
   ]
 }

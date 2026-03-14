@@ -28,9 +28,9 @@ export default function Section({
   id,
 }: SectionProps) {
   const backgrounds = {
-    default: 'bg-cream-50',
-    cream: 'bg-cream-100',
-    charcoal: 'bg-charcoal-800 text-cream-50',
+    default: 'bg-soft-white',
+    cream: 'bg-slate-50',
+    charcoal: 'bg-near-black text-soft-white',
   }
 
   const paddings = {

@@ -18,37 +18,34 @@ import { Home, ArrowLeft } from 'lucide-react'
 export default function NotFound() {
   const router = useRouter()
   return (
-    <Section background="cream" padding="xl">
+    <Section background="default" padding="xl">
       <Container size="md">
         <div className="text-center">
           {/* 404 Number */}
           <div className="mb-8">
-            <h1 className="text-8xl md:text-9xl font-bold text-charcoal-800/20 mb-4">
+            <h1 className="text-8xl md:text-9xl font-bold text-near-black/20 mb-4">
               404
             </h1>
-            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-gold-400 to-transparent mx-auto"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-electric-teal to-transparent mx-auto"></div>
           </div>
 
           {/* Message */}
-          <h2 className="text-3xl md:text-4xl font-bold text-charcoal-800 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-near-black mb-4">
             Page Not Found
           </h2>
-          <p className="text-lg text-charcoal-600 mb-8 max-w-md mx-auto">
-            The page you're looking for doesn't exist or has been moved. 
-            Let's get you back on track.
+          <p className="text-lg text-slate-600 mb-8 max-w-md mx-auto">
+            The page you&apos;re looking for doesn&apos;t exist or has been moved. 
+            Let&apos;s get you back on track.
           </p>
 
           {/* Actions */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/">
-              <Button
-                variant="primary"
-                size="lg"
-                className="w-full sm:w-auto"
-              >
-                <Home className="w-5 h-5 mr-2 inline" />
-                Go Home
-              </Button>
+            <Link
+              href="/"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 transition-all duration-200 rounded-md w-full sm:w-auto"
+            >
+              <Home className="w-5 h-5 mr-2" />
+              Go Home
             </Link>
             <Button
               variant="outline"
@@ -62,19 +59,22 @@ export default function NotFound() {
           </div>
 
           {/* Helpful Links */}
-          <div className="mt-12 pt-8 border-t border-charcoal-200">
-            <p className="text-sm text-charcoal-500 mb-4">Or visit:</p>
+          <div className="mt-12 pt-8 border-t border-slate-200">
+            <p className="text-sm text-slate-500 mb-4">Or visit:</p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
-              <Link href="/services" className="text-charcoal-600 hover:text-charcoal-800 underline">
-                Services
+              <Link href="/solutions" className="text-slate-600 hover:text-near-black underline">
+                Solutions
               </Link>
-              <Link href="/how-it-works" className="text-charcoal-600 hover:text-charcoal-800 underline">
-                How It Works
+              <Link href="/doconnect" className="text-slate-600 hover:text-near-black underline">
+                Docconnect
               </Link>
-              <Link href="/about" className="text-charcoal-600 hover:text-charcoal-800 underline">
+              <Link href="/process" className="text-slate-600 hover:text-near-black underline">
+                Process
+              </Link>
+              <Link href="/about" className="text-slate-600 hover:text-near-black underline">
                 About
               </Link>
-              <Link href="/contact" className="text-charcoal-600 hover:text-charcoal-800 underline">
+              <Link href="/contact" className="text-slate-600 hover:text-near-black underline">
                 Contact
               </Link>
             </div>

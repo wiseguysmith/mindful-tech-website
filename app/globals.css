@@ -6,14 +6,20 @@
   :root {
     --font-inter: 'Inter', system-ui, sans-serif;
     --font-space-grotesk: 'Space Grotesk', system-ui, sans-serif;
+    /* Rebrand palette */
+    --near-black: #0B0F14;
+    --soft-white: #F5F7FA;
+    --slate: #5B6776;
+    --electric-teal: #14D3C3;
+    --deep-blue: #245BFF;
   }
 
   * {
-    @apply border-charcoal-200;
+    @apply border-slate-200;
   }
 
   body {
-    @apply bg-cream-50 text-charcoal-800 antialiased;
+    @apply bg-soft-white text-near-black antialiased;
     font-family: var(--font-inter);
   }
 
@@ -24,7 +30,7 @@
 
   /* Focus states for accessibility */
   *:focus-visible {
-    @apply outline-none ring-2 ring-gold-400 ring-offset-2 ring-offset-cream-50;
+    @apply outline-none ring-2 ring-electric-teal ring-offset-2 ring-offset-soft-white;
   }
 }
 

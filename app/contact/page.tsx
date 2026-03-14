@@ -67,7 +67,7 @@ export default function ContactPage() {
               Get In Touch
             </h1>
             <p className="text-xl text-charcoal-600">
-              Ready to unlock capital or automate operations? Let's talk.
+              Ready to unlock capital or automate operations? Let&apos;s talk.
             </p>
           </div>
         </Container>
@@ -84,7 +84,7 @@ export default function ContactPage() {
                   Thank you for your message!
                 </p>
                 <p className="text-charcoal-600">
-                  We'll get back to you within 24 hours.
+                  We&apos;ll get back to you within 24 hours.
                 </p>
               </div>
             ) : (

@@ -96,7 +96,7 @@ export default function QuickLeadForm({ isOpen, onClose }: QuickLeadFormProps) {
           <div className="text-center py-8">
             <SuccessIcon className="mx-auto mb-4" />
             <p className="text-gold-500 font-medium text-lg mb-2">
-              Thank you! We'll be in touch soon.
+              Thank you! We&apos;ll be in touch soon.
             </p>
             <p className="text-sm text-charcoal-600">
               Your form has been submitted successfully.

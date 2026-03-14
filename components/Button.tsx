@@ -22,12 +22,12 @@ export default function Button({
   children,
   ...props
 }: ButtonProps) {
-  const baseStyles = 'font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 focus-visible:ring-offset-2'
+  const baseStyles = 'font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-teal focus-visible:ring-offset-2'
   
   const variants = {
-    primary: 'bg-charcoal-800 text-cream-50 hover:bg-charcoal-700 active:bg-charcoal-900',
-    secondary: 'bg-gold-400 text-charcoal-800 hover:bg-gold-300 active:bg-gold-500',
-    outline: 'border-2 border-charcoal-800 text-charcoal-800 hover:bg-charcoal-800 hover:text-cream-50',
+    primary: 'bg-electric-teal text-near-black hover:bg-electric-teal/90 active:bg-electric-teal/80',
+    secondary: 'bg-deep-blue text-soft-white hover:bg-deep-blue/90 active:bg-deep-blue/80',
+    outline: 'border-2 border-electric-teal text-electric-teal hover:bg-electric-teal hover:text-near-black',
   }
   
   const sizes = {

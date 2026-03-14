@@ -84,7 +84,7 @@ export default function HowItWorksPage() {
           <Card className="text-center bg-gradient-to-br from-cream-100 to-gold-50/30">
             <h2 className="text-2xl font-bold mb-4">Ready to Start?</h2>
             <p className="text-charcoal-600 mb-6">
-              Let's discuss your asset and capital needs.
+              Let&apos;s discuss your asset and capital needs.
             </p>
             <Button
               variant="primary"

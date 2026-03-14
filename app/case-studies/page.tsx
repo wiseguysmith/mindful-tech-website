@@ -18,7 +18,7 @@ export default function CaseStudiesPage() {
               Case Studies
             </h1>
             <p className="text-xl text-charcoal-600">
-              Examples of capital rails structures we've designed. Results are placeholders—actual outcomes vary by asset and structure.
+              Examples of capital rails structures we&apos;ve designed. Results are placeholders—actual outcomes vary by asset and structure.
             </p>
           </div>
         </Container>
@@ -91,7 +91,7 @@ export default function CaseStudiesPage() {
           <Card className="text-center bg-gradient-to-br from-cream-100 to-gold-50/30">
             <h2 className="text-2xl font-bold mb-4">Have a Similar Asset?</h2>
             <p className="text-charcoal-600 mb-6">
-              Let's discuss how we can structure capital rails for your cash-flowing asset.
+              Let&apos;s discuss how we can structure capital rails for your cash-flowing asset.
             </p>
             <Button
               variant="primary"

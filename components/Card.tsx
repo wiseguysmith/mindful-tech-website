@@ -33,9 +33,9 @@ export default function Card({
     <div
       id={id}
       className={cn(
-        'bg-cream-50 border border-charcoal-200 rounded-lg',
+        'bg-soft-white border border-slate-200 rounded-lg',
         paddings[padding],
-        hover && 'transition-shadow duration-200 hover:shadow-lg hover:border-charcoal-300',
+        hover && 'transition-shadow duration-200 hover:shadow-lg hover:border-slate-300',
         className
       )}
     >

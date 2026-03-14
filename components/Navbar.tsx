@@ -4,34 +4,29 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 import Button from './Button'
-import QuickLeadForm from './QuickLeadForm'
 import { navigation, CALENDLY_URL } from '@/lib/site-data'
 import { cn } from '@/lib/utils'
 
 /**
  * Navbar Component
  * 
- * As your CTO mentor: This navbar is sticky (stays at top when scrolling)
- * and includes mobile responsiveness with a hamburger menu. Notice how we
- * use Next.js Link for client-side navigation (faster than full page reloads).
- * The QuickLeadForm is managed here since it's triggered by navbar CTAs.
+ * Sticky navigation with mobile menu. Uses Next.js Link for client-side navigation.
  */
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [quickLeadOpen, setQuickLeadOpen] = useState(false)
 
   return (
     <>
       {/* Backdrop overlay for mobile menu */}
       {mobileMenuOpen && (
         <div
-          className="fixed inset-0 bg-charcoal-800/20 backdrop-blur-sm z-30 md:hidden transition-opacity duration-300"
+          className="fixed inset-0 bg-near-black/20 backdrop-blur-sm z-30 md:hidden transition-opacity duration-300"
           onClick={() => setMobileMenuOpen(false)}
           aria-hidden="true"
         />
       )}
       <nav
-        className="sticky top-0 z-40 bg-cream-50/95 backdrop-blur-sm border-b border-charcoal-200"
+        className="sticky top-0 z-40 bg-soft-white/95 backdrop-blur-sm border-b border-slate-200"
         role="navigation"
         aria-label="Main navigation"
       >
@@ -39,10 +34,10 @@ export default function Navbar() {
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-baseline gap-1.5 group">
-              <span className="text-xl font-bold font-display text-charcoal-800 group-hover:text-charcoal-600 transition-colors">
+              <span className="text-xl font-bold font-display text-near-black group-hover:text-slate-600 transition-colors">
                 MindfulTech
               </span>
-              <span className="text-xs font-medium text-charcoal-400 group-hover:text-charcoal-500 transition-colors">
+              <span className="text-xs font-medium text-slate-400 group-hover:text-slate-500 transition-colors">
                 .services
               </span>
             </Link>
@@ -53,7 +48,7 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-sm font-medium text-charcoal-600 hover:text-charcoal-800 transition-colors"
+                  className="text-sm font-medium text-slate-600 hover:text-near-black transition-colors"
                 >
                   {item.name}
                 </Link>
@@ -62,26 +57,25 @@ export default function Navbar() {
 
             {/* Desktop CTAs */}
             <div className="hidden md:flex md:items-center md:gap-3">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => setQuickLeadOpen(true)}
+              <Link
+                href="/solutions"
+                className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium border-2 border-electric-teal text-electric-teal hover:bg-electric-teal hover:text-near-black transition-all duration-200 rounded-md"
               >
-                Quick Lead Form
-              </Button>
+                Explore Solutions
+              </Link>
               <Button
                 variant="primary"
                 size="sm"
                 onClick={() => window.open(CALENDLY_URL, '_blank')}
               >
-                Book a Call
+                Book a Strategy Call
               </Button>
             </div>
 
             {/* Mobile menu button */}
             <button
               type="button"
-              className="md:hidden p-2 text-charcoal-600 hover:text-charcoal-800 transition-transform duration-200"
+              className="md:hidden p-2 text-slate-600 hover:text-near-black transition-transform duration-200"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
               aria-expanded={mobileMenuOpen}
@@ -107,7 +101,7 @@ export default function Navbar() {
         {/* Mobile menu */}
         <div
           className={cn(
-            'md:hidden border-t border-charcoal-200 bg-cream-50 overflow-hidden transition-all duration-300 ease-in-out shadow-lg',
+            'md:hidden border-t border-slate-200 bg-soft-white overflow-hidden transition-all duration-300 ease-in-out shadow-lg',
             mobileMenuOpen
               ? 'max-h-screen opacity-100'
               : 'max-h-0 opacity-0 pointer-events-none'
@@ -119,7 +113,7 @@ export default function Navbar() {
                 key={item.name}
                 href={item.href}
                 className={cn(
-                  'block text-base font-medium text-charcoal-600 hover:text-charcoal-800 transition-all duration-200 hover:pl-2',
+                  'block text-base font-medium text-slate-600 hover:text-near-black transition-all duration-200 hover:pl-2',
                   mobileMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
                 )}
                 style={{
@@ -132,7 +126,7 @@ export default function Navbar() {
             ))}
             <div
               className={cn(
-                'pt-4 space-y-2 border-t border-charcoal-200 transition-all duration-300',
+                'pt-4 space-y-2 border-t border-slate-200 transition-all duration-300',
                 mobileMenuOpen
                   ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-4'
@@ -141,17 +135,13 @@ export default function Navbar() {
                 transitionDelay: mobileMenuOpen ? `${navigation.length * 50}ms` : '0ms',
               }}
             >
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full"
-                onClick={() => {
-                  setQuickLeadOpen(true)
-                  setMobileMenuOpen(false)
-                }}
+              <Link
+                href="/solutions"
+                className="inline-flex items-center justify-center w-full px-4 py-2 text-sm font-medium border-2 border-electric-teal text-electric-teal hover:bg-electric-teal hover:text-near-black transition-all duration-200 rounded-md"
+                onClick={() => setMobileMenuOpen(false)}
               >
-                Quick Lead Form
-              </Button>
+                Explore Solutions
+              </Link>
               <Button
                 variant="primary"
                 size="sm"
@@ -161,14 +151,12 @@ export default function Navbar() {
                   setMobileMenuOpen(false)
                 }}
               >
-                Book a Call
+                Book a Strategy Call
               </Button>
             </div>
           </div>
         </div>
       </nav>
-
-      <QuickLeadForm isOpen={quickLeadOpen} onClose={() => setQuickLeadOpen(false)} />
     </>
   )
 }

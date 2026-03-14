@@ -48,8 +48,8 @@ export default function AboutPage() {
             <Card>
               <h2 className="text-2xl font-bold mb-4">Approach</h2>
               <p className="text-charcoal-600 mb-4">
-                <strong>Structure-first, tokens-second:</strong> We don't start with tokens. We start with understanding 
-                your asset, cash flow, constraints, and capital needs. Then we design the right structure—whether that's 
+                <strong>Structure-first, tokens-second:</strong> We don&apos;t start with tokens. We start with understanding 
+                your asset, cash flow, constraints, and capital needs. Then we design the right structure—whether that&apos;s 
                 revenue participation, SPV, hybrid, or something else entirely.
               </p>
               <p className="text-charcoal-600 mb-4">
@@ -65,12 +65,12 @@ export default function AboutPage() {
             <Card>
               <h2 className="text-2xl font-bold mb-4">Founder Tone</h2>
               <p className="text-charcoal-600 mb-4">
-                Built by operators, for operators. We've built tokenization and automation projects, run events, 
+                Built by operators, for operators. We&apos;ve built tokenization and automation projects, run events, 
                 and led teams of 50+. We understand the challenges of scaling operations and unlocking capital 
-                because we've done it ourselves.
+                because we&apos;ve done it ourselves.
               </p>
               <p className="text-charcoal-600">
-                We're visionaries who execute. We combine technical expertise with operational experience, 
+                We&apos;re visionaries who execute. We combine technical expertise with operational experience, 
                 community building with structured finance. MindfulTech is the umbrella brand that brings 
                 together Digital Workers (automation) and Capital Rails (tokenization) under one mission.
               </p>

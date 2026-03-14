@@ -1,18 +1,197 @@
 /**
  * Site Data Configuration
- * 
- * As your CTO mentor: I'm centralizing all content here so you can easily
- * update copy without touching component code. This separation makes the site
- * maintainable and allows non-developers to update content.
+ * MindfulTech rebrand: Infrastructure for digital workers, connected systems, and protocol-ready businesses.
  */
-
-export type Edition = 'usa' | 'capital-rails'
 
 export const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/mindfultechnology'
 export const FORMSPREE_ENDPOINT = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || 'https://formspree.io/f/placeholder'
+export const DOCONNECT_URL = process.env.NEXT_PUBLIC_DOCONNECT_URL || 'https://docconnect-461217483312.us-east1.run.app'
 
-// Hero content for each edition
+// Hero (rebrand)
 export const heroContent = {
+  headline: 'Build Smarter Operations with AI, Automation, and Connected Protocols',
+  subhead: 'MindfulTech helps businesses deploy digital workers, automate revenue workflows, and plug into next-generation protocol infrastructure without the chaos.',
+  primaryCTA: 'Book a Strategy Call',
+  secondaryCTA: 'Explore Solutions',
+}
+
+// Trust / Positioning Strip
+export const trustStrip = [
+  'AI Agent Systems',
+  'Workflow Automation',
+  'Protocol Integrations',
+  'Secure Operational Design',
+  'Revenue & Compliance Flows',
+]
+
+// What We Do - 4 cards
+export const whatWeDoCards = [
+  {
+    title: 'AI Workers',
+    description: 'Deploy agents for lead handling, inbox triage, scheduling, client intake, research, and follow-up.',
+  },
+  {
+    title: 'Automation Systems',
+    description: 'Connect your CRM, forms, email, messaging, and databases into one reliable operating flow.',
+  },
+  {
+    title: 'Protocol Integrations',
+    description: 'Add modern connectivity layers such as Docconnect and related services where your business benefits from verifiable, interoperable workflows.',
+  },
+  {
+    title: 'Custom Buildouts',
+    description: 'For teams that need tailored logic, onboarding flows, dashboards, and secure internal tooling.',
+  },
+]
+
+// Who We Serve (Industries)
+export const industries = [
+  'Professional services',
+  'Real estate and title workflows',
+  'Hospitality and local service businesses',
+  'Clinics and operationally heavy teams',
+  'Protocol-native and Web3-adjacent ventures',
+]
+
+// Industries page content (expanded)
+export const industriesContent = [
+  {
+    title: 'Professional Services',
+    description: 'Law firms, consultancies, and service businesses that need intake automation, client routing, and workflow efficiency.',
+  },
+  {
+    title: 'Real Estate & Title Workflows',
+    description: 'Property managers, title companies, and real estate teams with document-heavy, compliance-sensitive operations.',
+  },
+  {
+    title: 'Hospitality & Local Services',
+    description: 'Hotels, restaurants, and local businesses that benefit from booking automation, guest communication, and operational flows.',
+  },
+  {
+    title: 'Clinics & Operationally Heavy Teams',
+    description: 'Healthcare-adjacent and operationally complex teams that need HIPAA-aware automation, scheduling, and intake.',
+  },
+  {
+    title: 'Protocol-Native & Web3-Adjacent Ventures',
+    description: 'Teams building on or integrating with protocols like Docconnect, seeking verifiable workflows and interoperable systems.',
+  },
+]
+
+// Solutions page content (expanded)
+export const solutionsContent = [
+  {
+    title: 'AI Workers',
+    description: 'Deploy agents for lead handling, inbox triage, scheduling, client intake, research, and follow-up.',
+    features: ['Lead capture & triage', 'Inbox automation', 'Scheduling & reminders', 'Client intake flows', 'Research & follow-up'],
+  },
+  {
+    title: 'Automation Systems',
+    description: 'Connect your CRM, forms, email, messaging, and databases into one reliable operating flow.',
+    features: ['CRM integration', 'Form & document intake', 'Email & messaging', 'Database sync', 'End-to-end workflows'],
+  },
+  {
+    title: 'Protocol Integrations',
+    description: 'Add modern connectivity layers such as Docconnect and related services where your business benefits from verifiable, interoperable workflows.',
+    features: ['Docconnect integration', 'Verifiable workflows', 'Interoperable systems', 'Compliance design', 'Partner routing'],
+  },
+  {
+    title: 'Custom Buildouts',
+    description: 'For teams that need tailored logic, onboarding flows, dashboards, and secure internal tooling.',
+    features: ['Custom dashboards', 'Onboarding flows', 'Internal tooling', 'Secure portals', 'Tailored logic'],
+  },
+]
+
+// Docconnect content
+export const doconnectContent = {
+  headline: 'Docconnect Solutions',
+  intro: 'We help businesses evaluate, integrate, and operationalize Docconnect-based workflows where protocol connectivity can improve coordination, access, service delivery, or transaction flow.',
+  services: [
+    'Docconnect strategy and use-case design',
+    'API / protocol integration planning',
+    'Workflow mapping for Docconnect-enabled services',
+    'Front-end pages for onboarding into Docconnect flows',
+    'Partner routing and service handoff logic',
+    'Compliance-aware documentation and operations design',
+    'CRM / inbox / form integrations around Docconnect interactions',
+    'Custom dashboards for activity, requests, and handoffs',
+  ],
+  ctas: [
+    { label: 'Talk About a Docconnect Integration', href: CALENDLY_URL },
+    { label: 'See Docconnect Use Cases', href: '/doconnect#use-cases' },
+    { label: 'Build a Docconnect Workflow', href: '/doconnect/apply' },
+  ],
+  notarizeNowUrl: DOCONNECT_URL,
+}
+
+// Add-ons / Linked Services
+export const addOns = [
+  'Identity / onboarding flows',
+  'Form and document intake',
+  'Scheduling and routing',
+  'CRM sync',
+  'Notification systems (email, SMS, WhatsApp)',
+  'Payment collection or invoicing',
+  'Analytics dashboards',
+  'Admin portals',
+  'Knowledge base / support automation',
+  'Secure client portals',
+]
+
+// Process - How we build
+export const processSteps = [
+  { step: 1, title: 'Audit the workflow', description: 'Understand current processes and pain points.' },
+  { step: 2, title: 'Map the system', description: 'Design the architecture and data flows.' },
+  { step: 3, title: 'Design the logic', description: 'Define rules, automations, and integrations.' },
+  { step: 4, title: 'Integrate the tools / protocol', description: 'Connect CRM, forms, Docconnect, and other systems.' },
+  { step: 5, title: 'Launch, test, and refine', description: 'Deploy, monitor, and iterate.' },
+]
+
+// Why MindfulTech
+export const whyMindfulTech = [
+  'We design for actual operations, not just demos',
+  'We connect tools people already use',
+  'We build for security, scale, and clarity',
+  'We can bridge traditional business workflows with newer protocol layers',
+]
+
+// CTA Band
+export const ctaBand = {
+  headline: 'Need a system that can think, route, and connect?',
+  subhead: "Let's design the right stack for your business.",
+  cta: 'Book a Strategy Call',
+}
+
+// Navigation (rebrand)
+export const navigation = [
+  { name: 'Home', href: '/' },
+  { name: 'Solutions', href: '/solutions' },
+  { name: 'Docconnect', href: '/doconnect' },
+  { name: 'Industries', href: '/industries' },
+  { name: 'Process', href: '/process' },
+  { name: 'About', href: '/about' },
+  { name: 'Contact', href: '/contact' },
+]
+
+// Footer (rebrand)
+export const footerContent = {
+  phone: '+1 720-891-6563',
+  email: 'info@mindfultech.services',
+  links: [
+    { name: 'Docconnect Services', href: '/doconnect' },
+    { name: 'Protocol Integrations', href: '/solutions#protocol' },
+    { name: 'Privacy', href: '/privacy' },
+    { name: 'Terms', href: '/terms' },
+    { name: 'Contact', href: '/contact' },
+  ],
+  social: [
+    { name: 'LinkedIn', href: 'https://linkedin.com/company/mindfultech' },
+  ],
+  disclaimer: 'Not legal, tax, or investment advice.',
+}
+
+// Legacy exports (for Solutions, About, FAQ pages - migrate gradually)
+export type Edition = 'usa' | 'capital-rails'
+export const heroContentLegacy = {
   'capital-rails': {
     headline: 'Turn real-world cash flow into global capital — without selling control.',
     subhead: 'We design capital rails for cash-flowing assets: revenue participation, SPV + token hybrids, and de-risked pilots. Structure first. Tokens second.',
@@ -352,8 +531,8 @@ export const faqs = {
   ],
 }
 
-// Navigation
-export const navigation = [
+// Legacy navigation (replaced by rebrand navigation above)
+export const navigationLegacy = [
   { name: 'Home', href: '/' },
   { name: 'Services', href: '/services' },
   { name: 'How It Works', href: '/how-it-works' },
@@ -362,15 +541,4 @@ export const navigation = [
   { name: 'Contact', href: '/contact' },
   { name: 'FAQ', href: '/faq' },
 ]
-
-// Footer
-export const footerContent = {
-  phone: '+1 720-891-6563',
-  email: 'info@mindfultech.services',
-  links: [
-    { name: 'Privacy', href: '/privacy' },
-    { name: 'Terms', href: '/terms' },
-  ],
-  disclaimer: 'Not legal, tax, or investment advice.',
-}
 
