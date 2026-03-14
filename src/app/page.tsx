@@ -5,6 +5,8 @@
  * Build the Minds That Work While You Surf.
  */
 
+import Image from 'next/image';
+
 export default function HomePage() {
   return (
     <div className="min-h-screen">
@@ -13,9 +15,11 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 relative">
             <div className="flex items-center space-x-3">
-              <img 
+              <Image 
                 src="/logo-mark.svg" 
                 alt="MindfulTech Logo" 
+                width={40}
+                height={40}
                 className="w-10 h-10"
               />
               <span className="text-xl font-bold text-gray-800">MindfulTech</span>
@@ -55,9 +59,11 @@ export default function HomePage() {
                 <div className="flex items-center justify-center mb-4">
                   <div className="relative">
                     <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-teal-400 rounded-full blur-lg opacity-60"></div>
-                    <img 
+                    <Image 
                       src="/logo-mark.svg" 
                       alt="MindfulTech Logo" 
+                      width={64}
+                      height={64}
                       className="relative w-16 h-16 mr-4 drop-shadow-2xl"
                     />
                   </div>
@@ -409,9 +415,11 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-3 mb-4">
-                <img 
+                <Image 
                   src="/logo-mark.svg" 
                   alt="MindfulTech Logo" 
+                  width={32}
+                  height={32}
                   className="w-8 h-8"
                 />
                 <h3 className="text-xl font-semibold">MindfulTech</h3>
