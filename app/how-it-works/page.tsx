@@ -5,7 +5,7 @@ import Container from '@/components/Container'
 import Card from '@/components/Card'
 import Button from '@/components/Button'
 import { howItWorksSteps, whatWeNeed, CALENDLY_URL } from '@/lib/site-data'
-import { CheckCircle2, ArrowRight } from 'lucide-react'
+import { CheckCircle2 } from 'lucide-react'
 
 export default function HowItWorksPage() {
   return (

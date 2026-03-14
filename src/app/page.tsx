@@ -313,7 +313,7 @@ export default function HomePage() {
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-300 to-transparent"></div>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <blockquote className="text-2xl md:text-3xl font-medium text-gray-800 mb-6">
-              "More tours, fewer tabs. Pura vida."
+              {`"More tours, fewer tabs. Pura vida."`}
             </blockquote>
             <cite className="text-lg text-gray-600">
               — DreamUp Property Management
@@ -363,9 +363,9 @@ export default function HomePage() {
             
             <div className="bg-gray-50 rounded-xl p-8 text-center">
               <h3 className="text-2xl font-bold text-gray-800 mb-4">Trust Block</h3>
-              <p className="text-lg text-gray-600 mb-6">"Built in Costa Rica. Backed by real outcomes."</p>
+              <p className="text-lg text-gray-600 mb-6">{`"Built in Costa Rica. Backed by real outcomes."`}</p>
               <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-500">
-                <span>Data is yours; we don't resell</span>
+                <span>{`Data is yours; we don't resell`}</span>
                 <span>•</span>
                 <span>AI suggests; humans approve when sensitive</span>
                 <span>•</span>

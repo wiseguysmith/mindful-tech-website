@@ -318,7 +318,7 @@ function LeadFormTwoStep() {
               Submit
             </button>
             <div className="text-xs text-slate-500 mt-4">
-              We'll reply same day with next steps.
+              {`We'll reply same day with next steps.`}
             </div>
           </div>
         )}
@@ -555,7 +555,7 @@ export default function USA_LandingPage() {
         <section className="max-w-7xl mx-auto px-6 py-16">
           <div className="rounded-3xl border bg-white p-6 md:p-8 shadow-sm">
             <h3 className="text-xl md:text-2xl font-semibold text-[var(--mt-navy)]">Talk to a Solutions Architect</h3>
-            <p className="mt-2 text-slate-700">Bring a workflow you hate. We'll design a digital worker to eliminate it.</p>
+            <p className="mt-2 text-slate-700">{`Bring a workflow you hate. We'll design a digital worker to eliminate it.`}</p>
             <div className="mt-4 grid md:grid-cols-3 gap-4 text-sm">
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-[var(--mt-teal)]"/> 

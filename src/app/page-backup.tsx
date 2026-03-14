@@ -11,7 +11,6 @@ import Hero from '@/components/Hero';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CTAWhatsApp from '@/components/CTAWhatsApp';
-import Image from 'next/image';
 
 export default async function HomePage() {
   const t = await getTranslations();
@@ -137,7 +136,7 @@ export default async function HomePage() {
         <section className="py-20 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <blockquote className="text-2xl md:text-3xl font-heading font-medium text-charcoal mb-6">
-              "{t('home.testimonial.quote')}"
+              {`"${t('home.testimonial.quote')}"`}
             </blockquote>
             <cite className="text-lg text-muted">
               — {t('home.testimonial.author')}

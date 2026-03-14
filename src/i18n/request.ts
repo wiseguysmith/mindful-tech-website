@@ -8,9 +8,15 @@
 import { getRequestConfig } from 'next-intl/server';
 import { config } from '@/lib/config';
 
-export default getRequestConfig(async ({ locale }) => {
+const isSupportedLocale = (
+  value: string
+): value is (typeof config.i18n.locales)[number] => {
+  return (config.i18n.locales as readonly string[]).includes(value);
+};
+
+export default getRequestConfig(async ({ locale }: { locale?: string }) => {
   // Validate that the incoming `locale` parameter is valid
-  if (!locale || !config.i18n.locales.includes(locale as any)) {
+  if (!locale || !isSupportedLocale(locale)) {
     // Default to English if invalid locale
     locale = config.i18n.defaultLocale;
   }

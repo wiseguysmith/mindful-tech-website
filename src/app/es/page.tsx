@@ -134,7 +134,7 @@ export default async function SpanishHomePage() {
         <section className="py-20 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <blockquote className="text-2xl md:text-3xl font-heading font-medium text-charcoal mb-6">
-              "{t('home.testimonial.quote')}"
+              {`"${t('home.testimonial.quote')}"`}
             </blockquote>
             <cite className="text-lg text-muted">
               — {t('home.testimonial.author')}

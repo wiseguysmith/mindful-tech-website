@@ -10,7 +10,6 @@ import { getTranslations } from 'next-intl/server';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CTAWhatsApp from '@/components/CTAWhatsApp';
-import Image from 'next/image';
 
 export default async function TrialPage() {
   const t = await getTranslations();
@@ -86,7 +85,7 @@ export default async function TrialPage() {
                 {t('trial.whatWeNeed.title')}
               </h2>
               <p className="text-lg text-muted">
-                We'll need these from you to get started
+                {`We'll need these from you to get started`}
               </p>
             </div>
             
