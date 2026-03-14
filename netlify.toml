@@ -9,3 +9,16 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+# Redirects (backup for Next.js redirects)
+[[redirects]]
+  from = "/services"
+  to = "/solutions"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/how-it-works"
+  to = "/process"
+  status = 301
+  force = true
