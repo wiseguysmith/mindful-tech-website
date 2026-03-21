@@ -37,7 +37,7 @@ export default function DoconnectSection() {
             href={doconnectContent.notarizeNowUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-deep-blue text-soft-white hover:bg-deep-blue/90 transition-all duration-200 rounded-md"
+            className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 transition-all duration-200 rounded-md"
           >
             Notarize Now
           </a>

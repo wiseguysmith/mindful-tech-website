@@ -79,3 +79,28 @@ html {
   animation: checkmark 0.6s ease-out 0.1s both;
 }
 
+/* Tokenization page - distinct design layer */
+.bg-tokenization-dots {
+  background-image: radial-gradient(circle at 1px 1px, rgba(20, 211, 195, 0.08) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.bg-tokenization-grid {
+  background-image: 
+    linear-gradient(rgba(11, 15, 20, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11, 15, 20, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.section-label {
+  @apply text-xs font-semibold uppercase tracking-[0.2em] text-electric-teal mb-3;
+}
+
+.card-elevated {
+  @apply bg-soft-white border border-slate-200 rounded-xl shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-200;
+}
+
+.card-proof {
+  @apply bg-soft-white border border-slate-200 rounded-xl shadow-md border-l-4 border-l-electric-teal hover:shadow-lg transition-all duration-200;
+}
+

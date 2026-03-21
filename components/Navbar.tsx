@@ -31,28 +31,37 @@ export default function Navbar() {
         aria-label="Main navigation"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between">
+          <div className="flex h-16 items-center justify-between gap-6 lg:gap-8">
             {/* Logo */}
-            <Link href="/" className="flex items-baseline gap-1.5 group">
+            <Link href="/" className="flex items-baseline group shrink-0">
               <span className="text-xl font-bold font-display text-near-black group-hover:text-slate-600 transition-colors">
                 MindfulTech
-              </span>
-              <span className="text-xs font-medium text-slate-400 group-hover:text-slate-500 transition-colors">
-                .services
               </span>
             </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex md:items-center md:gap-6">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="text-sm font-medium text-slate-600 hover:text-near-black transition-colors"
-                >
-                  {item.name}
-                </Link>
-              ))}
+              {navigation.map((item) =>
+                item.external ? (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-medium text-slate-600 hover:text-near-black transition-colors"
+                  >
+                    {item.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="text-sm font-medium text-slate-600 hover:text-near-black transition-colors"
+                  >
+                    {item.name}
+                  </Link>
+                )
+              )}
             </div>
 
             {/* Desktop CTAs */}
@@ -108,22 +117,41 @@ export default function Navbar() {
           )}
         >
           <div className="px-4 py-4 space-y-3">
-            {navigation.map((item, idx) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={cn(
-                  'block text-base font-medium text-slate-600 hover:text-near-black transition-all duration-200 hover:pl-2',
-                  mobileMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
-                )}
-                style={{
-                  transitionDelay: mobileMenuOpen ? `${idx * 50}ms` : '0ms',
-                }}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navigation.map((item, idx) =>
+              item.external ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    'block text-base font-medium text-slate-600 hover:text-near-black transition-all duration-200 hover:pl-2',
+                    mobileMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
+                  )}
+                  style={{
+                    transitionDelay: mobileMenuOpen ? `${idx * 50}ms` : '0ms',
+                  }}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={cn(
+                    'block text-base font-medium text-slate-600 hover:text-near-black transition-all duration-200 hover:pl-2',
+                    mobileMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
+                  )}
+                  style={{
+                    transitionDelay: mobileMenuOpen ? `${idx * 50}ms` : '0ms',
+                  }}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              )
+            )}
             <div
               className={cn(
                 'pt-4 space-y-2 border-t border-slate-200 transition-all duration-300',

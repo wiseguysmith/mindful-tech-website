@@ -1,10 +1,11 @@
 import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
 
 /**
- * Middleware - pass-through for main app.
- * next-intl middleware was causing routing issues on Netlify (app has no [locale] segment).
+ * Middleware - TEMPORARILY DISABLED to test if it causes /about invalid response.
+ * Matcher excludes all to effectively disable.
  */
-export default function middleware() {
+export default function middleware(req: NextRequest) {
   return NextResponse.next();
 }
 

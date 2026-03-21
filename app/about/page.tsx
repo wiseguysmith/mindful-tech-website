@@ -1,187 +1,108 @@
-import type { Metadata } from 'next'
+import Image from 'next/image'
 import Section from '@/components/Section'
 import Container from '@/components/Container'
 import Card from '@/components/Card'
-import { credibility } from '@/lib/site-data'
+import { teamMembers, credibility, CALENDLY_URL } from '@/lib/site-data'
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'About',
   description: 'Mission: unlock capital ethically, build investor-grade rails, empower LATAM + U.S.',
 }
 
-export const dynamic = 'force-dynamic'
-
 export default function AboutPage() {
   return (
     <>
-      {/* Hero */}
+      {/* Hero / Mission */}
       <Section background="cream" padding="xl">
         <Container>
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-near-black mb-4">
               About MindfulTech
             </h1>
-            <p className="text-xl text-charcoal-600">
+            <p className="text-xl text-slate-600 mb-8">
               Unlocking capital ethically. Building investor-grade rails. Empowering LATAM + U.S.
+            </p>
+            <p className="text-slate-700">
+              We design and build infrastructure for digital workers, connected systems, and protocol-ready businesses—with experience across tokenization, AI agents, and operational automation.
             </p>
           </div>
         </Container>
       </Section>
 
-      {/* Mission */}
+      {/* Team */}
       <Section>
         <Container>
-          <div className="max-w-3xl mx-auto space-y-8">
-            <Card>
-              <h2 className="text-2xl font-bold mb-4">Mission</h2>
-              <p className="text-charcoal-600 mb-4">
-                We design capital rails for cash-flowing assets with a structure-first, tokens-second approach. 
-                Our mission is to unlock capital ethically—without requiring asset owners to sell control—while 
-                providing investors with visibility, predictable distributions, and structured downside protection.
-              </p>
-              <p className="text-charcoal-600">
-                We believe in building investor-grade infrastructure that works for both asset owners and investors, 
-                with guardrails by default and transparency at every step.
-              </p>
-            </Card>
-
-            <Card>
-              <h2 className="text-2xl font-bold mb-4">Approach</h2>
-              <p className="text-charcoal-600 mb-4">
-                <strong>Structure-first, tokens-second:</strong> We don&apos;t start with tokens. We start with understanding 
-                your asset, cash flow, constraints, and capital needs. Then we design the right structure—whether that&apos;s 
-                revenue participation, SPV, hybrid, or something else entirely.
-              </p>
-              <p className="text-charcoal-600 mb-4">
-                <strong>Guardrails by default:</strong> Every structure includes built-in protections for both asset owners 
-                and investors. We design for transparency, compliance, and risk management from day one.
-              </p>
-              <p className="text-charcoal-600">
-                <strong>LATAM + U.S. execution:</strong> We work across jurisdictions, understanding regulatory landscapes 
-                and designing structures that work within legal frameworks while maximizing flexibility.
-              </p>
-            </Card>
-
-            <Card>
-              <h2 className="text-2xl font-bold mb-4">Founder Tone</h2>
-              <p className="text-charcoal-600 mb-4">
-                Built by operators, for operators. We&apos;ve built tokenization and automation projects, run events, 
-                and led teams of 50+. We understand the challenges of scaling operations and unlocking capital 
-                because we&apos;ve done it ourselves.
-              </p>
-              <p className="text-charcoal-600">
-                We&apos;re visionaries who execute. We combine technical expertise with operational experience, 
-                community building with structured finance. MindfulTech is the umbrella brand that brings 
-                together Digital Workers (automation) and Capital Rails (tokenization) under one mission.
-              </p>
-            </Card>
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-near-black mb-12">
+            Leadership Team
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {teamMembers.map((member) => (
+              <Card key={member.name} hover className="text-center">
+                <div className="relative w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-slate-100">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover"
+                    sizes="128px"
+                    unoptimized
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-near-black">{member.name}</h3>
+                <p className="text-electric-teal font-medium mb-4">{member.title}</p>
+                <p className="text-sm text-slate-600 text-left">{member.bio}</p>
+              </Card>
+            ))}
           </div>
         </Container>
       </Section>
 
       {/* Credibility */}
-      <Section background="cream">
+      <Section>
         <Container>
-          <div className="text-center">
-            <h2 className="text-3xl font-bold mb-8">Built by Operators</h2>
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
-              {credibility.achievements.map((achievement, idx) => (
-                <Card key={idx} className="inline-block">
-                  <p className="text-sm font-medium">{achievement}</p>
-                </Card>
-              ))}
-            </div>
-            <div>
-              <p className="text-sm text-charcoal-600 mb-12 font-medium uppercase tracking-wider text-center">
-                Partners & Collaborators
-              </p>
-              
-              {/* Grouped by Region - Elegant Two-Column Layout */}
-              <div className="grid md:grid-cols-2 gap-16 max-w-5xl mx-auto">
-                {/* LATAM Partners */}
-                <div className="relative">
-                  {/* Decorative line */}
-                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-px h-full bg-gradient-to-b from-transparent via-charcoal-200 to-transparent hidden md:block"></div>
-                  
-                  <div className="space-y-6">
-                    <div className="flex items-center justify-center gap-3 mb-8">
-                      <div className="h-px flex-1 max-w-16 bg-gradient-to-r from-transparent to-charcoal-300"></div>
-                      <div className="flex items-center gap-2">
-                        <span className="text-lg">🌎</span>
-                        <span className="text-xs font-semibold text-charcoal-500 uppercase tracking-wider">
-                          LATAM
-                        </span>
-                      </div>
-                      <div className="h-px flex-1 max-w-16 bg-gradient-to-l from-transparent to-charcoal-300"></div>
-                    </div>
-                    <div className="flex flex-wrap justify-center gap-3">
-                      {credibility.partners
-                        .filter((p) => p.location === 'LATAM')
-                        .map((partner, idx) => (
-                          <div
-                            key={idx}
-                            className="group relative"
-                            title={`${partner.country}`}
-                          >
-                            <Card className="inline-block bg-white transition-all duration-300 group-hover:shadow-lg group-hover:scale-105 cursor-default">
-                              <p className="text-sm font-medium flex items-center gap-2.5 py-1">
-                                <span className="text-lg leading-none">{partner.flag}</span>
-                                <span>{partner.name}</span>
-                              </p>
-                            </Card>
-                            <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                              <span className="text-xs text-charcoal-400 whitespace-nowrap font-medium">
-                                {partner.country}
-                              </span>
-                            </div>
-                          </div>
-                        ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* US Partners */}
-                <div className="space-y-6">
-                  <div className="flex items-center justify-center gap-3 mb-8">
-                    <div className="h-px flex-1 max-w-16 bg-gradient-to-r from-transparent to-charcoal-300"></div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-lg">🇺🇸</span>
-                      <span className="text-xs font-semibold text-charcoal-500 uppercase tracking-wider">
-                        United States
-                      </span>
-                    </div>
-                    <div className="h-px flex-1 max-w-16 bg-gradient-to-l from-transparent to-charcoal-300"></div>
-                  </div>
-                  <div className="flex flex-wrap justify-center gap-3">
-                    {credibility.partners
-                      .filter((p) => p.location === 'US')
-                      .map((partner, idx) => (
-                        <div
-                          key={idx}
-                          className="group relative"
-                          title={`${partner.country}`}
-                        >
-                          <Card className="inline-block bg-white transition-all duration-300 group-hover:shadow-lg group-hover:scale-105 cursor-default">
-                            <p className="text-sm font-medium flex items-center gap-2.5 py-1">
-                              <span className="text-lg leading-none">{partner.flag}</span>
-                              <span>{partner.name}</span>
-                            </p>
-                          </Card>
-                          <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                            <span className="text-xs text-charcoal-400 whitespace-nowrap font-medium">
-                              {partner.country}
-                            </span>
-                          </div>
-                        </div>
-                      ))}
-                  </div>
-                </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-near-black mb-12">
+            Experience & Partners
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <Card>
+              <h3 className="text-lg font-bold text-near-black mb-4">Achievements</h3>
+              <ul className="space-y-2">
+                {credibility.achievements.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-2 text-slate-700">
+                    <span className="text-electric-teal">•</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </Card>
+            <Card>
+              <h3 className="text-lg font-bold text-near-black mb-4">Partner Geography</h3>
+              <div className="flex flex-wrap gap-3">
+                {credibility.partners.map((p) => (
+                  <span
+                    key={p.name}
+                    className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-100 text-slate-700 text-sm"
+                  >
+                    <span>{p.flag}</span>
+                    <span className="font-medium">{p.name}</span>
+                    <span className="text-slate-500">({p.country})</span>
+                  </span>
+                ))}
               </div>
-            </div>
+            </Card>
+          </div>
+          <div className="text-center">
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 transition-colors rounded-md"
+            >
+              Book a Strategy Call
+            </a>
           </div>
         </Container>
       </Section>
     </>
   )
 }
-

@@ -165,18 +165,126 @@ export const ctaBand = {
 export const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Solutions', href: '/solutions' },
-  { name: 'Docconnect', href: '/doconnect' },
+  { name: 'Tokenization', href: '/tokenization' },
+  { name: 'Docconnect', href: 'https://docconnect-461217483312.us-east1.run.app/#', external: true },
   { name: 'Industries', href: '/industries' },
   { name: 'Process', href: '/process' },
   { name: 'About', href: '/about' },
   { name: 'Contact', href: '/contact' },
 ]
 
+// Tokenization page content
+export const tokenizationContent = {
+  hero: {
+    headline: 'Global Tokenization Infrastructure',
+    subhead: 'We design and build tokenization rails for revenue, assets, and equity—with experience across real estate, carbon credits, and community-led sovereign reserves.',
+    primaryCTA: 'Book a Strategy Call',
+    secondaryCTA: 'Explore Our Process',
+  },
+  trustStrip: [
+    'Lofty.ai',
+    'NECOM',
+    'ABR Wealth Fund DAO',
+    'Greenchain',
+    'Carbon Credits',
+    'Revenue • Assets • Equity',
+  ],
+  whatWeTokenize: [
+    {
+      title: 'Revenue Tokenization',
+      description: 'Turn cash-flowing assets into tokenized revenue participation—without selling ownership. SPV + token hybrids, automated distributions, investor-grade visibility.',
+    },
+    {
+      title: 'Asset Tokenization',
+      description: 'Real estate, carbon credits, and physical assets on-chain. Verifiable ownership, compliant structures, interoperable settlement.',
+    },
+    {
+      title: 'Equity & Governance',
+      description: 'Token-based ownership, DAO structures, and community-led treasuries. From Wyoming DAO LLCs to sovereign Bitcoin reserves.',
+    },
+  ],
+  abr: {
+    title: 'Altgeld Bitcoin Reserve (ABR)',
+    subtitle: 'The first community-operated Bitcoin treasury in the United States',
+    location: 'Altgeld Gardens, Chicago',
+    structure: 'Wyoming DAO LLC',
+    highlights: [
+      'First community-operated Bitcoin treasury in the United States, founded in Altgeld Gardens, Chicago.',
+      'Structured as a Wyoming DAO LLC with secure 2-of-3 multisig cold storage vault.',
+      'Bitcoin Reserve Act passed—building a sovereign fund for the Bitcoin community in Chicago.',
+      'Mission: Long-term financial sovereignty for underserved Black communities through Bitcoin savings, education, and decentralized governance.',
+      '21-year plan: Youth mentorship, financial literacy, peace incentives, rent relief, homeownership, local entrepreneurship—funded without ever selling Bitcoin.',
+    ],
+    tagline: "This is not charity. This is not hype. This is a model for permanent empowerment. ABR isn't just stacking sats. We're stacking hope, trust, and ownership—on the blockchain.",
+    role: 'MindfulTech is on the team building ABR.',
+  },
+  partners: [
+    {
+      name: 'ABR Wealth Fund DAO',
+      description: 'Community-operated Bitcoin treasury. Chicago. Bitcoin Reserve Act. Sovereign fund for underserved communities.',
+      initials: 'ABR',
+    },
+    {
+      name: 'Greenchain',
+      description: 'Sustainability and blockchain infrastructure.',
+      initials: 'GC',
+    },
+    {
+      name: 'Lofty.ai',
+      description: 'Real estate tokenization platform. Part of the build team.',
+      initials: 'L',
+    },
+    {
+      name: 'NECOM',
+      description: 'Carbon credit tokenization. On the team.',
+      initials: 'N',
+    },
+  ],
+  techStack: [
+    { name: 'Cardano', category: 'L1' },
+    { name: 'Ethereum', category: 'L1' },
+    { name: 'Base', category: 'L2' },
+    { name: 'Bitcoin L1', category: 'L1' },
+    { name: 'Stablecoins', category: 'Assets' },
+    { name: 'Fintech Rails', category: 'Infrastructure' },
+    { name: 'AI Multi-Agent Orchestration', category: 'AI' },
+    { name: 'Chainlink Oracles', category: 'Infrastructure' },
+    { name: 'Chainlink CCIP', category: 'Infrastructure' },
+  ],
+  processSteps: [
+    { step: 1, title: 'Discovery & Fit', description: 'Understand your asset, regulatory context, and tokenization goals.' },
+    { step: 2, title: 'Structure Design', description: 'Design compliant structures—revenue participation, SPV, DAO, or hybrid.' },
+    { step: 3, title: 'Technical Architecture', description: 'Smart contracts, oracles, custody, and chain selection.' },
+    { step: 4, title: 'Build & Integrate', description: 'Deploy infrastructure, connect fintech rails, orchestrate agents.' },
+    { step: 5, title: 'Launch & Governance', description: 'Go live, monitor, and iterate on governance and operations.' },
+  ],
+  useCases: [
+    {
+      title: 'Real Estate Tokenization',
+      description: 'Fractional ownership, revenue participation, and liquidity for property portfolios. Built Lofty.ai.',
+    },
+    {
+      title: 'Carbon Credit Tokenization',
+      description: 'On-chain carbon credits with verifiable provenance. NECOM.',
+    },
+    {
+      title: 'Community Bitcoin Reserves',
+      description: 'Sovereign reserves, DAO governance, multisig custody. ABR Wealth Fund DAO.',
+    },
+    {
+      title: 'Revenue Participation & SPVs',
+      description: 'Tokenized revenue slices, automated distributions, investor reporting.',
+    },
+  ],
+  disclaimer: 'This is not legal, tax, or investment advice. Tokenization structures vary by jurisdiction and asset type. Consult qualified professionals for your situation.',
+}
+
 // Footer (rebrand)
 export const footerContent = {
   phone: '+1 720-891-6563',
   email: 'info@mindfultech.services',
   links: [
+    { name: 'Tokenization', href: '/tokenization' },
     { name: 'Docconnect Services', href: '/doconnect' },
     { name: 'Protocol Integrations', href: '/solutions#protocol' },
     { name: 'Privacy', href: '/privacy' },
@@ -386,6 +494,28 @@ export const whoWeServe = [
       'Compliance-first structures',
       'Pilot program design',
     ],
+  },
+]
+
+// Team
+export const teamMembers = [
+  {
+    name: 'Elijah Smith',
+    title: 'CEO',
+    image: '/team/elijah-smith.png',
+    bio: 'Software engineer and blockchain developer with experience across Ethereum, Bitcoin, and Cardano. Chainlink Oracles & CCIP certified. Founder of Empower, a national tech and wellness event with 1,000+ attendees. Led fundraising for NECOM, a LATAM carbon credit tokenization protocol. Started MindfulTech from a belief that AI and blockchain can either advance or fracture society—it depends on how mindfully we apply it.',
+  },
+  {
+    name: 'Deependra Tyagi',
+    title: 'CTO',
+    image: '/team/deependra-tyagi.png',
+    bio: 'Deependra drives technical implementation at MindfulTech. A co-founder with 10+ years in AI multi-agent orchestration, he has built 100+ agent systems and led engineering teams at Allstate, the American insurance company, for seven years. University of Kentucky. Brings startup and enterprise experience to shipping AI and automation that works.',
+  },
+  {
+    name: 'Lucy Michalski',
+    title: 'Head of Digital Product Design',
+    image: '/team/lucy-michalski.png',
+    bio: 'Lucy owns the overall product experience at MindfulTech. A design leader with background in ecommerce UI/UX, brand design, and marketing for startups and organizations across multiple industries. Transylvania University. Uses Figma and design systems to shape how users experience AI and automation.',
   },
 ]
 

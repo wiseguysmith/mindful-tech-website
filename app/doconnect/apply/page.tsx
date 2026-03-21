@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function DocconnectApplyPage() {
   return (
-    <Section padding="xl">
+    <Section padding="xl" background="cream">
       <Container size="md">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-near-black mb-4">
