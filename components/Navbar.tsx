@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
-import Button from './Button'
 import { navigation, CALENDLY_URL } from '@/lib/site-data'
 import { cn } from '@/lib/utils'
 
@@ -72,13 +71,14 @@ export default function Navbar() {
               >
                 Explore Solutions
               </Link>
-              <Button
-                variant="primary"
-                size="sm"
-                onClick={() => window.open(CALENDLY_URL, '_blank')}
+              <a
+                href={CALENDLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 transition-colors rounded-md"
               >
                 Book a Strategy Call
-              </Button>
+              </a>
             </div>
 
             {/* Mobile menu button */}
@@ -170,17 +170,15 @@ export default function Navbar() {
               >
                 Explore Solutions
               </Link>
-              <Button
-                variant="primary"
-                size="sm"
-                className="w-full"
-                onClick={() => {
-                  window.open(CALENDLY_URL, '_blank')
-                  setMobileMenuOpen(false)
-                }}
+              <a
+                href={CALENDLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-full px-4 py-2 text-sm font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 transition-colors rounded-md"
+                onClick={() => setMobileMenuOpen(false)}
               >
                 Book a Strategy Call
-              </Button>
+              </a>
             </div>
           </div>
         </div>

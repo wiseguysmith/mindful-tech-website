@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Button from './Button'
 import { CALENDLY_URL } from '@/lib/site-data'
 
 interface CalendlyEmbedProps {
@@ -38,12 +37,14 @@ export default function CalendlyEmbed({ className }: CalendlyEmbedProps) {
             <p className="text-charcoal-600 mb-4">
               Unable to load calendar. Please click below to schedule.
             </p>
-            <Button
-              variant="primary"
-              onClick={() => window.open(CALENDLY_URL, '_blank')}
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-6 py-3 text-base font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 transition-colors rounded-md"
             >
               Open Calendar in New Window
-            </Button>
+            </a>
           </div>
         </div>
       </div>

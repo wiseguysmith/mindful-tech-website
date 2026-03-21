@@ -2,7 +2,6 @@
 
 import Section from '@/components/Section'
 import Container from '@/components/Container'
-import Button from '@/components/Button'
 import Card from '@/components/Card'
 import { doconnectContent } from '@/lib/site-data'
 import Link from 'next/link'
@@ -41,16 +40,18 @@ export default function DoconnectSection() {
           >
             Notarize Now
           </a>
-          {doconnectContent.ctas.map((cta, idx) =>
-            idx === 0 ? (
-              <Button
+          {doconnectContent.ctas.map((cta, idx) => {
+            const isExternal = cta.href.startsWith('http')
+            return isExternal ? (
+              <a
                 key={idx}
-                variant="primary"
-                size="lg"
-                onClick={() => window.open(cta.href, '_blank')}
+                href={cta.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-6 py-3 text-base font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 transition-colors rounded-md"
               >
                 {cta.label}
-              </Button>
+              </a>
             ) : (
               <Link
                 key={idx}
@@ -60,7 +61,7 @@ export default function DoconnectSection() {
                 {cta.label}
               </Link>
             )
-          )}
+          })}
         </div>
       </Container>
     </Section>

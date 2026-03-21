@@ -7,7 +7,6 @@ import {
 } from '@/lib/site-data'
 import Section from '@/components/Section'
 import Container from '@/components/Container'
-import Button from '@/components/Button'
 import { CheckCircle2, ArrowRight, Shield, Layers, Cpu, Building2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -29,14 +28,14 @@ export default function TokenizationPage() {
               {tokenizationContent.hero.subhead}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                variant="primary"
-                size="lg"
-                onClick={() => window.open(CALENDLY_URL, '_blank')}
-                className="shadow-md hover:shadow-lg transition-shadow"
+              <a
+                href={CALENDLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 shadow-md hover:shadow-lg transition-all rounded-xl"
               >
                 {tokenizationContent.hero.primaryCTA}
-              </Button>
+              </a>
               <Link
                 href="/tokenization#process"
                 className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium border-2 border-electric-teal text-electric-teal hover:bg-electric-teal hover:text-near-black transition-all duration-200 rounded-xl"
@@ -278,14 +277,14 @@ export default function TokenizationPage() {
             <p className="text-xl text-slate-300 mb-8 max-w-xl mx-auto">
               Let&apos;s discuss structure, tech stack, and how we can help.
             </p>
-            <Button
-              variant="primary"
-              size="lg"
-              onClick={() => window.open(CALENDLY_URL, '_blank')}
-              className="shadow-lg hover:shadow-xl transition-shadow"
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 shadow-lg hover:shadow-xl transition-all rounded-md"
             >
               Book a Strategy Call
-            </Button>
+            </a>
           </div>
         </Container>
       </Section>

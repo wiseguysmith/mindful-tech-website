@@ -1,9 +1,7 @@
 'use client'
 
 import Section from '@/components/Section'
-import Container from '@/components/Container'
 import Card from '@/components/Card'
-import Button from '@/components/Button'
 import { howItWorksSteps, whatWeNeed, CALENDLY_URL } from '@/lib/site-data'
 import { CheckCircle2 } from 'lucide-react'
 
@@ -12,8 +10,7 @@ export default function HowItWorksPage() {
     <>
       {/* Hero */}
       <Section background="cream" padding="xl">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto">
+        <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               How It Works
             </h1>
@@ -21,12 +18,10 @@ export default function HowItWorksPage() {
               Our structured approach to designing capital rails for cash-flowing assets.
             </p>
           </div>
-        </Container>
       </Section>
 
       {/* Process Timeline */}
       <Section>
-        <Container>
           <div className="max-w-4xl mx-auto">
             <div className="space-y-8">
               {howItWorksSteps.map((step, idx) => (
@@ -54,12 +49,10 @@ export default function HowItWorksPage() {
               ))}
             </div>
           </div>
-        </Container>
       </Section>
 
       {/* What We Need From You */}
       <Section background="cream">
-        <Container>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-8">
               What We Need From You
@@ -75,26 +68,24 @@ export default function HowItWorksPage() {
               </ul>
             </Card>
           </div>
-        </Container>
       </Section>
 
       {/* CTA */}
-      <Section>
-        <Container size="md">
+      <Section containerSize="md">
           <Card className="text-center bg-gradient-to-br from-cream-100 to-gold-50/30">
             <h2 className="text-2xl font-bold mb-4">Ready to Start?</h2>
             <p className="text-charcoal-600 mb-6">
               Let&apos;s discuss your asset and capital needs.
             </p>
-            <Button
-              variant="primary"
-              size="lg"
-              onClick={() => window.open(CALENDLY_URL, '_blank')}
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 transition-colors rounded-md"
             >
               Request a Feasibility Audit
-            </Button>
+            </a>
           </Card>
-        </Container>
       </Section>
     </>
   )

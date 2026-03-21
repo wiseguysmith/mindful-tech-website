@@ -36,13 +36,14 @@ export default function HomePage() {
               {heroContent.subhead}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                variant="primary"
-                size="lg"
-                onClick={() => window.open(CALENDLY_URL, '_blank')}
+              <a
+                href={CALENDLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 transition-colors rounded-md"
               >
                 {heroContent.primaryCTA}
-              </Button>
+              </a>
               <Link
                 href="/solutions"
                 className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium border-2 border-electric-teal text-electric-teal hover:bg-electric-teal hover:text-near-black transition-all duration-200 rounded-md"
@@ -191,13 +192,14 @@ export default function HomePage() {
             <p className="text-xl text-slate-300 mb-8">
               {ctaBand.subhead}
             </p>
-            <Button
-              variant="primary"
-              size="lg"
-              onClick={() => window.open(CALENDLY_URL, '_blank')}
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 transition-colors rounded-md"
             >
               {ctaBand.cta}
-            </Button>
+            </a>
           </div>
         </Container>
       </Section>

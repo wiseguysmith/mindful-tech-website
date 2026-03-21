@@ -1,10 +1,8 @@
 'use client'
 
 import Section from '@/components/Section'
-import Container from '@/components/Container'
 import Card from '@/components/Card'
 import Badge from '@/components/Badge'
-import Button from '@/components/Button'
 import { caseStudies, CALENDLY_URL } from '@/lib/site-data'
 
 export default function CaseStudiesPage() {
@@ -12,8 +10,7 @@ export default function CaseStudiesPage() {
     <>
       {/* Hero */}
       <Section background="cream" padding="xl">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto">
+        <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Case Studies
             </h1>
@@ -21,12 +18,10 @@ export default function CaseStudiesPage() {
               Examples of capital rails structures we&apos;ve designed. Results are placeholders—actual outcomes vary by asset and structure.
             </p>
           </div>
-        </Container>
       </Section>
 
       {/* Case Studies */}
       <Section>
-        <Container>
           <div className="space-y-12">
             {caseStudies.map((study, idx) => (
               <Card key={idx} hover className="max-w-4xl mx-auto">
@@ -69,12 +64,10 @@ export default function CaseStudiesPage() {
               </Card>
             ))}
           </div>
-        </Container>
       </Section>
 
       {/* Disclaimer */}
-      <Section background="cream">
-        <Container size="md">
+      <Section background="cream" containerSize="md">
           <Card className="bg-white">
             <p className="text-sm text-charcoal-600 text-center">
               <strong>Note:</strong> These case studies are templates with placeholder outcomes. 
@@ -82,26 +75,24 @@ export default function CaseStudiesPage() {
               and market conditions. Not legal, tax, or investment advice.
             </p>
           </Card>
-        </Container>
       </Section>
 
       {/* CTA */}
-      <Section>
-        <Container size="md">
+      <Section containerSize="md">
           <Card className="text-center bg-gradient-to-br from-cream-100 to-gold-50/30">
             <h2 className="text-2xl font-bold mb-4">Have a Similar Asset?</h2>
             <p className="text-charcoal-600 mb-6">
               Let&apos;s discuss how we can structure capital rails for your cash-flowing asset.
             </p>
-            <Button
-              variant="primary"
-              size="lg"
-              onClick={() => window.open(CALENDLY_URL, '_blank')}
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 transition-colors rounded-md"
             >
               Request a Feasibility Audit
-            </Button>
+            </a>
           </Card>
-        </Container>
       </Section>
     </>
   )

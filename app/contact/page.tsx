@@ -6,7 +6,7 @@ import Container from '@/components/Container'
 import Card from '@/components/Card'
 import Button from '@/components/Button'
 import SuccessIcon from '@/components/SuccessIcon'
-import { FORMSPREE_ENDPOINT } from '@/lib/site-data'
+import { FORMSPREE_ENDPOINT, CALENDLY_URL } from '@/lib/site-data'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -22,6 +22,10 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (!FORMSPREE_ENDPOINT) {
+      setSubmitStatus('error')
+      return
+    }
     setIsSubmitting(true)
     setSubmitStatus('idle')
 
@@ -213,18 +217,20 @@ export default function ContactPage() {
               Prefer to talk directly? Book a call or reach out via email.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                variant="primary"
-                onClick={() => window.open('https://calendly.com/mindfultechnology', '_blank')}
+              <a
+                href={CALENDLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-6 py-3 text-base font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 transition-colors rounded-md"
               >
                 Book a Call
-              </Button>
-              <Button
-                variant="outline"
-                onClick={() => window.location.href = 'mailto:info@mindfultech.services'}
+              </a>
+              <a
+                href="mailto:info@mindfultech.services"
+                className="inline-flex items-center justify-center px-6 py-3 text-base font-medium border-2 border-electric-teal text-electric-teal hover:bg-electric-teal hover:text-near-black transition-colors rounded-md"
               >
                 Email Us
-              </Button>
+              </a>
             </div>
           </div>
         </Container>

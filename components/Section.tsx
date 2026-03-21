@@ -6,6 +6,7 @@ interface SectionProps {
   children: ReactNode
   className?: string
   containerSize?: 'sm' | 'md' | 'lg' | 'xl' | 'full'
+  containerClassName?: string
   background?: 'default' | 'cream' | 'charcoal'
   padding?: 'sm' | 'md' | 'lg' | 'xl'
   id?: string
@@ -23,6 +24,7 @@ export default function Section({
   children,
   className,
   containerSize = 'lg',
+  containerClassName,
   background = 'default',
   padding = 'lg',
   id,
@@ -42,7 +44,7 @@ export default function Section({
 
   return (
     <section id={id} className={cn(backgrounds[background], paddings[padding], className)}>
-      <Container size={containerSize}>
+      <Container size={containerSize} className={containerClassName}>
         {children}
       </Container>
     </section>

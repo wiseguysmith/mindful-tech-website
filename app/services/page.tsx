@@ -1,10 +1,8 @@
 'use client'
 
 import Section from '@/components/Section'
-import Container from '@/components/Container'
 import Card from '@/components/Card'
 import Badge from '@/components/Badge'
-import Button from '@/components/Button'
 import { services, CALENDLY_URL } from '@/lib/site-data'
 import { CheckCircle2 } from 'lucide-react'
 
@@ -13,8 +11,7 @@ export default function ServicesPage() {
     <>
       {/* Hero */}
       <Section background="cream" padding="xl">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto">
+        <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Our Services
             </h1>
@@ -22,12 +19,10 @@ export default function ServicesPage() {
               Two pillars, one mission: unlock capital and automate operations with structure-first approaches.
             </p>
           </div>
-        </Container>
       </Section>
 
       {/* Digital Workers Section */}
       <Section>
-        <Container>
           <div className="mb-12">
             <Badge className="mb-4">USA Edition</Badge>
             <h2 className="text-3xl font-bold mb-4">Digital Workers</h2>
@@ -104,23 +99,21 @@ export default function ServicesPage() {
                   </ul>
                 </div>
                 <p className="text-xs text-charcoal-500 mb-4">{service.pricing}</p>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="w-full"
-                  onClick={() => window.open(CALENDLY_URL, '_blank')}
+                <a
+                  href={CALENDLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center w-full px-4 py-2 text-sm font-medium border-2 border-electric-teal text-electric-teal hover:bg-electric-teal hover:text-near-black transition-colors rounded-md"
                 >
                   Book a Call
-                </Button>
+                </a>
               </Card>
             ))}
           </div>
-        </Container>
       </Section>
 
       {/* Capital Rails Section */}
       <Section background="cream">
-        <Container>
           <div className="mb-12">
             <Badge variant="gold" className="mb-4">Capital Rails</Badge>
             <h2 className="text-3xl font-bold mb-4">Capital Rails</h2>
@@ -158,14 +151,14 @@ export default function ServicesPage() {
                   </ul>
                 </div>
                 <p className="text-xs text-charcoal-500 mb-4">{service.pricing}</p>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="w-full"
-                  onClick={() => window.open(CALENDLY_URL, '_blank')}
+                <a
+                  href={CALENDLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center w-full px-4 py-2 text-sm font-medium border-2 border-electric-teal text-electric-teal hover:bg-electric-teal hover:text-near-black transition-colors rounded-md"
                 >
                   Request Audit
-                </Button>
+                </a>
               </Card>
             ))}
           </div>
@@ -200,26 +193,24 @@ export default function ServicesPage() {
               </div>
             </div>
           </Card>
-        </Container>
       </Section>
 
       {/* CTA */}
-      <Section>
-        <Container size="md">
+      <Section containerSize="md">
           <Card className="text-center bg-gradient-to-br from-cream-100 to-gold-50/30">
             <h2 className="text-2xl font-bold mb-4">Ready to Get Started?</h2>
             <p className="text-charcoal-600 mb-6">
               Book a call to discuss which service fits your needs.
             </p>
-            <Button
-              variant="primary"
-              size="lg"
-              onClick={() => window.open(CALENDLY_URL, '_blank')}
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 transition-colors rounded-md"
             >
               Book a 20-min Fit Call
-            </Button>
+            </a>
           </Card>
-        </Container>
       </Section>
     </>
   )
