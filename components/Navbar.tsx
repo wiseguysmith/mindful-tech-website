@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { navigation, CALENDLY_URL } from '@/lib/site-data'
 import { cn } from '@/lib/utils'
@@ -13,6 +14,7 @@ import { cn } from '@/lib/utils'
  */
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   return (
     <>
@@ -25,7 +27,7 @@ export default function Navbar() {
         />
       )}
       <nav
-        className="sticky top-0 z-40 bg-soft-white/95 backdrop-blur-sm border-b border-slate-200"
+        className="sticky top-0 z-40 border-b border-zinc-800 bg-[#07080c]/90 backdrop-blur-md"
         role="navigation"
         aria-label="Main navigation"
       >
@@ -33,7 +35,7 @@ export default function Navbar() {
           <div className="flex h-16 items-center justify-between gap-6 lg:gap-8">
             {/* Logo */}
             <Link href="/" className="flex items-baseline group shrink-0">
-              <span className="text-xl font-bold font-display text-near-black group-hover:text-slate-600 transition-colors">
+              <span className="text-xl font-bold font-display text-zinc-100 transition-colors group-hover:text-purple-200">
                 MindfulTech
               </span>
             </Link>
@@ -47,7 +49,7 @@ export default function Navbar() {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-medium text-slate-600 hover:text-near-black transition-colors"
+                    className="text-sm font-medium text-zinc-400 transition-colors hover:text-zinc-100"
                   >
                     {item.name}
                   </a>
@@ -55,7 +57,12 @@ export default function Navbar() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="text-sm font-medium text-slate-600 hover:text-near-black transition-colors"
+                    className={cn(
+                      'rounded-md px-2 py-1 text-sm font-medium transition-colors',
+                      pathname === item.href
+                        ? 'bg-zinc-800/80 text-amber-200'
+                        : 'text-zinc-400 hover:text-zinc-100'
+                    )}
                   >
                     {item.name}
                   </Link>
@@ -67,7 +74,7 @@ export default function Navbar() {
             <div className="hidden md:flex md:items-center md:gap-3">
               <Link
                 href="/solutions"
-                className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium border-2 border-electric-teal text-electric-teal hover:bg-electric-teal hover:text-near-black transition-all duration-200 rounded-md"
+                className="inline-flex items-center justify-center rounded-md border border-zinc-600 bg-zinc-900 px-4 py-2 text-sm font-medium text-zinc-100 transition-all duration-200 hover:border-zinc-400"
               >
                 Explore Solutions
               </Link>
@@ -75,7 +82,7 @@ export default function Navbar() {
                 href={CALENDLY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 transition-colors rounded-md"
+                className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-amber-300 to-purple-400 px-4 py-2 text-sm font-medium text-zinc-950 transition-colors hover:brightness-105"
               >
                 Book a Strategy Call
               </a>
@@ -84,7 +91,7 @@ export default function Navbar() {
             {/* Mobile menu button */}
             <button
               type="button"
-              className="md:hidden p-2 text-slate-600 hover:text-near-black transition-transform duration-200"
+              className="p-2 text-zinc-300 transition-transform duration-200 hover:text-zinc-100 md:hidden"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
               aria-expanded={mobileMenuOpen}
@@ -110,7 +117,7 @@ export default function Navbar() {
         {/* Mobile menu */}
         <div
           className={cn(
-            'md:hidden border-t border-slate-200 bg-soft-white overflow-hidden transition-all duration-300 ease-in-out shadow-lg',
+            'overflow-hidden border-t border-zinc-800 bg-[#0a0b11] shadow-lg transition-all duration-300 ease-in-out md:hidden',
             mobileMenuOpen
               ? 'max-h-screen opacity-100'
               : 'max-h-0 opacity-0 pointer-events-none'
@@ -125,7 +132,7 @@ export default function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={cn(
-                    'block text-base font-medium text-slate-600 hover:text-near-black transition-all duration-200 hover:pl-2',
+                    'block text-base font-medium text-zinc-400 transition-all duration-200 hover:pl-2 hover:text-zinc-100',
                     mobileMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
                   )}
                   style={{
@@ -140,7 +147,10 @@ export default function Navbar() {
                   key={item.name}
                   href={item.href}
                   className={cn(
-                    'block text-base font-medium text-slate-600 hover:text-near-black transition-all duration-200 hover:pl-2',
+                    'block rounded-md px-2 py-1 text-base font-medium transition-all duration-200 hover:pl-2',
+                    pathname === item.href
+                      ? 'bg-zinc-800/80 text-amber-200'
+                      : 'text-zinc-400 hover:text-zinc-100',
                     mobileMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
                   )}
                   style={{
@@ -154,7 +164,7 @@ export default function Navbar() {
             )}
             <div
               className={cn(
-                'pt-4 space-y-2 border-t border-slate-200 transition-all duration-300',
+                'space-y-2 border-t border-zinc-800 pt-4 transition-all duration-300',
                 mobileMenuOpen
                   ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-4'
@@ -165,7 +175,7 @@ export default function Navbar() {
             >
               <Link
                 href="/solutions"
-                className="inline-flex items-center justify-center w-full px-4 py-2 text-sm font-medium border-2 border-electric-teal text-electric-teal hover:bg-electric-teal hover:text-near-black transition-all duration-200 rounded-md"
+                className="inline-flex w-full items-center justify-center rounded-md border border-zinc-600 bg-zinc-900 px-4 py-2 text-sm font-medium text-zinc-100 transition-all duration-200 hover:border-zinc-400"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Explore Solutions
@@ -174,7 +184,7 @@ export default function Navbar() {
                 href={CALENDLY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full px-4 py-2 text-sm font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 transition-colors rounded-md"
+                className="inline-flex w-full items-center justify-center rounded-md bg-gradient-to-r from-amber-300 to-purple-400 px-4 py-2 text-sm font-medium text-zinc-950 transition-colors hover:brightness-105"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Book a Strategy Call

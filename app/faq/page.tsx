@@ -11,28 +11,23 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
+    <div>
       <Card>
-        <div className="flex items-start justify-between gap-4">
-          <div className="flex-1">
-            <h3 className="font-semibold mb-2">{question}</h3>
-            {isOpen && <p className="text-charcoal-600 text-sm">{answer}</p>}
-          </div>
-          <button
-            onClick={(e) => {
-              e.stopPropagation()
-              setIsOpen(!isOpen)
-            }}
-            className="flex-shrink-0"
-            aria-label={isOpen ? 'Close' : 'Open'}
-          >
-            {isOpen ? (
-              <ChevronUp className="w-5 h-5 text-charcoal-600" />
-            ) : (
-              <ChevronDown className="w-5 h-5 text-charcoal-600" />
-            )}
-          </button>
-        </div>
+        <button
+          type="button"
+          className="flex w-full items-start justify-between gap-4 text-left"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-expanded={isOpen}
+          aria-label={`${isOpen ? 'Collapse' : 'Expand'} question: ${question}`}
+        >
+          <span className="flex-1 font-semibold">{question}</span>
+          {isOpen ? (
+            <ChevronUp className="h-5 w-5 flex-shrink-0 text-charcoal-600" />
+          ) : (
+            <ChevronDown className="h-5 w-5 flex-shrink-0 text-charcoal-600" />
+          )}
+        </button>
+        {isOpen && <p className="mt-3 text-sm text-charcoal-600">{answer}</p>}
       </Card>
     </div>
   )

@@ -1,208 +1,289 @@
 'use client'
 
 import Link from 'next/link'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import {
-  heroContent,
-  trustStrip,
-  whatWeDoCards,
-  industries,
-  addOns,
-  processSteps,
-  whyMindfulTech,
-  ctaBand,
-  CALENDLY_URL,
-} from '@/lib/site-data'
-import Section from '@/components/Section'
-import Container from '@/components/Container'
-import Button from '@/components/Button'
-import Card from '@/components/Card'
-import DoconnectSection from '@/components/DoconnectSection'
-import { MessageSquare, Zap, Link2, Wrench, CheckCircle2, ArrowRight } from 'lucide-react'
+  ArrowRight,
+  Bot,
+  Gauge,
+  Layers,
+  ShieldCheck,
+  Sparkles,
+  WandSparkles,
+  Workflow,
+} from 'lucide-react'
+import AnimatedPipelineBackground from '@/components/landing/AnimatedPipelineBackground'
+import AgentCapabilityCard from '@/components/landing/AgentCapabilityCard'
+import Reveal from '@/components/landing/Reveal'
 
-const whatWeDoIcons = [MessageSquare, Zap, Link2, Wrench]
+const agentCapabilities = [
+  {
+    title: 'Capture Agent',
+    description: 'Transforms forms, chat, and call notes into clean structured input with context attached.',
+    icon: Sparkles,
+  },
+  {
+    title: 'Ops Agent',
+    description: 'Routes every task to the right system, handles retries, and removes workflow dead ends.',
+    icon: Workflow,
+  },
+  {
+    title: 'Insight Agent',
+    description: 'Surfaces bottlenecks and wins every week so optimization is built into operations.',
+    icon: Gauge,
+  },
+  {
+    title: 'Guardrail Agent',
+    description: 'Applies policy, approval rules, and quality checks before outputs reach your team.',
+    icon: ShieldCheck,
+  },
+]
+
+const architectureLayers = [
+  {
+    title: 'Context Layer',
+    text: 'Central memory store for clients, cases, and operational rules. Agents read one source of truth.',
+  },
+  {
+    title: 'Orchestration Layer',
+    text: 'Event-driven pipelines coordinate humans, APIs, and AI workers with transparent handoffs.',
+  },
+  {
+    title: 'Control Layer',
+    text: 'Versioned playbooks, permissions, and monitoring keep automation stable as your business evolves.',
+  },
+]
+
+const results = [
+  'Less manual follow-up and fewer dropped tasks',
+  'Faster client response times across channels',
+  'Higher output quality with repeatable systems',
+  'A team that focuses on strategy, not busywork',
+]
 
 export default function HomePage() {
+  const { scrollYProgress } = useScroll()
+  const progressScale = useTransform(scrollYProgress, [0, 1], [0, 1])
+
   return (
-    <>
-      {/* 1. Hero */}
-      <Section background="cream" padding="xl" className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-soft-white to-electric-teal/5" />
-        <Container className="relative">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-near-black mb-6 text-balance">
-              {heroContent.headline}
-            </h1>
-            <p className="text-xl md:text-2xl text-slate-600 mb-8 text-balance">
-              {heroContent.subhead}
+    <div className="bg-[#07080c] text-zinc-100">
+      <motion.div
+        className="fixed left-0 top-0 z-50 h-[2px] w-full origin-left bg-gradient-to-r from-amber-300 via-purple-400 to-amber-300"
+        style={{ scaleX: progressScale }}
+      />
+
+      <section className="relative isolate flex min-h-[92vh] items-center overflow-hidden border-b border-zinc-800/80">
+        <AnimatedPipelineBackground />
+        <div className="relative mx-auto w-full max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
+          <Reveal className="max-w-4xl">
+            <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-amber-200/20 bg-zinc-900/70 px-4 py-2 text-xs uppercase tracking-[0.22em] text-amber-200/90">
+              <WandSparkles className="h-4 w-4" />
+              Mindful Automation Architecture
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href={CALENDLY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 transition-colors rounded-md"
+            <h1 className="text-balance text-5xl font-semibold leading-[1.05] text-zinc-100 md:text-7xl">
+              Mindful systems that work for you, not against you.
+            </h1>
+            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-zinc-300 md:text-xl">
+              We design conversion-focused automation systems that make operations calm, measurable,
+              and scalable.
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.15} className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-amber-300 to-purple-400 px-7 py-3 text-sm font-semibold text-zinc-950 transition hover:brightness-105"
+            >
+              Build My System
+            </Link>
+            <Link
+              href="#system"
+              className="inline-flex items-center justify-center rounded-md border border-zinc-700 bg-zinc-900/70 px-7 py-3 text-sm font-semibold text-zinc-100 transition hover:border-purple-300/40 hover:bg-zinc-800"
+            >
+              See The System
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="border-b border-zinc-800/70 py-20">
+        <div className="mx-auto grid w-full max-w-6xl gap-6 px-4 sm:px-6 md:grid-cols-3 lg:px-8">
+          <Reveal className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6">
+            <h2 className="text-2xl font-semibold text-zinc-100">Manual work chaos</h2>
+            <p className="mt-3 text-zinc-400">
+              Teams jump between tools, context gets lost, and high-value work is delayed by admin load.
+            </p>
+          </Reveal>
+          <Reveal delay={0.1} className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6">
+            <h2 className="text-2xl font-semibold text-zinc-100">Pipeline fragmentation</h2>
+            <p className="mt-3 text-zinc-400">
+              Leads, requests, and approvals stall because every process has different logic and no owner.
+            </p>
+          </Reveal>
+          <Reveal delay={0.2} className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6">
+            <h2 className="text-2xl font-semibold text-zinc-100">Execution fatigue</h2>
+            <p className="mt-3 text-zinc-400">
+              Teams burn energy repeating tasks instead of shipping strategic work that drives growth.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="border-b border-zinc-800/70 py-24">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+          <Reveal className="max-w-4xl">
+            <p className="text-xs uppercase tracking-[0.2em] text-purple-300">The Shift</p>
+            <h2 className="mt-4 text-balance text-4xl font-semibold md:text-6xl">
+              From fragile automations to mindful operating systems.
+            </h2>
+            <p className="mt-6 text-lg text-zinc-300">
+              Mindful systems are designed around clarity: every input is intentional, every agent has a
+              role, and every output moves the business forward.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      <section id="system" className="border-b border-zinc-800/70 py-24">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <h2 className="text-4xl font-semibold md:text-5xl">System: input to outcomes</h2>
+          </Reveal>
+
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            <Reveal className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6">
+              <p className="text-sm uppercase tracking-[0.18em] text-amber-200">Input</p>
+              <ul className="mt-4 space-y-3 text-zinc-300">
+                <li>Web forms and chat messages</li>
+                <li>Documents and meeting notes</li>
+                <li>CRM and operational triggers</li>
+              </ul>
+            </Reveal>
+
+            <Reveal delay={0.12} className="rounded-2xl border border-purple-300/25 bg-zinc-900/40 p-6">
+              <p className="text-sm uppercase tracking-[0.18em] text-purple-200">Agents</p>
+              <div className="mt-4 grid gap-3">
+                <div className="rounded-lg border border-zinc-700/90 bg-zinc-950/60 p-3">
+                  <p className="font-medium text-zinc-100">Route</p>
+                </div>
+                <div className="rounded-lg border border-zinc-700/90 bg-zinc-950/60 p-3">
+                  <p className="font-medium text-zinc-100">Reason</p>
+                </div>
+                <div className="rounded-lg border border-zinc-700/90 bg-zinc-950/60 p-3">
+                  <p className="font-medium text-zinc-100">Execute</p>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.24} className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6">
+              <p className="text-sm uppercase tracking-[0.18em] text-amber-200">Output</p>
+              <ul className="mt-4 space-y-3 text-zinc-300">
+                <li>Assigned tasks with context attached</li>
+                <li>Client-ready responses and updates</li>
+                <li>Dashboards for visibility and control</li>
+              </ul>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-zinc-800/70 py-24">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <h2 className="text-4xl font-semibold md:text-5xl">Agent capabilities</h2>
+          </Reveal>
+          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {agentCapabilities.map((agent, index) => (
+              <Reveal key={agent.title} delay={index * 0.08}>
+                <AgentCapabilityCard {...agent} />
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-zinc-800/70 py-24">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+          <Reveal className="max-w-3xl">
+            <h2 className="text-4xl font-semibold md:text-5xl">Custom architecture, not templates</h2>
+            <p className="mt-5 text-zinc-300">
+              Every system is designed around your workflows, service model, and growth targets. No
+              one-size-fits-all stack.
+            </p>
+          </Reveal>
+
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {architectureLayers.map((layer, index) => (
+              <Reveal
+                key={layer.title}
+                delay={0.08 * index}
+                className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6"
               >
-                {heroContent.primaryCTA}
-              </a>
+                <div className="mb-3 inline-flex rounded-full border border-zinc-700 bg-zinc-900 px-3 py-1 text-xs uppercase tracking-[0.16em] text-zinc-300">
+                  Layer {index + 1}
+                </div>
+                <h3 className="text-2xl font-semibold">{layer.title}</h3>
+                <p className="mt-3 text-zinc-400">{layer.text}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-zinc-800/70 py-24">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <h2 className="text-4xl font-semibold md:text-5xl">Results that compound</h2>
+          </Reveal>
+          <div className="mt-10 grid gap-4 md:grid-cols-2">
+            {results.map((result, index) => (
+              <Reveal
+                key={result}
+                delay={index * 0.1}
+                className="group rounded-xl border border-zinc-800 bg-zinc-900/45 p-5 transition hover:border-amber-200/30"
+              >
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 rounded-full border border-amber-200/20 bg-amber-200/10 p-1.5">
+                    <Layers className="h-4 w-4 text-amber-200" />
+                  </div>
+                  <p className="text-zinc-200">{result}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24">
+        <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+          <Reveal className="rounded-3xl border border-zinc-700 bg-gradient-to-br from-zinc-900 to-zinc-950 p-10 text-center md:p-14">
+            <p className="text-xs uppercase tracking-[0.2em] text-purple-300">CTA</p>
+            <h2 className="mt-4 text-balance text-4xl font-semibold md:text-6xl">
+              Build the operating system your team deserves.
+            </h2>
+            <p className="mx-auto mt-5 max-w-2xl text-zinc-300">
+              If your workflow feels complex, that is the signal to design better systems, not work
+              harder.
+            </p>
+            <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
               <Link
-                href="/solutions"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium border-2 border-electric-teal text-electric-teal hover:bg-electric-teal hover:text-near-black transition-all duration-200 rounded-md"
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-amber-300 to-purple-400 px-7 py-3 text-sm font-semibold text-zinc-950 transition hover:brightness-105"
               >
-                {heroContent.secondaryCTA}
+                Book Strategy Call
+              </Link>
+              <Link
+                href="/how-it-works"
+                className="inline-flex items-center justify-center rounded-md border border-zinc-600 bg-zinc-900 px-7 py-3 text-sm font-semibold text-zinc-100 transition hover:border-zinc-400"
+              >
+                Explore How It Works
+                <Bot className="ml-2 h-4 w-4" />
               </Link>
             </div>
-          </div>
-        </Container>
-      </Section>
-
-      {/* 2. Trust Strip */}
-      <Section padding="sm" className="bg-near-black text-soft-white">
-        <Container size="xl">
-          <div className="flex flex-wrap justify-center gap-6 md:gap-10 text-sm font-medium">
-            {trustStrip.map((item, idx) => (
-              <span key={idx} className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-electric-teal" />
-                {item}
-              </span>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      {/* 3. What We Do */}
-      <Section id="what-we-do">
-        <Container>
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-near-black mb-12">
-            What We Do
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whatWeDoCards.map((card, idx) => {
-              const Icon = whatWeDoIcons[idx]
-              return (
-                <Card key={idx} hover>
-                  <div className="p-3 bg-slate-100 rounded-lg w-fit mb-4">
-                    <Icon className="w-6 h-6 text-near-black" />
-                  </div>
-                  <h3 className="text-xl font-bold text-near-black mb-2">{card.title}</h3>
-                  <p className="text-slate-600">{card.description}</p>
-                </Card>
-              )
-            })}
-          </div>
-        </Container>
-      </Section>
-
-      {/* 4. Who We Serve */}
-      <Section background="cream" id="who-we-serve">
-        <Container>
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-near-black mb-12">
-            Who We Serve
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {industries.map((industry, idx) => (
-              <Card key={idx} hover>
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-electric-teal mt-0.5 flex-shrink-0" />
-                  <span className="text-slate-700 font-medium">{industry}</span>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      {/* 5. Doconnect Section */}
-      <DoconnectSection />
-
-      {/* 6. Add-ons / Linked Services */}
-      <Section>
-        <Container>
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-near-black mb-4">
-            Add-ons & Linked Services
-          </h2>
-          <p className="text-center text-slate-600 mb-12 max-w-2xl mx-auto">
-            We integrate identity, forms, scheduling, CRM, notifications, and more into your workflows.
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            {addOns.map((addOn, idx) => (
-              <span
-                key={idx}
-                className="px-4 py-2 rounded-full bg-slate-100 text-slate-700 text-sm font-medium border border-slate-200"
-              >
-                {addOn}
-              </span>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      {/* 7. Process */}
-      <Section background="cream" id="process">
-        <Container>
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-near-black mb-12">
-            Our Process
-          </h2>
-          <div className="grid md:grid-cols-5 gap-6">
-            {processSteps.map((step, idx) => (
-              <div key={idx} className="relative">
-                <Card hover className="text-center h-full">
-                  <div className="w-12 h-12 rounded-full bg-electric-teal text-near-black flex items-center justify-center text-xl font-bold mx-auto mb-4">
-                    {step.step}
-                  </div>
-                  <h3 className="text-lg font-bold text-near-black mb-2">{step.title}</h3>
-                  <p className="text-sm text-slate-600">{step.description}</p>
-                </Card>
-                {idx < processSteps.length - 1 && (
-                  <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 z-10">
-                    <ArrowRight className="w-6 h-6 text-slate-300" />
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      {/* 8. Why MindfulTech */}
-      <Section>
-        <Container>
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-near-black mb-12">
-            Why MindfulTech
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whyMindfulTech.map((value, idx) => (
-              <Card key={idx} hover>
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-electric-teal mt-0.5 flex-shrink-0" />
-                  <span className="text-slate-700">{value}</span>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      {/* 9. CTA Band */}
-      <Section background="charcoal" padding="xl">
-        <Container size="md">
-          <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-soft-white mb-4">
-              {ctaBand.headline}
-            </h2>
-            <p className="text-xl text-slate-300 mb-8">
-              {ctaBand.subhead}
-            </p>
-            <a
-              href={CALENDLY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 transition-colors rounded-md"
-            >
-              {ctaBand.cta}
-            </a>
-          </div>
-        </Container>
-      </Section>
-    </>
+          </Reveal>
+        </div>
+      </section>
+    </div>
   )
 }

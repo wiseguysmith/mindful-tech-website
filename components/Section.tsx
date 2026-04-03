@@ -30,9 +30,9 @@ export default function Section({
   id,
 }: SectionProps) {
   const backgrounds = {
-    default: 'bg-soft-white',
-    cream: 'bg-slate-50',
-    charcoal: 'bg-near-black text-soft-white',
+    default: 'bg-[#07080c] text-zinc-100',
+    cream: 'bg-[#0b0d13] text-zinc-100',
+    charcoal: 'bg-[#05060a] text-zinc-100',
   }
 
   const paddings = {
@@ -43,7 +43,15 @@ export default function Section({
   }
 
   return (
-    <section id={id} className={cn(backgrounds[background], paddings[padding], className)}>
+    <section
+      id={id}
+      className={cn(
+        'relative border-b border-zinc-800/70',
+        backgrounds[background],
+        paddings[padding],
+        className
+      )}
+    >
       <Container size={containerSize} className={containerClassName}>
         {children}
       </Container>

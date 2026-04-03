@@ -35,6 +35,10 @@ export default function QuickLeadForm({ isOpen, onClose }: QuickLeadFormProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (!FORMSPREE_ENDPOINT) {
+      setSubmitStatus('error')
+      return
+    }
     setIsSubmitting(true)
     setSubmitStatus('idle')
 

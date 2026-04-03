@@ -19,7 +19,7 @@
   }
 
   body {
-    @apply bg-soft-white text-near-black antialiased;
+    @apply bg-[#07080c] text-zinc-100 antialiased;
     font-family: var(--font-inter);
   }
 
@@ -28,9 +28,21 @@
     @apply font-semibold tracking-tight;
   }
 
+  input,
+  textarea,
+  select {
+    @apply w-full rounded-md border border-zinc-700 bg-zinc-900 px-4 py-2 text-zinc-100 placeholder-zinc-500 transition-colors;
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    @apply border-electric-teal ring-2 ring-electric-teal/30 outline-none;
+  }
+
   /* Focus states for accessibility */
   *:focus-visible {
-    @apply outline-none ring-2 ring-electric-teal ring-offset-2 ring-offset-soft-white;
+    @apply outline-none ring-2 ring-electric-teal ring-offset-2 ring-offset-[#07080c];
   }
 }
 
@@ -97,10 +109,133 @@ html {
 }
 
 .card-elevated {
-  @apply bg-soft-white border border-slate-200 rounded-xl shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-200;
+  @apply rounded-xl border border-zinc-800 bg-zinc-900/70 shadow-sm transition-all duration-200 hover:border-zinc-600 hover:shadow-md;
 }
 
 .card-proof {
-  @apply bg-soft-white border border-slate-200 rounded-xl shadow-md border-l-4 border-l-electric-teal hover:shadow-lg transition-all duration-200;
+  @apply rounded-xl border border-zinc-800 bg-zinc-900/75 shadow-md border-l-4 border-l-electric-teal transition-all duration-200 hover:shadow-lg hover:border-zinc-600;
+}
+
+/* Legacy class compatibility for global dark theme rollout */
+@layer utilities {
+  .bg-soft-white {
+    background-color: #07080c;
+  }
+
+  .bg-slate-50 {
+    background-color: #0b0d13;
+  }
+
+  .bg-slate-100 {
+    background-color: #131722;
+  }
+
+  .bg-white {
+    background-color: #11131c;
+  }
+
+  .text-near-black {
+    color: rgb(244 244 245);
+  }
+
+  .text-slate-700 {
+    color: rgb(228 228 231);
+  }
+
+  .text-slate-600 {
+    color: rgb(161 161 170);
+  }
+
+  .text-slate-400 {
+    color: rgb(113 113 122);
+  }
+
+  .text-slate-500 {
+    color: rgb(161 161 170);
+  }
+
+  .text-charcoal-500 {
+    color: rgb(161 161 170);
+  }
+
+  .text-charcoal-600 {
+    color: rgb(212 212 216);
+  }
+
+  .text-charcoal-700 {
+    color: rgb(228 228 231);
+  }
+
+  .border-slate-200 {
+    border-color: rgb(39 39 42);
+  }
+
+  .border-slate-300 {
+    border-color: rgb(63 63 70);
+  }
+
+  .border-slate-700 {
+    border-color: rgb(63 63 70);
+  }
+
+  .border-charcoal-200 {
+    border-color: rgb(63 63 70);
+  }
+
+  .bg-charcoal-800 {
+    background-color: rgb(9 10 16);
+  }
+
+  .text-charcoal-400 {
+    color: rgb(161 161 170);
+  }
+
+  .from-cream-100 {
+    --tw-gradient-from: rgba(24, 24, 27, 1) var(--tw-gradient-from-position);
+    --tw-gradient-to: rgb(24 24 27 / 0) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+
+  .to-gold-50\/30 {
+    --tw-gradient-to: rgb(168 85 247 / 0.18) var(--tw-gradient-to-position);
+  }
+
+  .bg-cream-100 {
+    background-color: #131722;
+  }
+
+  .text-gold-500 {
+    color: #f5c767;
+  }
+
+  .border-cream-50 {
+    border-color: #f5f7fa;
+  }
+}
+
+@layer components {
+  .prose {
+    color: rgb(212 212 216);
+    max-width: 65ch;
+  }
+
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    color: rgb(244 244 245);
+  }
+
+  .prose strong {
+    color: rgb(244 244 245);
+  }
+
+  .prose a {
+    color: #14d3c3;
+  }
+
+  .prose ul > li::marker {
+    color: rgb(161 161 170);
+  }
 }
 

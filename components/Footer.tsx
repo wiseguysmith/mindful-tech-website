@@ -11,19 +11,19 @@ import Container from './Container'
  */
 export default function Footer() {
   return (
-    <footer className="bg-near-black text-soft-white border-t border-slate-700">
+    <footer className="border-t border-zinc-800 bg-[#05060a] text-zinc-200">
       <Container className="py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Contact */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-zinc-100">
               Contact
             </h3>
             <address className="not-italic space-y-2 text-sm">
               <p>
                 <a
                   href={`tel:${footerContent.phone}`}
-                  className="hover:text-electric-teal transition-colors"
+                  className="transition-colors hover:text-amber-200"
                 >
                   {footerContent.phone}
                 </a>
@@ -31,7 +31,7 @@ export default function Footer() {
               <p>
                 <a
                   href={`mailto:${footerContent.email}`}
-                  className="hover:text-electric-teal transition-colors"
+                  className="transition-colors hover:text-amber-200"
                 >
                   {footerContent.email}
                 </a>
@@ -41,7 +41,7 @@ export default function Footer() {
 
           {/* Links */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-zinc-100">
               Links
             </h3>
             <ul className="space-y-2 text-sm">
@@ -49,7 +49,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="hover:text-electric-teal transition-colors"
+                    className="transition-colors hover:text-purple-200"
                   >
                     {link.name}
                   </Link>
@@ -60,18 +60,18 @@ export default function Footer() {
 
           {/* Social & Disclaimer */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-zinc-100">
               Connect
             </h3>
             {footerContent.social && footerContent.social.length > 0 && (
-              <ul className="space-y-2 text-sm mb-4">
+              <ul className="mb-4 space-y-2 text-sm">
                 {footerContent.social.map((s) => (
                   <li key={s.name}>
                     <a
                       href={s.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-electric-teal transition-colors"
+                      className="transition-colors hover:text-purple-200"
                     >
                       {s.name}
                     </a>
@@ -79,13 +79,13 @@ export default function Footer() {
                 ))}
               </ul>
             )}
-            <p className="text-sm text-slate-400">
+            <p className="text-sm text-zinc-400">
               {footerContent.disclaimer}
             </p>
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-slate-700 text-center text-sm text-slate-400">
+        <div className="mt-8 border-t border-zinc-800 pt-8 text-center text-sm text-zinc-500">
           <p>&copy; {new Date().getFullYear()} MindfulTech. All rights reserved.</p>
         </div>
       </Container>
