@@ -62,7 +62,7 @@ export default function TokenizationPage() {
         </Container>
       </Section>
 
-      {/* 3. ABR Spotlight - premium credibility section */}
+      {/* 3. Ownership spotlight */}
       <Section id="abr" background="cream" className="relative">
         <div className="absolute inset-0 bg-tokenization-dots opacity-40" aria-hidden />
         <Container className="relative">
@@ -71,7 +71,7 @@ export default function TokenizationPage() {
               <div className="flex flex-col md:flex-row md:items-start gap-6 mb-6">
                 <div className="flex items-center gap-4 shrink-0">
                   <div className="w-14 h-14 rounded-2xl bg-near-black text-electric-teal flex items-center justify-center text-xl font-bold shadow-lg">
-                    ABR
+                    SYS
                   </div>
                   <div>
                     <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-electric-teal/15 text-electric-teal rounded-full mb-2">
@@ -110,12 +110,12 @@ export default function TokenizationPage() {
         </Container>
       </Section>
 
-      {/* 4. What We Tokenize - elevated cards */}
+      {/* 4. Ownership system types */}
       <Section id="what-we-tokenize" className="bg-tokenization-grid">
         <Container>
           <p className="section-label text-center">Capabilities</p>
           <h2 className="text-3xl md:text-4xl font-bold text-center text-near-black mb-4">
-            What We Tokenize
+            Ownership Systems
           </h2>
           <p className="text-center text-slate-600 mb-12 max-w-2xl mx-auto">
             Revenue, assets, and equity—with compliant structures and interoperable infrastructure.
@@ -134,15 +134,15 @@ export default function TokenizationPage() {
         </Container>
       </Section>
 
-      {/* 5. Partners - proof-point cards */}
+      {/* 5. Ecosystem partners */}
       <Section background="cream" id="partners">
         <Container>
           <p className="section-label text-center">Proof</p>
           <h2 className="text-3xl md:text-4xl font-bold text-center text-near-black mb-4">
-            Projects & Partners
+            Ecosystem
           </h2>
           <p className="text-center text-slate-600 mb-12 max-w-2xl mx-auto">
-            Current and past engagements across real estate, carbon, community reserves, and asset tokenization.
+            Structured collaboration across real-estate operators, sponsors, and investor networks.
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {tokenizationContent.partners.map((partner, idx) => (
@@ -164,12 +164,12 @@ export default function TokenizationPage() {
         </Container>
       </Section>
 
-      {/* 6. Tech Stack - refined badges */}
+      {/* 6. Ownership stack */}
       <Section id="tech-stack" className="bg-tokenization-grid">
         <Container>
           <p className="section-label text-center">Infrastructure</p>
           <h2 className="text-3xl md:text-4xl font-bold text-center text-near-black mb-4">
-            Tech Stack
+            Ownership Stack
           </h2>
           <p className="text-center text-slate-600 mb-10 max-w-2xl mx-auto">
             L1/L2 chains, oracles, stablecoins, fintech rails, and AI orchestration.
@@ -265,17 +265,17 @@ export default function TokenizationPage() {
         </Container>
       </Section>
 
-      {/* 10. CTA - distinct close */}
+      {/* 10. CTA */}
       <Section background="charcoal" padding="xl" className="relative overflow-hidden">
         <div className="absolute inset-0 bg-tokenization-dots opacity-20" aria-hidden />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-electric-teal/10 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2" aria-hidden />
         <Container size="md" className="relative">
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-soft-white mb-4">
-              Building a tokenization project?
+              Building an ownership system?
             </h2>
             <p className="text-xl text-slate-300 mb-8 max-w-xl mx-auto">
-              Let&apos;s discuss structure, tech stack, and how we can help.
+              Let&apos;s map your property ownership flow, investor structure, and system design path.
             </p>
             <a
               href={CALENDLY_URL}

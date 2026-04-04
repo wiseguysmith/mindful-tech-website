@@ -15,6 +15,12 @@ import { cn } from '@/lib/utils'
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
+  const isActiveItem = (href: string) => {
+    if (href.includes('#')) {
+      return pathname === '/'
+    }
+    return pathname === href
+  }
 
   return (
     <>
@@ -59,7 +65,7 @@ export default function Navbar() {
                     href={item.href}
                     className={cn(
                       'rounded-md px-2 py-1 text-sm font-medium transition-colors',
-                      pathname === item.href
+                      isActiveItem(item.href)
                         ? 'bg-zinc-800/80 text-amber-200'
                         : 'text-zinc-400 hover:text-zinc-100'
                     )}
@@ -72,19 +78,13 @@ export default function Navbar() {
 
             {/* Desktop CTAs */}
             <div className="hidden md:flex md:items-center md:gap-3">
-              <Link
-                href="/solutions"
-                className="inline-flex items-center justify-center rounded-md border border-zinc-600 bg-zinc-900 px-4 py-2 text-sm font-medium text-zinc-100 transition-all duration-200 hover:border-zinc-400"
-              >
-                Explore Solutions
-              </Link>
               <a
                 href={CALENDLY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-amber-300 to-purple-400 px-4 py-2 text-sm font-medium text-zinc-950 transition-colors hover:brightness-105"
               >
-                Book a Strategy Call
+                Start Your System
               </a>
             </div>
 
@@ -148,7 +148,7 @@ export default function Navbar() {
                   href={item.href}
                   className={cn(
                     'block rounded-md px-2 py-1 text-base font-medium transition-all duration-200 hover:pl-2',
-                    pathname === item.href
+                    isActiveItem(item.href)
                       ? 'bg-zinc-800/80 text-amber-200'
                       : 'text-zinc-400 hover:text-zinc-100',
                     mobileMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
@@ -173,13 +173,6 @@ export default function Navbar() {
                 transitionDelay: mobileMenuOpen ? `${navigation.length * 50}ms` : '0ms',
               }}
             >
-              <Link
-                href="/solutions"
-                className="inline-flex w-full items-center justify-center rounded-md border border-zinc-600 bg-zinc-900 px-4 py-2 text-sm font-medium text-zinc-100 transition-all duration-200 hover:border-zinc-400"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Explore Solutions
-              </Link>
               <a
                 href={CALENDLY_URL}
                 target="_blank"
@@ -187,7 +180,7 @@ export default function Navbar() {
                 className="inline-flex w-full items-center justify-center rounded-md bg-gradient-to-r from-amber-300 to-purple-400 px-4 py-2 text-sm font-medium text-zinc-950 transition-colors hover:brightness-105"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Book a Strategy Call
+                Start Your System
               </a>
             </div>
           </div>

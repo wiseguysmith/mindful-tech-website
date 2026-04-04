@@ -6,8 +6,8 @@ import Card from '@/components/Card'
 import { CheckCircle2 } from 'lucide-react'
 
 export const metadata = {
-  title: 'Docconnect Solutions',
-  description: 'Evaluate, integrate, and operationalize Docconnect-based workflows. Protocol connectivity for coordination, access, and service delivery.',
+  title: 'Digital Workforce Systems',
+  description: 'System design for small businesses that need intelligent workflow handling across intake, routing, and operations.',
 }
 
 export default function DocconnectPage() {
@@ -43,7 +43,7 @@ export default function DocconnectPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 transition-all duration-200 rounded-md"
             >
-              Notarize Now
+              Open Docconnect
             </a>
             <a
               href={CALENDLY_URL}
@@ -72,31 +72,31 @@ export default function DocconnectPage() {
       <Section id="use-cases" background="cream">
         <Container>
           <h2 className="text-3xl md:text-4xl font-bold text-near-black mb-8 text-center">
-            Docconnect Use Cases
+            Digital Workforce Use Cases
           </h2>
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             <Card hover>
-              <h3 className="text-lg font-bold text-near-black mb-2">Service Provider Onboarding</h3>
+              <h3 className="text-lg font-bold text-near-black mb-2">Client Intake Routing</h3>
               <p className="text-slate-600 text-sm">
-                Streamline partner and provider onboarding with Docconnect-verified identity and document flows.
+                Route new requests with cleaner logic and less manual triage.
               </p>
             </Card>
             <Card hover>
-              <h3 className="text-lg font-bold text-near-black mb-2">Client Intake & Routing</h3>
+              <h3 className="text-lg font-bold text-near-black mb-2">Inbox and Task Flow</h3>
               <p className="text-slate-600 text-sm">
-                Route clients through Docconnect-enabled workflows with compliance-aware handoffs.
+                Organize communications, priorities, and assignments across your stack.
               </p>
             </Card>
             <Card hover>
-              <h3 className="text-lg font-bold text-near-black mb-2">Transaction & Settlement</h3>
+              <h3 className="text-lg font-bold text-near-black mb-2">Lead Follow-through</h3>
               <p className="text-slate-600 text-sm">
-                Integrate Docconnect for verifiable transaction flows and interoperable settlement.
+                Capture, qualify, and follow up with qualified opportunities faster.
               </p>
             </Card>
             <Card hover>
-              <h3 className="text-lg font-bold text-near-black mb-2">Compliance & Audit Trails</h3>
+              <h3 className="text-lg font-bold text-near-black mb-2">Operational Handoffs</h3>
               <p className="text-slate-600 text-sm">
-                Build audit-ready documentation and compliance design around Docconnect interactions.
+                Keep work moving between people and systems without context loss.
               </p>
             </Card>
           </div>
@@ -107,10 +107,10 @@ export default function DocconnectPage() {
         <Container size="md">
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-soft-white mb-4">
-              Ready to build a Docconnect workflow?
+              Ready to build your digital workforce?
             </h2>
             <p className="text-xl text-slate-300 mb-8">
-              Let&apos;s design the right integration for your business.
+              We map your workflows and design system architecture that actually fits your business.
             </p>
             <a
               href={CALENDLY_URL}

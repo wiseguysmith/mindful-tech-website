@@ -12,7 +12,7 @@ interface Particle {
   alpha: number
 }
 
-const PARTICLE_COUNT = 56
+const PARTICLE_COUNT = 48
 
 export default function PipelineEnergyCanvas() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
@@ -44,7 +44,7 @@ export default function PipelineEnergyCanvas() {
     }
 
     const createParticle = (): Particle => {
-      const speed = 0.08 + Math.random() * 0.2
+      const speed = 0.05 + Math.random() * 0.14
       const angle = Math.random() * Math.PI * 2
       return {
         x: Math.random() * width,
@@ -52,8 +52,8 @@ export default function PipelineEnergyCanvas() {
         vx: Math.cos(angle) * speed,
         vy: Math.sin(angle) * speed,
         radius: 1 + Math.random() * 2.6,
-        hue: Math.random() > 0.5 ? 275 : 42,
-        alpha: 0.15 + Math.random() * 0.4,
+        hue: Math.random() > 0.5 ? 286 : 34,
+        alpha: 0.12 + Math.random() * 0.32,
       }
     }
 
@@ -66,15 +66,15 @@ export default function PipelineEnergyCanvas() {
       context.clearRect(0, 0, width, height)
 
       const gradient = context.createLinearGradient(0, 0, width, height)
-      gradient.addColorStop(0, 'rgba(168, 85, 247, 0.12)')
-      gradient.addColorStop(1, 'rgba(245, 158, 11, 0.1)')
+      gradient.addColorStop(0, 'rgba(124, 58, 237, 0.1)')
+      gradient.addColorStop(1, 'rgba(217, 119, 6, 0.12)')
 
       context.fillStyle = gradient
       context.fillRect(0, 0, width, height)
 
       particles.forEach((particle, index) => {
-        const waveX = Math.sin((particle.y + performance.now() * 0.03 + index * 17) * 0.004) * 0.06
-        const waveY = Math.cos((particle.x + performance.now() * 0.03 + index * 13) * 0.004) * 0.06
+        const waveX = Math.sin((particle.y + performance.now() * 0.02 + index * 17) * 0.004) * 0.04
+        const waveY = Math.cos((particle.x + performance.now() * 0.02 + index * 13) * 0.004) * 0.04
 
         particle.x += particle.vx + waveX
         particle.y += particle.vy + waveY
@@ -88,7 +88,7 @@ export default function PipelineEnergyCanvas() {
         context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2)
         context.fillStyle = `hsla(${particle.hue}, 90%, 72%, ${particle.alpha})`
         context.shadowBlur = 16
-        context.shadowColor = particle.hue === 275 ? 'rgba(168,85,247,0.6)' : 'rgba(245,158,11,0.55)'
+        context.shadowColor = particle.hue === 286 ? 'rgba(147,51,234,0.55)' : 'rgba(217,119,6,0.55)'
         context.fill()
       })
 
@@ -102,12 +102,12 @@ export default function PipelineEnergyCanvas() {
           const dy = a.y - b.y
           const distance = Math.sqrt(dx * dx + dy * dy)
 
-          if (distance < 130) {
-            const opacity = (1 - distance / 130) * 0.14
+          if (distance < 120) {
+            const opacity = (1 - distance / 120) * 0.11
             context.beginPath()
             context.moveTo(a.x, a.y)
             context.lineTo(b.x, b.y)
-            context.strokeStyle = `rgba(217, 200, 255, ${opacity})`
+            context.strokeStyle = `rgba(244, 196, 128, ${opacity})`
             context.lineWidth = 0.7
             context.stroke()
           }
@@ -129,7 +129,7 @@ export default function PipelineEnergyCanvas() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 h-full w-full opacity-70"
+      className="absolute inset-0 h-full w-full opacity-62"
       aria-hidden="true"
     />
   )

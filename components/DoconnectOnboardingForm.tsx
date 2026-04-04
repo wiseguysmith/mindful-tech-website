@@ -69,7 +69,7 @@ export default function DoconnectOnboardingForm() {
         <CheckCircle2 className="w-16 h-16 text-electric-teal mx-auto mb-4" />
         <h3 className="text-xl font-bold text-near-black mb-2">Application Received</h3>
         <p className="text-slate-600">
-          We&apos;ll review your information and reach out shortly to discuss your Docconnect workflow.
+          We&apos;ll review your information and reach out shortly to discuss your Digital Workforce system.
         </p>
       </Card>
     )
@@ -136,7 +136,7 @@ export default function DoconnectOnboardingForm() {
         </div>
         <div>
           <label htmlFor="useCase" className="block text-sm font-medium text-near-black mb-1">
-            Use Case / What are you looking to build? *
+            What system are you looking to build? *
           </label>
           <textarea
             id="useCase"
@@ -145,7 +145,7 @@ export default function DoconnectOnboardingForm() {
             rows={4}
             value={formData.useCase}
             onChange={handleChange}
-            placeholder="Describe your Docconnect workflow goals..."
+            placeholder="Describe your workflow goals and key bottlenecks..."
             className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-electric-teal focus:border-electric-teal"
           />
         </div>
@@ -159,7 +159,7 @@ export default function DoconnectOnboardingForm() {
             name="currentStack"
             value={formData.currentStack}
             onChange={handleChange}
-            placeholder="e.g. HubSpot, Docconnect, custom CRM"
+            placeholder="e.g. HubSpot, custom CRM, inbox stack, spreadsheets"
             className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-electric-teal focus:border-electric-teal"
           />
         </div>

@@ -4,8 +4,8 @@ import DoconnectOnboardingForm from '@/components/DoconnectOnboardingForm'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Docconnect Onboarding',
-  description: 'Apply to build a Docconnect workflow with MindfulTech.',
+  title: 'Digital Workforce Onboarding',
+  description: 'Apply to start a Digital Workforce build with MindfulTech.',
 }
 
 export default function DocconnectApplyPage() {
@@ -14,10 +14,10 @@ export default function DocconnectApplyPage() {
       <Container size="md">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-near-black mb-4">
-            Build a Docconnect Workflow
+            Start Your Digital Workforce
           </h1>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Tell us about your business and what you&apos;re looking to build. We&apos;ll review and reach out to discuss next steps.
+            Tell us how your business works today. We&apos;ll review the bottlenecks and map the right system path.
           </p>
         </div>
 

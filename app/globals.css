@@ -214,6 +214,22 @@ html {
 }
 
 @layer components {
+  .section-shell {
+    @apply relative border-b border-zinc-800/65 py-20 md:py-24;
+  }
+
+  .surface-panel {
+    @apply rounded-2xl border border-zinc-700/60 bg-gradient-to-b from-zinc-900/85 to-zinc-950/85 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)];
+  }
+
+  .surface-panel-soft {
+    @apply rounded-xl border border-zinc-800/80 bg-zinc-900/55;
+  }
+
+  .warm-ring {
+    @apply border-amber-200/25;
+  }
+
   .prose {
     color: rgb(212 212 216);
     max-width: 65ch;
