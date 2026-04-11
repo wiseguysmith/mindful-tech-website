@@ -167,6 +167,7 @@ export const navigation = [
   { name: 'System', href: '/#system' },
   { name: 'Digital Workforce', href: '/doconnect' },
   { name: 'Ownership', href: '/tokenization' },
+  { name: 'Title2Token', href: 'https://title2token.mindfultech.services', external: true },
   { name: 'Start', href: '/contact' },
 ]
 
