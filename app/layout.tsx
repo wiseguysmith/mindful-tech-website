@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Space_Grotesk } from 'next/font/google'
+import { Inter, Playfair_Display } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
@@ -7,29 +7,30 @@ import Footer from '@/components/Footer'
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
+  weight: ['300', '400', '500', '600'],
   display: 'swap',
 })
 
-const spaceGrotesk = Space_Grotesk({
+const playfair = Playfair_Display({
   subsets: ['latin'],
-  variable: '--font-space-grotesk',
-  weight: ['400', '500', '600', '700'],
+  variable: '--font-playfair',
+  weight: ['400', '500'],
   display: 'swap',
 })
 
 export const metadata: Metadata = {
   title: {
-    default: 'MindfulTech | Infrastructure for Digital Workers & Connected Systems',
-    template: '%s | MindfulTech',
+    default: 'Mindful Tech | Intelligent Systems Consultancy',
+    template: '%s | Mindful Tech',
   },
-  description: 'Infrastructure for digital workers, connected systems, and protocol-ready businesses. Deploy AI agents, automate workflows, and plug into next-generation protocol infrastructure.',
+  description: 'Mindful Tech helps businesses transition into the digital future through intelligent automation, AI systems, and strategic education — making modernization understandable, accessible, and human-centered.',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://mindfultech.services',
-    siteName: 'MindfulTech',
-    title: 'MindfulTech | Infrastructure for Digital Workers & Connected Systems',
-    description: 'Infrastructure for digital workers, connected systems, and protocol-ready businesses.',
+    siteName: 'Mindful Tech',
+    title: 'Mindful Tech | Intelligent Systems Consultancy',
+    description: 'Mindfully bridging the gap into the digital age. Intelligent systems built for how business actually works.',
   },
 }
 
@@ -39,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body>
         <Navbar />
         <main className="min-h-screen">

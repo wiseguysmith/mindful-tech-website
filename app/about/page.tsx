@@ -1,108 +1,161 @@
-import Image from 'next/image'
-import Section from '@/components/Section'
-import Container from '@/components/Container'
-import Card from '@/components/Card'
-import { teamMembers, credibility, CALENDLY_URL } from '@/lib/site-data'
+import Link from 'next/link'
+import { CALENDLY_URL } from '@/lib/site-data'
 
 export const metadata = {
   title: 'About',
-  description: 'Mission: unlock capital ethically, build investor-grade rails, empower LATAM + U.S.',
+  description: 'Mindful Tech is an intelligent systems consultancy — helping businesses transition into the digital future through intelligent automation, AI systems, and strategic education.',
 }
 
 export default function AboutPage() {
   return (
-    <>
+    <div style={{ backgroundColor: '#0A0A0F' }} className="text-[#E8E8F0]">
+
       {/* Hero / Mission */}
-      <Section background="cream" padding="xl">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold text-near-black mb-4">
-              About MindfulTech
+      <section className="border-b border-[#2A2A3A] py-24">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl">
+            <p className="text-xs uppercase tracking-[0.2em] text-[#1DB97E]">About</p>
+            <h1 className="mt-4 text-balance text-5xl font-light leading-[1.1] md:text-6xl">
+              Mindful Tech
             </h1>
-            <p className="text-xl text-slate-600 mb-8">
-              Unlocking capital ethically. Building investor-grade rails. Empowering LATAM + U.S.
+            <p className="mt-4 text-xl font-light text-[#8888A0]">
+              Intelligent Systems Consultancy
             </p>
-            <p className="text-slate-700">
-              We design and build infrastructure for digital workers, connected systems, and protocol-ready businesses—with experience across tokenization, AI agents, and operational automation.
+            <p className="mt-8 max-w-[680px] text-lg font-light leading-[1.75] text-[#8888A0]">
+              Mindful Tech exists to help businesses and individuals transition into the digital
+              future through intelligent automation, AI systems, and strategic education — making
+              modernization understandable, accessible, and human-centered.
             </p>
           </div>
-        </Container>
-      </Section>
+        </div>
+      </section>
 
-      {/* Team */}
-      <Section>
-        <Container>
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-near-black mb-12">
-            Leadership Team
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {teamMembers.map((member) => (
-              <Card key={member.name} hover className="text-center">
-                <div className="relative w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-slate-100">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    className="object-cover"
-                    sizes="128px"
-                    unoptimized
-                  />
-                </div>
-                <h3 className="text-xl font-bold text-near-black">{member.name}</h3>
-                <p className="text-electric-teal font-medium mb-4">{member.title}</p>
-                <p className="text-sm text-slate-600 text-left">{member.bio}</p>
-              </Card>
+      {/* Mission */}
+      <section className="border-b border-[#2A2A3A] py-24">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-16 md:grid-cols-2">
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] text-[#1DB97E]">Why We Exist</p>
+              <h2 className="mt-4 text-3xl font-light">
+                The gap is not technology. The gap is implementation.
+              </h2>
+              <p className="mt-6 max-w-[680px] font-light leading-[1.75] text-[#8888A0]">
+                Most businesses are running on systems built for a different era. Not because they
+                are behind — because no one has shown them a better path. The cost is invisible:
+                time lost to administration, leads that fall through gaps, teams doing work that
+                systems should handle.
+              </p>
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] text-[#1DB97E]">How We Think</p>
+              <h2 className="mt-4 text-3xl font-light">
+                Modernization is strategic, not technical.
+              </h2>
+              <p className="mt-6 max-w-[680px] font-light leading-[1.75] text-[#8888A0]">
+                The question is not which tools to use. It is how this business should actually
+                operate in the next ten years. The businesses that will thrive are not the ones
+                that adopted AI fastest — they are the ones that adopted it most intentionally.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Philosophy */}
+      <section className="border-b border-[#2A2A3A] py-24">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+          <p className="text-xs uppercase tracking-[0.2em] text-[#1DB97E]">Our Philosophy</p>
+          <blockquote className="mt-6 max-w-3xl font-serif-accent text-3xl font-light italic leading-[1.5] text-[#E8E8F0] md:text-4xl">
+            &ldquo;Humans and technology must coexist intelligently. The digital age should feel
+            more human-driven, not tech-first.&rdquo;
+          </blockquote>
+        </div>
+      </section>
+
+      {/* Approach */}
+      <section className="border-b border-[#2A2A3A] py-24">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+          <p className="text-xs uppercase tracking-[0.2em] text-[#1DB97E]">What Makes Us Different</p>
+          <h2 className="mt-4 text-4xl font-light">Our approach.</h2>
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {[
+              {
+                title: 'Systems thinking',
+                body: 'We see business as architecture — not a collection of tasks. Every system is designed as a whole before any part is built.',
+              },
+              {
+                title: 'Education first',
+                body: 'Clients understand what they are building before they build it. Implementation without comprehension creates fragile systems.',
+              },
+              {
+                title: 'Calm intelligence',
+                body: 'Intelligent infrastructure should reduce complexity, not add to it. The goal is operations that feel clear and navigable.',
+              },
+              {
+                title: 'Accessible modernization',
+                body: 'The digital future is not reserved for large corporations. Growing businesses deserve the same quality of intelligent systems.',
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="rounded-2xl border border-[#2A2A3A] bg-[#111118]/40 p-6"
+              >
+                <h3 className="text-lg font-medium text-[#1DB97E]">{item.title}</h3>
+                <p className="mt-3 font-light leading-[1.75] text-[#8888A0]">{item.body}</p>
+              </div>
             ))}
           </div>
-        </Container>
-      </Section>
+        </div>
+      </section>
 
-      {/* Credibility */}
-      <Section>
-        <Container>
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-near-black mb-12">
-            Experience & Partners
+      {/* The After State */}
+      <section className="border-b border-[#2A2A3A] py-24">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+          <p className="text-xs uppercase tracking-[0.2em] text-[#1DB97E]">The After State</p>
+          <h2 className="mt-4 max-w-3xl text-4xl font-light">
+            What life looks like after.
           </h2>
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <Card>
-              <h3 className="text-lg font-bold text-near-black mb-4">Achievements</h3>
-              <ul className="space-y-2">
-                {credibility.achievements.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-slate-700">
-                    <span className="text-electric-teal">•</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </Card>
-            <Card>
-              <h3 className="text-lg font-bold text-near-black mb-4">Partner Geography</h3>
-              <div className="flex flex-wrap gap-3">
-                {credibility.partners.map((p) => (
-                  <span
-                    key={p.name}
-                    className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-100 text-slate-700 text-sm"
-                  >
-                    <span>{p.flag}</span>
-                    <span className="font-medium">{p.name}</span>
-                    <span className="text-slate-500">({p.country})</span>
-                  </span>
-                ))}
-              </div>
-            </Card>
+          <p className="mt-6 max-w-[680px] font-light leading-[1.75] text-[#8888A0]">
+            Operations running on intelligent infrastructure. Teams focused on what humans do best.
+            Leaders who understand their systems and can evolve them. A business that feels modern
+            — not because it uses new tools, but because it thinks differently about how work gets
+            done.
+          </p>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24">
+        <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-3xl border border-[#2A2A3A] bg-[#111118] p-10 text-center md:p-14">
+            <p className="text-xs uppercase tracking-[0.2em] text-[#1DB97E]">Begin</p>
+            <h2 className="mx-auto mt-4 max-w-2xl text-balance text-3xl font-light md:text-4xl">
+              Ready to understand what your business could look like?
+            </h2>
+            <p className="mx-auto mt-5 max-w-xl font-light text-[#8888A0]">
+              A strategy call is a conversation, not a pitch. We will help you understand where the
+              gaps are and what a better path looks like.
+            </p>
+            <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
+              <a
+                href={CALENDLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-md px-7 py-3 text-sm font-medium text-[#0A0A0F] transition hover:brightness-105"
+                style={{ backgroundColor: '#1DB97E' }}
+              >
+                Book a Strategy Call
+              </a>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-md border border-[#2A2A3A] bg-[#1A1A24] px-7 py-3 text-sm font-medium text-[#E8E8F0] transition hover:border-[#3A3A4A]"
+              >
+                Send a Message
+              </Link>
+            </div>
           </div>
-          <div className="text-center">
-            <a
-              href={CALENDLY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 transition-colors rounded-md"
-            >
-              Book a Strategy Call
-            </a>
-          </div>
-        </Container>
-      </Section>
-    </>
+        </div>
+      </section>
+    </div>
   )
 }

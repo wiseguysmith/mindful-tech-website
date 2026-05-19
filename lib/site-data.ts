@@ -1,171 +1,171 @@
 /**
- * Site Data Configuration
- * MindfulTech rebrand: Infrastructure for digital workers, connected systems, and protocol-ready businesses.
+ * Site Data — Mindful Tech
+ * Intelligent Systems Consultancy
+ * "Mindfully bridging the gap into the digital age."
  */
 
 export const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/mindfultechnology'
-// Set NEXT_PUBLIC_FORMSPREE_ENDPOINT in .env.local (e.g. https://formspree.io/f/your-form-id)
 export const FORMSPREE_ENDPOINT = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || ''
 export const DOCONNECT_URL = process.env.NEXT_PUBLIC_DOCONNECT_URL || 'https://docconnect-461217483312.us-east1.run.app'
 
-// Hero (rebrand)
+// Hero
 export const heroContent = {
-  headline: 'Build Smarter Operations with AI, Automation, and Connected Protocols',
-  subhead: 'MindfulTech helps businesses deploy digital workers, automate revenue workflows, and plug into next-generation protocol infrastructure without the chaos.',
+  headline: 'Most businesses are running on systems built for a different era.',
+  subhead: 'Mindful Tech helps you understand what needs to change — and builds the intelligent infrastructure that replaces it.',
   primaryCTA: 'Book a Strategy Call',
-  secondaryCTA: 'Explore Solutions',
+  secondaryCTA: 'Explore Our Approach',
 }
 
 // Trust / Positioning Strip
 export const trustStrip = [
-  'AI Agent Systems',
-  'Workflow Automation',
-  'Protocol Integrations',
-  'Secure Operational Design',
-  'Revenue & Compliance Flows',
+  'Intelligent Systems',
+  'Operational Modernization',
+  'AI Implementation',
+  'Systems Architecture',
+  'Strategic Education',
 ]
 
-// What We Do - 4 cards
+// What We Do — 4 cards
 export const whatWeDoCards = [
   {
-    title: 'AI Workers',
-    description: 'Deploy agents for lead handling, inbox triage, scheduling, client intake, research, and follow-up.',
+    title: 'Intelligent Automation',
+    description: 'AI systems that handle intake, routing, scheduling, follow-up, and triage — so your team focuses on the work that actually matters.',
   },
   {
-    title: 'Automation Systems',
-    description: 'Connect your CRM, forms, email, messaging, and databases into one reliable operating flow.',
+    title: 'Connected Infrastructure',
+    description: 'Your CRM, forms, communication channels, and databases — unified into one reliable operating system instead of a collection of disconnected tools.',
   },
   {
     title: 'Protocol Integrations',
-    description: 'Add modern connectivity layers such as Docconnect and related services where your business benefits from verifiable, interoperable workflows.',
+    description: 'Modern connectivity layers where verifiable, interoperable workflows improve coordination, access, and service delivery.',
   },
   {
-    title: 'Custom Buildouts',
-    description: 'For teams that need tailored logic, onboarding flows, dashboards, and secure internal tooling.',
+    title: 'Strategic Education',
+    description: 'Clients understand what they are building before they build it. Implementation without comprehension creates fragile systems.',
   },
 ]
 
-// Who We Serve (Industries)
+// Who We Serve
 export const industries = [
-  'Professional services',
-  'Real estate and title workflows',
+  'Professional services and consulting',
+  'Real estate and title operations',
   'Hospitality and local service businesses',
-  'Clinics and operationally heavy teams',
-  'Protocol-native and Web3-adjacent ventures',
+  'Clinics and operationally complex teams',
+  'Ventures building on modern protocol infrastructure',
 ]
 
-// Industries page content (expanded)
+// Industries page content
 export const industriesContent = [
   {
     title: 'Professional Services',
-    description: 'Law firms, consultancies, and service businesses that need intake automation, client routing, and workflow efficiency.',
+    description: 'Law firms, consultancies, and service businesses where intake automation, client routing, and operational clarity translate directly into capacity and revenue.',
   },
   {
-    title: 'Real Estate & Title Workflows',
-    description: 'Property managers, title companies, and real estate teams with document-heavy, compliance-sensitive operations.',
+    title: 'Real Estate & Title Operations',
+    description: 'Property managers, title companies, and real estate teams with document-heavy, compliance-sensitive workflows that benefit from intelligent structure.',
   },
   {
     title: 'Hospitality & Local Services',
-    description: 'Hotels, restaurants, and local businesses that benefit from booking automation, guest communication, and operational flows.',
+    description: 'Hotels, restaurants, and local businesses where booking automation, guest communication, and operational consistency determine the client experience.',
   },
   {
-    title: 'Clinics & Operationally Heavy Teams',
-    description: 'Healthcare-adjacent and operationally complex teams that need HIPAA-aware automation, scheduling, and intake.',
+    title: 'Clinics & Operationally Complex Teams',
+    description: 'Healthcare-adjacent and operationally intensive teams that need thoughtful automation, scheduling intelligence, and compliant intake systems.',
   },
   {
-    title: 'Protocol-Native & Web3-Adjacent Ventures',
-    description: 'Teams building on or integrating with protocols like Docconnect, seeking verifiable workflows and interoperable systems.',
+    title: 'Protocol-Native Ventures',
+    description: 'Teams building on or integrating with modern protocol infrastructure — seeking verifiable workflows and interoperable systems that scale.',
   },
 ]
 
-// Solutions page content (expanded)
+// Solutions page content
 export const solutionsContent = [
   {
-    title: 'AI Workers',
-    description: 'Deploy agents for lead handling, inbox triage, scheduling, client intake, research, and follow-up.',
-    features: ['Lead capture & triage', 'Inbox automation', 'Scheduling & reminders', 'Client intake flows', 'Research & follow-up'],
+    title: 'Intelligent Automation',
+    description: 'AI systems that handle intake, routing, scheduling, follow-up, and triage — built around how your business actually operates.',
+    features: ['Lead capture and routing', 'Inbox intelligence', 'Scheduling and reminders', 'Client intake systems', 'Research and follow-up automation'],
   },
   {
-    title: 'Automation Systems',
-    description: 'Connect your CRM, forms, email, messaging, and databases into one reliable operating flow.',
-    features: ['CRM integration', 'Form & document intake', 'Email & messaging', 'Database sync', 'End-to-end workflows'],
+    title: 'Connected Infrastructure',
+    description: 'Your tools unified into one reliable operating system — CRM, forms, communication, and databases working in concert.',
+    features: ['CRM integration', 'Form and document intake', 'Email and messaging coordination', 'Database synchronization', 'End-to-end workflow design'],
   },
   {
     title: 'Protocol Integrations',
-    description: 'Add modern connectivity layers such as Docconnect and related services where your business benefits from verifiable, interoperable workflows.',
-    features: ['Docconnect integration', 'Verifiable workflows', 'Interoperable systems', 'Compliance design', 'Partner routing'],
+    description: 'Modern connectivity layers where verifiable, interoperable workflows improve how your business coordinates, accesses, and delivers.',
+    features: ['Docconnect integration', 'Verifiable workflow design', 'Interoperable systems', 'Compliance-aware architecture', 'Partner routing and handoffs'],
   },
   {
-    title: 'Custom Buildouts',
-    description: 'For teams that need tailored logic, onboarding flows, dashboards, and secure internal tooling.',
-    features: ['Custom dashboards', 'Onboarding flows', 'Internal tooling', 'Secure portals', 'Tailored logic'],
+    title: 'Custom Architecture',
+    description: 'For teams with tailored requirements — bespoke logic, onboarding systems, dashboards, and secure internal tooling built to specification.',
+    features: ['Custom dashboards', 'Onboarding architecture', 'Internal tooling', 'Secure client portals', 'Business-specific logic'],
   },
 ]
 
 // Docconnect content
 export const doconnectContent = {
-  headline: 'Docconnect Solutions',
-  intro: 'We help businesses evaluate, integrate, and operationalize Docconnect-based workflows where protocol connectivity can improve coordination, access, service delivery, or transaction flow.',
+  headline: 'Docconnect Integration',
+  intro: 'We help businesses evaluate, integrate, and operationalize Docconnect-based workflows where protocol connectivity can meaningfully improve coordination, access, service delivery, or transaction flow.',
   services: [
     'Docconnect strategy and use-case design',
-    'API / protocol integration planning',
+    'API and protocol integration planning',
     'Workflow mapping for Docconnect-enabled services',
-    'Front-end pages for onboarding into Docconnect flows',
+    'Onboarding pages for Docconnect flows',
     'Partner routing and service handoff logic',
-    'Compliance-aware documentation and operations design',
-    'CRM / inbox / form integrations around Docconnect interactions',
+    'Compliance-aware documentation and operational design',
+    'CRM, inbox, and form integrations around Docconnect interactions',
     'Custom dashboards for activity, requests, and handoffs',
   ],
   ctas: [
-    { label: 'Talk About a Docconnect Integration', href: CALENDLY_URL },
+    { label: 'Discuss a Docconnect Integration', href: CALENDLY_URL },
     { label: 'See Docconnect Use Cases', href: '/doconnect#use-cases' },
     { label: 'Build a Docconnect Workflow', href: '/doconnect/apply' },
   ],
   notarizeNowUrl: DOCONNECT_URL,
 }
 
-// Add-ons / Linked Services
+// Add-ons
 export const addOns = [
-  'Identity / onboarding flows',
+  'Identity and onboarding flows',
   'Form and document intake',
   'Scheduling and routing',
-  'CRM sync',
-  'Notification systems (email, SMS, WhatsApp)',
-  'Payment collection or invoicing',
+  'CRM synchronization',
+  'Notification systems — email, SMS, messaging',
+  'Payment collection and invoicing',
   'Analytics dashboards',
-  'Admin portals',
-  'Knowledge base / support automation',
+  'Administrative portals',
+  'Knowledge base and support intelligence',
   'Secure client portals',
 ]
 
-// Process - How we build
+// Process — How we work
 export const processSteps = [
-  { step: 1, title: 'Audit the workflow', description: 'Understand current processes and pain points.' },
-  { step: 2, title: 'Map the system', description: 'Design the architecture and data flows.' },
-  { step: 3, title: 'Design the logic', description: 'Define rules, automations, and integrations.' },
-  { step: 4, title: 'Integrate the tools / protocol', description: 'Connect CRM, forms, Docconnect, and other systems.' },
-  { step: 5, title: 'Launch, test, and refine', description: 'Deploy, monitor, and iterate.' },
+  { step: 1, title: 'Understand the business', description: 'Before any system is designed, we understand the operation — its flows, friction points, and the outcomes that matter.' },
+  { step: 2, title: 'Map the architecture', description: 'We design the system as a whole: how data moves, where intelligence is applied, and how the pieces connect.' },
+  { step: 3, title: 'Define the logic', description: 'Rules, automations, integrations, and handoffs are specified clearly before any tool is touched.' },
+  { step: 4, title: 'Build and integrate', description: 'Implementation follows the architecture. Tools are connected, systems activated, and workflows deployed.' },
+  { step: 5, title: 'Launch, refine, and educate', description: 'We go live, monitor performance, and ensure the team understands what they have built and how to evolve it.' },
 ]
 
-// Why MindfulTech
+// Why Mindful Tech
 export const whyMindfulTech = [
-  'We design for actual operations, not just demos',
-  'We connect tools people already use',
-  'We build for security, scale, and clarity',
-  'We can bridge traditional business workflows with newer protocol layers',
+  'We lead with systems thinking — not tool recommendations',
+  'Clients understand what they are building before it is built',
+  'We design for actual operations, not demonstrations',
+  'Modernization is approached strategically, not reactively',
 ]
 
 // CTA Band
 export const ctaBand = {
-  headline: 'Need a system that can think, route, and connect?',
-  subhead: "Let's design the right stack for your business.",
+  headline: 'What does your business look like when its operations finally match its ambition?',
+  subhead: 'That is the question worth sitting with. When you are ready to answer it, we are here.',
   cta: 'Book a Strategy Call',
 }
 
-// Navigation (rebrand)
+// Navigation
 export const navigation = [
   { name: 'Home', href: '/' },
-  { name: 'Solutions', href: '/solutions' },
+  { name: 'Automation', href: '/solutions' },
   { name: 'Tokenization', href: '/tokenization' },
   { name: 'Docconnect', href: 'https://docconnect-461217483312.us-east1.run.app/#', external: true },
   { name: 'Industries', href: '/industries' },
@@ -177,8 +177,8 @@ export const navigation = [
 // Tokenization page content
 export const tokenizationContent = {
   hero: {
-    headline: 'Global Tokenization Infrastructure',
-    subhead: 'We design and build tokenization rails for revenue, assets, and equity—with experience across real estate, carbon credits, and community-led sovereign reserves.',
+    headline: 'Tokenization Infrastructure',
+    subhead: 'We design and build tokenization architecture for revenue, assets, and equity — with experience across real estate, carbon credits, and community-led capital structures.',
     primaryCTA: 'Book a Strategy Call',
     secondaryCTA: 'Explore Our Process',
   },
@@ -188,12 +188,12 @@ export const tokenizationContent = {
     'ABR Wealth Fund DAO',
     'Greenchain',
     'Carbon Credits',
-    'Revenue • Assets • Equity',
+    'Revenue · Assets · Equity',
   ],
   whatWeTokenize: [
     {
       title: 'Revenue Tokenization',
-      description: 'Turn cash-flowing assets into tokenized revenue participation—without selling ownership. SPV + token hybrids, automated distributions, investor-grade visibility.',
+      description: 'Turn cash-flowing assets into tokenized revenue participation — without selling ownership. SPV and token hybrid structures, automated distributions, investor-grade transparency.',
     },
     {
       title: 'Asset Tokenization',
@@ -201,7 +201,7 @@ export const tokenizationContent = {
     },
     {
       title: 'Equity & Governance',
-      description: 'Token-based ownership, DAO structures, and community-led treasuries. From Wyoming DAO LLCs to sovereign Bitcoin reserves.',
+      description: 'Token-based ownership, DAO structures, and community-operated treasuries. From Wyoming DAO LLCs to sovereign Bitcoin reserves.',
     },
   ],
   abr: {
@@ -212,12 +212,12 @@ export const tokenizationContent = {
     highlights: [
       'First community-operated Bitcoin treasury in the United States, founded in Altgeld Gardens, Chicago.',
       'Structured as a Wyoming DAO LLC with secure 2-of-3 multisig cold storage vault.',
-      'Bitcoin Reserve Act passed—building a sovereign fund for the Bitcoin community in Chicago.',
+      'Bitcoin Reserve Act passed — building a sovereign fund for the Bitcoin community in Chicago.',
       'Mission: Long-term financial sovereignty for underserved Black communities through Bitcoin savings, education, and decentralized governance.',
-      '21-year plan: Youth mentorship, financial literacy, peace incentives, rent relief, homeownership, local entrepreneurship—funded without ever selling Bitcoin.',
+      '21-year plan: Youth mentorship, financial literacy, peace incentives, rent relief, homeownership, local entrepreneurship — funded without ever selling Bitcoin.',
     ],
-    tagline: "This is not charity. This is not hype. This is a model for permanent empowerment. ABR isn't just stacking sats. We're stacking hope, trust, and ownership—on the blockchain.",
-    role: 'MindfulTech is on the team building ABR.',
+    tagline: 'This is not charity. This is not hype. This is a model for permanent empowerment. ABR is building ownership, trust, and sovereignty — on the blockchain.',
+    role: 'Mindful Tech is on the team building ABR.',
   },
   partners: [
     {
@@ -254,7 +254,7 @@ export const tokenizationContent = {
   ],
   processSteps: [
     { step: 1, title: 'Discovery & Fit', description: 'Understand your asset, regulatory context, and tokenization goals.' },
-    { step: 2, title: 'Structure Design', description: 'Design compliant structures—revenue participation, SPV, DAO, or hybrid.' },
+    { step: 2, title: 'Structure Design', description: 'Design compliant structures — revenue participation, SPV, DAO, or hybrid.' },
     { step: 3, title: 'Technical Architecture', description: 'Smart contracts, oracles, custody, and chain selection.' },
     { step: 4, title: 'Build & Integrate', description: 'Deploy infrastructure, connect fintech rails, orchestrate agents.' },
     { step: 5, title: 'Launch & Governance', description: 'Go live, monitor, and iterate on governance and operations.' },
@@ -274,14 +274,15 @@ export const tokenizationContent = {
     },
     {
       title: 'Revenue Participation & SPVs',
-      description: 'Tokenized revenue slices, automated distributions, investor reporting.',
+      description: 'Tokenized revenue structures, automated distributions, investor reporting.',
     },
   ],
-  disclaimer: 'This is not legal, tax, or investment advice. Tokenization structures vary by jurisdiction and asset type. Consult qualified professionals for your situation.',
+  disclaimer: 'Not legal, tax, or investment advice. Tokenization structures vary by jurisdiction and asset type. Consult qualified professionals for your situation.',
 }
 
-// Footer (rebrand)
+// Footer
 export const footerContent = {
+  tagline: 'Mindfully bridging the gap into the digital age.',
   phone: '+1 720-891-6563',
   email: 'info@mindfultech.services',
   links: [
@@ -298,378 +299,69 @@ export const footerContent = {
   disclaimer: 'Not legal, tax, or investment advice.',
 }
 
-// Legacy exports (for Solutions, About, FAQ pages - migrate gradually)
-export type Edition = 'usa' | 'capital-rails'
-export const heroContentLegacy = {
-  'capital-rails': {
-    headline: 'Turn real-world cash flow into global capital — without selling control.',
-    subhead: 'We design capital rails for cash-flowing assets: revenue participation, SPV + token hybrids, and de-risked pilots. Structure first. Tokens second.',
-    primaryCTA: 'Request a Feasibility Audit',
-    secondaryCTA: 'Book a 20-min Fit Call',
-    trustLine: 'LATAM + U.S. execution • Guardrails by default • Investor-grade visibility',
+// About page
+export const aboutContent = {
+  mission: {
+    headline: 'Why Mindful Tech exists.',
+    body: 'Most businesses are running on systems built for a different era. Not because they are behind — because no one has shown them a better path. The cost is invisible: time lost to administration, leads that fall through gaps, teams doing work that systems should handle. The future is already here. The gap is implementation.',
   },
-  usa: {
-    headline: 'Digital Workers That Print Time™',
-    subhead: 'AI agents + automation for inbox triage, lead capture, and speed-to-lead < 60s. Security-first defaults, guardrails by default.',
-    primaryCTA: 'Book a 20-min Fit Call',
-    secondaryCTA: 'Quick Lead Form',
-    trustLine: 'Implementation timeline: ~3 weeks • Guardrails by default • Speed-to-lead < 60s',
+  philosophy: {
+    headline: 'How we think.',
+    body: 'Modernization is not a technical project. It is a strategic one. The question is not which tools to use — it is how this business should actually operate in the next ten years. The businesses that will thrive are not the ones that adopted AI fastest. They are the ones that adopted it most intentionally.',
+  },
+  approach: {
+    headline: 'What makes us different.',
+    points: [
+      'We lead with systems thinking — seeing business as architecture, not a collection of tasks.',
+      'We educate before we implement — clients understand what they are building before it is built.',
+      'We design for calm — intelligent infrastructure should reduce complexity, not add to it.',
+      'We make modernization accessible — it is not reserved for large corporations.',
+    ],
+  },
+  transformation: {
+    headline: 'What life looks like after.',
+    body: 'Operations running on intelligent infrastructure. Teams focused on what humans do best. Leaders who understand their systems and can evolve them. A business that feels modern — not because it uses new tools, but because it thinks differently about how work gets done.',
   },
 }
 
-// What We Do sections
-export const whatWeDo = {
-  digitalWorkers: {
-    title: 'Digital Workers',
-    description: 'Inbox triage, lead capture, follow-ups across email, SMS, and chat. Speed-to-lead < 60s.',
-    features: [
-      'Website chat + SMS handoff',
-      'CRM routing & automation',
-      'HubSpot/Google + n8n/Zapier integration',
-      '10+ hours/week back from busywork',
-    ],
-  },
-  capitalRails: {
-    title: 'Capital Rails',
-    description: 'Revenue tokenization, structuring, and investor visibility for cash-flowing assets.',
-    features: [
-      'Revenue participation structures',
-      'SPV + token hybrid setups',
-      'Automated payout distribution',
-      'Investor-grade visibility & reporting',
-    ],
-  },
-}
-
-// Services
-export const services = {
-  digitalWorkers: [
-    {
-      title: 'Digital Worker Setup',
-      idealFor: 'SMBs wanting inbound automation',
-      deliverables: [
-        '1-3 digital workers (email + web chat)',
-        'HubSpot or Pipedrive pipeline',
-        'Lead capture widget + auto-responders',
-        '2-5 automations (n8n/Zapier)',
-        'Email/SMS templates + playbooks',
-      ],
-      timeframe: '~3 weeks',
-      pricing: 'Starting at $1,250 setup + $350/mo',
-    },
-    {
-      title: 'Enterprise Automation',
-      idealFor: 'Multi-location or regulated operations',
-      deliverables: [
-        'Custom agent behaviors + retrieval',
-        'SSO (Google/Microsoft), roles & permissions',
-        'Audit logs + optional US data residency',
-        'HIPAA/TCPA guidance where applicable',
-        'Dedicated success manager',
-      ],
-      timeframe: 'Custom',
-      pricing: 'Custom pricing',
-    },
-  ],
-  capitalRails: [
-    {
-      title: 'Tokenization Feasibility Audit',
-      idealFor: 'Asset owners exploring capital options',
-      deliverables: [
-        'Cash flow analysis & verification',
-        'Structure recommendations (revenue participation, SPV, hybrid)',
-        'Regulatory landscape assessment',
-        'Technical feasibility review',
-        'Investor fit analysis',
-      ],
-      timeframe: '2-3 weeks',
-      pricing: 'Flat audit fee',
-    },
-    {
-      title: 'Capital Structuring + Deal Architecture',
-      idealFor: 'Ready to structure a deal',
-      deliverables: [
-        'Legal structure design (SPV, token mechanics)',
-        'Revenue slice definition (% + term)',
-        'Payout rules & settlement logic',
-        'Investor documentation',
-        'Technical architecture',
-      ],
-      timeframe: 'Retainer-based',
-      pricing: 'Retainer',
-    },
-    {
-      title: 'Revenue Tokenization Pilot',
-      idealFor: 'Testing the waters with a small tranche',
-      deliverables: [
-        'Small revenue slice tokenization',
-        'On-chain/off-chain settlement abstraction',
-        'Automated distribution setup',
-        'Investor onboarding',
-        'Reporting dashboard',
-      ],
-      timeframe: '4-6 weeks',
-      pricing: 'Small, low-risk pilot fee',
-    },
-    {
-      title: 'SPV + Token Hybrid Setup',
-      idealFor: 'Complex structures requiring legal + tech coordination',
-      deliverables: [
-        'SPV formation & token wrapper',
-        'Legal documentation',
-        'Smart contract deployment',
-        'Investor portal',
-        'Ongoing compliance support',
-      ],
-      timeframe: '6-8 weeks',
-      pricing: 'Success fee + retainer',
-    },
-    {
-      title: 'Investor Syndication / Capital Introduction',
-      idealFor: 'Need capital connections',
-      deliverables: [
-        'Investor matching',
-        'Deal presentation',
-        'Due diligence coordination',
-        'Capital introduction',
-      ],
-      timeframe: 'Ongoing',
-      pricing: 'Success fee (optional)',
-      optional: true,
-    },
-  ],
-}
-
-// How Revenue Tokenization Works
-export const tokenizationSteps = [
+// FAQ content
+export const faqContent = [
   {
-    step: 1,
-    title: 'Verify cash flow',
-    description: 'Review financial reports, revenue streams, and cash flow patterns.',
-  },
-  {
-    step: 2,
-    title: 'Define revenue slice',
-    description: 'Set percentage and term for the revenue participation structure.',
-  },
-  {
-    step: 3,
-    title: 'Deploy payout rules',
-    description: 'On-chain/off-chain settlement abstraction with automated logic.',
-  },
-  {
-    step: 4,
-    title: 'Distribute automatically',
-    description: 'Monthly/weekly automated payouts to investors based on revenue.',
-  },
-]
-
-// Who We Serve
-export const whoWeServe = [
-  {
-    category: 'Asset Owners',
-    description: 'Anyone with assets + ambition',
-    bullets: [
-      'Unlock capital without selling control',
-      'Structure-first approach',
-      'Keep your asset, share revenue',
-      'LATAM + U.S. execution',
+    category: 'Intelligent Systems',
+    questions: [
+      {
+        q: 'What is an intelligent systems consultancy?',
+        a: 'We are not an AI agency, a software vendor, or a freelance automation shop. We are a strategic modernization consultancy — one that leads with systems thinking and education before implementation. The difference is that we design the whole before we build the parts.',
+      },
+      {
+        q: 'Is this just automation with a different name?',
+        a: 'Automation is one component. Intelligent systems are the architecture that automation operates within — the rules, the data flows, the handoffs, and the intelligence that makes automation reliable. Automation without architecture creates fragile workflows. Systems thinking creates durable ones.',
+      },
+      {
+        q: 'How do you approach AI without the hype?',
+        a: 'AI is introduced as infrastructure, not magic. The framing is always: here is what this does, here is how it does it, here is what a real business uses it for. Vague claims create anxiety. Specific implementations create clarity.',
+      },
+      {
+        q: 'Do you work with businesses that are not technical?',
+        a: 'That is exactly who we are built for. Our education-first approach means you understand what is being built before it is built. Technical detail is included only when it serves understanding.',
+      },
     ],
   },
   {
-    category: 'Investors',
-    description: 'Family offices, crypto funds, institutions',
-    bullets: [
-      'Visibility into cash-flowing assets',
-      'Predictable distributions',
-      'Structured downside protection',
-      'Investor-grade reporting',
-    ],
-  },
-  {
-    category: 'Governments & Institutions',
-    description: 'Public sector and institutional partners',
-    bullets: [
-      'Infrastructure tokenization',
-      'Revenue participation models',
-      'Compliance-first structures',
-      'Pilot program design',
+    category: 'Tokenization',
+    questions: [
+      {
+        q: 'What can be tokenized?',
+        a: 'Revenue streams, real assets, equity structures, and governance rights — any asset with clear legal ownership, defined cash flows, or participatory rights can be evaluated for tokenization. The question is always whether the structure serves the asset and its stakeholders.',
+      },
+      {
+        q: 'Is tokenization regulated?',
+        a: 'Yes — and the regulatory context varies significantly by asset type and jurisdiction. We design compliant structures from the start and work alongside qualified legal and financial professionals. Not legal, tax, or investment advice.',
+      },
+      {
+        q: 'What is the ABR Wealth Fund DAO?',
+        a: 'The Altgeld Bitcoin Reserve is the first community-operated Bitcoin treasury in the United States, structured as a Wyoming DAO LLC. Mindful Tech is on the team building ABR — a 21-year mission for financial sovereignty in underserved communities.',
+      },
     ],
   },
 ]
-
-// Team
-export const teamMembers = [
-  {
-    name: 'Elijah Smith',
-    title: 'CEO',
-    image: '/team/elijah-smith.png',
-    bio: 'Software engineer and blockchain developer with experience across Ethereum, Bitcoin, and Cardano. Chainlink Oracles & CCIP certified. Founder of Empower, a national tech and wellness event with 1,000+ attendees. Led fundraising for NECOM, a LATAM carbon credit tokenization protocol. Started MindfulTech from a belief that AI and blockchain can either advance or fracture society—it depends on how mindfully we apply it.',
-  },
-  {
-    name: 'Deependra Tyagi',
-    title: 'CTO',
-    image: '/team/deependra-tyagi.png',
-    bio: 'Deependra drives technical implementation at MindfulTech. A co-founder with 10+ years in AI multi-agent orchestration, he has built 100+ agent systems and led engineering teams at Allstate, the American insurance company, for seven years. University of Kentucky. Brings startup and enterprise experience to shipping AI and automation that works.',
-  },
-  {
-    name: 'Lucy Michalski',
-    title: 'Head of Digital Product Design',
-    image: '/team/lucy-michalski.png',
-    bio: 'Lucy owns the overall product experience at MindfulTech. A design leader with background in ecommerce UI/UX, brand design, and marketing for startups and organizations across multiple industries. Transylvania University. Uses Figma and design systems to shape how users experience AI and automation.',
-  },
-]
-
-// Credibility / Proof
-export const credibility = {
-  achievements: [
-    'Built tokenization/automation projects',
-    'Ran events / led teams of 50+',
-    'Working in LATAM + U.S.',
-  ],
-  partners: [
-    { name: 'RIPPIO', location: 'LATAM', country: 'Argentina', flag: '🇦🇷' },
-    { name: 'IMPESA', location: 'LATAM', country: 'Costa Rica', flag: '🇨🇷' },
-    { name: 'NECOM', location: 'LATAM', country: 'Costa Rica', flag: '🇨🇷' },
-    { name: 'GREENCHAIN', location: 'LATAM', country: 'Costa Rica', flag: '🇨🇷' },
-    { name: 'DREAM UP PROPERTIES', location: 'US', country: 'United States', flag: '🇺🇸' },
-    { name: 'AETHER', location: 'US', country: 'United States', flag: '🇺🇸' },
-  ],
-}
-
-// How It Works (Capital Rails process)
-export const howItWorksSteps = [
-  {
-    step: 1,
-    title: 'Discovery + Asset Fit',
-    description: 'We analyze your cash flow, constraints, and capital needs to determine fit.',
-  },
-  {
-    step: 2,
-    title: 'Structure Design',
-    description: 'Select the right rail (revenue participation, SPV, hybrid) for your asset.',
-  },
-  {
-    step: 3,
-    title: 'De-risking',
-    description: 'Documentation, reporting setup, and legal alignment before pilot.',
-  },
-  {
-    step: 4,
-    title: 'Pilot',
-    description: 'Launch with a small tranche or revenue slice to validate the structure.',
-  },
-  {
-    step: 5,
-    title: 'Scale',
-    description: 'Expand issuance, syndication, and automation based on pilot results.',
-  },
-]
-
-export const whatWeNeed = [
-  'Financial reports (revenue, cash flow)',
-  'Asset documentation',
-  'Regulatory constraints (if any)',
-  'Capital requirements',
-  'Timeline expectations',
-]
-
-// Case Studies (templates with placeholders)
-export const caseStudies = [
-  {
-    title: 'LATAM Real Estate Revenue Tokenization',
-    situation: 'A property management company with consistent rental revenue sought to unlock capital without selling properties.',
-    constraints: [
-      'Regulatory uncertainty in local jurisdiction',
-      'Need for investor transparency',
-      'Requirement to maintain operational control',
-    ],
-    structure: 'Revenue participation structure with 15% revenue slice over 3 years, tokenized on-chain with off-chain settlement.',
-    outcome: '[Placeholder - Results pending]',
-    nextStep: 'Scaling to additional properties in portfolio.',
-  },
-  {
-    title: 'SaaS Revenue Tokenization Pilot',
-    situation: 'A B2B SaaS company wanted to raise capital against recurring revenue without diluting equity.',
-    constraints: [
-      'Monthly recurring revenue model',
-      'Need for predictable investor distributions',
-      'Compliance with securities regulations',
-    ],
-    structure: 'SPV + token hybrid with automated monthly distributions based on MRR.',
-    outcome: '[Placeholder - Results pending]',
-    nextStep: 'Expanding to larger revenue slice.',
-  },
-  {
-    title: 'Hospitality Revenue Participation',
-    situation: 'A hotel group needed capital for expansion while maintaining ownership.',
-    constraints: [
-      'Seasonal revenue fluctuations',
-      'Multiple properties',
-      'International investor base',
-    ],
-    structure: 'Multi-property revenue participation with seasonal smoothing and automated quarterly distributions.',
-    outcome: '[Placeholder - Results pending]',
-    nextStep: 'Adding additional properties to the structure.',
-  },
-]
-
-// FAQs
-export const faqs = {
-  digitalWorkers: [
-    {
-      question: 'How fast can we be live?',
-      answer: 'Implementation timeline is typically ~3 weeks from kickoff to go-live, depending on complexity.',
-    },
-    {
-      question: 'Do I need a new app?',
-      answer: 'No. We integrate with your existing tools (HubSpot, Google Workspace, n8n/Zapier).',
-    },
-    {
-      question: 'Will a human review sensitive stuff?',
-      answer: 'Always. We have guardrails in place for sensitive matters, and humans review when needed.',
-    },
-    {
-      question: 'What about security?',
-      answer: 'Security-first defaults: role-based access, audit trails, least-privilege credentials. TCPA/HIPAA aware where relevant.',
-    },
-  ],
-  capitalRails: [
-    {
-      question: 'Do I lose ownership?',
-      answer: 'No. You keep the asset. Investors receive a time-bound share of revenue, not ownership.',
-    },
-    {
-      question: 'Is this a security?',
-      answer: 'Structures vary. We design compliant structures and work with legal counsel. Not legal, tax, or investment advice.',
-    },
-    {
-      question: 'What jurisdictions do you support?',
-      answer: 'We work in LATAM + U.S. Specific structures depend on asset location and regulatory requirements.',
-    },
-    {
-      question: 'How do payouts work?',
-      answer: 'Automated monthly or weekly distributions based on revenue. On-chain/off-chain settlement abstraction handles the mechanics.',
-    },
-    {
-      question: 'What if revenue drops?',
-      answer: 'Structures include downside protection mechanisms. Investors understand the revenue-linked nature of returns.',
-    },
-    {
-      question: 'What\'s the timeline?',
-      answer: 'Feasibility audit: 2-3 weeks. Pilot: 4-6 weeks. Full structure: 6-8 weeks. Timeline varies by complexity.',
-    },
-  ],
-}
-
-// Legacy navigation (replaced by rebrand navigation above)
-export const navigationLegacy = [
-  { name: 'Home', href: '/' },
-  { name: 'Services', href: '/services' },
-  { name: 'How It Works', href: '/how-it-works' },
-  { name: 'Case Studies', href: '/case-studies' },
-  { name: 'About', href: '/about' },
-  { name: 'Contact', href: '/contact' },
-  { name: 'FAQ', href: '/faq' },
-]
-
