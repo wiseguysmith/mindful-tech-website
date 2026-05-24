@@ -324,6 +324,153 @@ export const aboutContent = {
   },
 }
 
+// How It Works steps
+export const howItWorksSteps = processSteps
+
+// What We Need from clients
+export const whatWeNeed = [
+  'An open mind — modernization requires reconsidering how work is done, not just which tools are used.',
+  'A real business problem — we work best with specific pain: leads falling through gaps, admin overload, disconnected systems.',
+  'Commitment to understanding — clients who engage with the process get better outcomes.',
+  'Patience with the design phase — good architecture takes time. We do not rush the thinking.',
+]
+
+// FAQ items (object format for the legacy FAQ page)
+export const faqs = {
+  digitalWorkers: [
+    {
+      question: 'What is an intelligent systems consultancy?',
+      answer: 'We are not an AI agency, a software vendor, or a freelance automation shop. We are a strategic modernization consultancy — one that leads with systems thinking and education before implementation.',
+    },
+    {
+      question: 'Is this just automation with a different name?',
+      answer: 'Automation is one component. Intelligent systems are the architecture that automation operates within — the rules, the data flows, the handoffs, and the intelligence that makes automation reliable.',
+    },
+    {
+      question: 'How do you approach AI without the hype?',
+      answer: 'AI is introduced as infrastructure, not magic. The framing is always: here is what this does, here is how it does it, here is what a real business uses it for.',
+    },
+    {
+      question: 'Do you work with businesses that are not technical?',
+      answer: 'That is exactly who we are built for. Our education-first approach means you understand what is being built before it is built.',
+    },
+  ],
+  capitalRails: [
+    {
+      question: 'What can be tokenized?',
+      answer: 'Revenue streams, real assets, equity structures, and governance rights — any asset with clear legal ownership, defined cash flows, or participatory rights can be evaluated for tokenization.',
+    },
+    {
+      question: 'Is tokenization regulated?',
+      answer: 'Yes — and the regulatory context varies significantly by asset type and jurisdiction. We design compliant structures from the start and work alongside qualified legal and financial professionals. Not legal, tax, or investment advice.',
+    },
+    {
+      question: 'What is the ABR Wealth Fund DAO?',
+      answer: 'The Altgeld Bitcoin Reserve is the first community-operated Bitcoin treasury in the United States, structured as a Wyoming DAO LLC. Mindful Tech is on the team building ABR — a 21-year mission for financial sovereignty in underserved communities.',
+    },
+  ],
+}
+
+// Services (object format matching the legacy /services page)
+export const services = {
+  digitalWorkers: [
+    {
+      title: 'Starter Automation Package',
+      idealFor: 'SMBs with 1–5 person teams ready to automate intake and follow-up',
+      timeframe: '2–3 weeks',
+      pricing: 'Starting at $1,500 one-time setup',
+      deliverables: [
+        'Lead capture form + CRM integration',
+        'Automated follow-up sequence (email/SMS)',
+        'Inbox triage routing rules',
+        'Basic reporting dashboard',
+      ],
+    },
+    {
+      title: 'Growth Operations System',
+      idealFor: 'Growing teams with complex intake, scheduling, or multi-channel communication needs',
+      timeframe: '4–6 weeks',
+      pricing: 'Starting at $3,500 one-time setup',
+      deliverables: [
+        'Multi-channel lead capture and routing',
+        'AI-assisted triage and qualification',
+        'Scheduling and reminder automation',
+        'CRM synchronization and reporting',
+        'Staff onboarding and documentation',
+      ],
+    },
+  ],
+  capitalRails: [
+    {
+      title: 'Tokenization Feasibility Audit',
+      idealFor: 'Asset owners exploring whether tokenization is viable for their asset',
+      timeframe: '1–2 weeks',
+      pricing: 'Flat fee — contact for pricing',
+      optional: false,
+      deliverables: [
+        'Asset assessment and fit analysis',
+        'Regulatory landscape overview',
+        'Structure options and recommendations',
+        'Go/no-go recommendation with rationale',
+      ],
+    },
+    {
+      title: 'Revenue Tokenization Structure',
+      idealFor: 'Cash-flowing assets ready to offer token-based revenue participation',
+      timeframe: '6–12 weeks',
+      pricing: 'Retainer or success fee — contact for pricing',
+      optional: false,
+      deliverables: [
+        'SPV or DAO structure design',
+        'Smart contract specification',
+        'Investor transparency dashboard',
+        'Distribution automation architecture',
+        'Legal coordination support',
+      ],
+    },
+    {
+      title: 'Docconnect Integration',
+      idealFor: 'Businesses wanting verifiable document workflows alongside tokenization',
+      timeframe: 'Add-on — 2–4 weeks',
+      pricing: 'Add-on pricing — contact for details',
+      optional: true,
+      deliverables: [
+        'Docconnect workflow design',
+        'Integration with existing systems',
+        'Verifiable document routing',
+      ],
+    },
+  ],
+}
+
+// Case Studies
+export const caseStudies = [
+  {
+    title: 'Regional Hospitality Group — Operational Modernization',
+    situation: 'A regional hotel group with 4 properties was managing reservations, guest communications, and maintenance requests across disconnected spreadsheets, email inboxes, and manual phone calls.',
+    constraints: [
+      'No centralized CRM or ticketing system',
+      'High staff turnover creating institutional knowledge gaps',
+      'Guest satisfaction declining due to communication delays',
+    ],
+    structure: 'Unified intake and routing system connecting booking, maintenance, and guest communication into a single operational hub with automated follow-up and escalation logic.',
+    outcome: 'Placeholder: operational clarity achieved within 60 days. Guest response time reduced significantly. Staff onboarding time cut in half.',
+    nextStep: 'Book an Operational Intelligence Audit to map your current systems and identify the highest-leverage improvements.',
+  },
+  {
+    title: 'Professional Services Firm — Lead Flow Architecture',
+    situation: 'A mid-sized consulting firm was losing prospective clients between initial inquiry and first meeting. No consistent intake process existed and follow-up depended on individual staff memory.',
+    constraints: [
+      'Leads arriving via multiple channels with no unified capture point',
+      'No automated qualification or routing logic',
+      'Follow-up inconsistent and manually dependent',
+    ],
+    structure: 'Multi-channel lead capture with automated qualification scoring, intelligent routing to the right team member, and a structured follow-up sequence with escalation triggers.',
+    outcome: 'Placeholder: lead-to-meeting conversion improved substantially. No leads lost to follow-up gaps within 90 days of implementation.',
+    nextStep: 'Start with an Operational Intelligence Audit to diagnose your current lead flow and design the right architecture.',
+  },
+]
+
 // FAQ content
 export const faqContent = [
   {

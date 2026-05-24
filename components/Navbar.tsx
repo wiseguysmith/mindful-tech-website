@@ -1,144 +1,73 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
-import { navigation, CALENDLY_URL } from '@/lib/site-data'
+import { CALENDLY_URL } from '@/lib/site-data'
 import { cn } from '@/lib/utils'
+import MindfulLogo from './MindfulLogo'
 
-/**
- * Navbar Component
- * 
- * Sticky navigation with mobile menu. Uses Next.js Link for client-side navigation.
- */
+const navLinks = [
+  { name: 'What We Do',   href: '/solutions' },
+  { name: 'The Audit',    href: '/audit' },
+  { name: 'Docconnect',   href: 'https://docconnect-461217483312.us-east1.run.app/#', external: true },
+  { name: 'Tokenization', href: '/tokenization' },
+  { name: 'About',        href: '/about' },
+]
+
 export default function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const pathname = usePathname()
+  const [open, setOpen]         = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const pathname                = usePathname()
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
     <>
-      {/* Backdrop overlay for mobile menu */}
-      {mobileMenuOpen && (
+      {/* Mobile backdrop */}
+      {open && (
         <div
-          className="fixed inset-0 bg-near-black/20 backdrop-blur-sm z-30 md:hidden transition-opacity duration-300"
-          onClick={() => setMobileMenuOpen(false)}
+          className="fixed inset-0 z-30 bg-[#1A2B1A]/10 backdrop-blur-sm md:hidden"
+          onClick={() => setOpen(false)}
           aria-hidden="true"
         />
       )}
+
       <nav
-        className="sticky top-0 z-40 border-b border-zinc-800 bg-[#07080c]/90 backdrop-blur-md"
+        className={cn(
+          'sticky top-0 z-40 transition-all duration-300',
+          scrolled
+            ? 'border-b border-[#DDD6CC] bg-[#FAF7F2]/95 backdrop-blur-md shadow-sm'
+            : 'border-b border-transparent bg-[#FAF7F2]/80 backdrop-blur-sm'
+        )}
         role="navigation"
         aria-label="Main navigation"
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between gap-6 lg:gap-8">
-            {/* Logo */}
-            <Link href="/" className="flex items-baseline group shrink-0">
-              <span className="text-xl font-bold font-display text-zinc-100 transition-colors group-hover:text-purple-200">
-                MindfulTech
-              </span>
-            </Link>
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-4 sm:px-6 lg:px-8">
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex md:items-center md:gap-6">
-              {navigation.map((item) =>
-                item.external ? (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm font-medium text-zinc-400 transition-colors hover:text-zinc-100"
-                  >
-                    {item.name}
-                  </a>
-                ) : (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className={cn(
-                      'rounded-md px-2 py-1 text-sm font-medium transition-colors',
-                      pathname === item.href
-                        ? 'bg-zinc-800/80 text-amber-200'
-                        : 'text-zinc-400 hover:text-zinc-100'
-                    )}
-                  >
-                    {item.name}
-                  </Link>
-                )
-              )}
-            </div>
+          {/* Logo */}
+          <Link href="/" className="group flex items-center gap-2.5 shrink-0">
+            <MindfulLogo size={32} color="#1A2B1A" accentColor="#C4522A" />
+            <span className="text-base font-light tracking-tight text-[#1A2B1A] transition-colors group-hover:text-[#C4522A]">
+              mindful tech
+            </span>
+          </Link>
 
-            {/* Desktop CTAs */}
-            <div className="hidden md:flex md:items-center md:gap-3">
-              <Link
-                href="/solutions"
-                className="inline-flex items-center justify-center rounded-md border border-zinc-600 bg-zinc-900 px-4 py-2 text-sm font-medium text-zinc-100 transition-all duration-200 hover:border-zinc-400"
-              >
-                Explore Solutions
-              </Link>
-              <a
-                href={CALENDLY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-amber-300 to-purple-400 px-4 py-2 text-sm font-medium text-zinc-950 transition-colors hover:brightness-105"
-              >
-                Book a Strategy Call
-              </a>
-            </div>
-
-            {/* Mobile menu button */}
-            <button
-              type="button"
-              className="p-2 text-zinc-300 transition-transform duration-200 hover:text-zinc-100 md:hidden"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle menu"
-              aria-expanded={mobileMenuOpen}
-            >
-              <div className="relative w-6 h-6">
-                <Menu
-                  className={cn(
-                    'absolute inset-0 h-6 w-6 transition-all duration-300',
-                    mobileMenuOpen ? 'opacity-0 rotate-90 scale-0' : 'opacity-100 rotate-0 scale-100'
-                  )}
-                />
-                <X
-                  className={cn(
-                    'absolute inset-0 h-6 w-6 transition-all duration-300',
-                    mobileMenuOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-0'
-                  )}
-                />
-              </div>
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile menu */}
-        <div
-          className={cn(
-            'overflow-hidden border-t border-zinc-800 bg-[#0a0b11] shadow-lg transition-all duration-300 ease-in-out md:hidden',
-            mobileMenuOpen
-              ? 'max-h-screen opacity-100'
-              : 'max-h-0 opacity-0 pointer-events-none'
-          )}
-        >
-          <div className="px-4 py-4 space-y-3">
-            {navigation.map((item, idx) =>
+          {/* Desktop nav */}
+          <div className="hidden items-center gap-1 md:flex">
+            {navLinks.map((item) =>
               item.external ? (
                 <a
                   key={item.name}
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={cn(
-                    'block text-base font-medium text-zinc-400 transition-all duration-200 hover:pl-2 hover:text-zinc-100',
-                    mobileMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
-                  )}
-                  style={{
-                    transitionDelay: mobileMenuOpen ? `${idx * 50}ms` : '0ms',
-                  }}
-                  onClick={() => setMobileMenuOpen(false)}
+                  className="rounded-md px-3 py-1.5 text-sm font-light text-[#7A7468] transition-colors hover:text-[#1A2B1A]"
                 >
                   {item.name}
                 </a>
@@ -147,45 +76,101 @@ export default function Navbar() {
                   key={item.name}
                   href={item.href}
                   className={cn(
-                    'block rounded-md px-2 py-1 text-base font-medium transition-all duration-200 hover:pl-2',
+                    'rounded-md px-3 py-1.5 text-sm font-light transition-colors',
                     pathname === item.href
-                      ? 'bg-zinc-800/80 text-amber-200'
-                      : 'text-zinc-400 hover:text-zinc-100',
-                    mobileMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
+                      ? 'bg-[#F2EDE4] text-[#1A2B1A] font-medium'
+                      : 'text-[#7A7468] hover:text-[#1A2B1A]'
                   )}
-                  style={{
-                    transitionDelay: mobileMenuOpen ? `${idx * 50}ms` : '0ms',
-                  }}
-                  onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               )
             )}
-            <div
-              className={cn(
-                'space-y-2 border-t border-zinc-800 pt-4 transition-all duration-300',
-                mobileMenuOpen
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-4'
-              )}
-              style={{
-                transitionDelay: mobileMenuOpen ? `${navigation.length * 50}ms` : '0ms',
-              }}
+          </div>
+
+          {/* Desktop CTAs */}
+          <div className="hidden items-center gap-3 md:flex">
+            <Link
+              href="/audit"
+              className="rounded-md border border-[#DDD6CC] bg-transparent px-4 py-2 text-sm font-light text-[#1A2B1A] transition-all hover:border-[#C4522A] hover:text-[#C4522A]"
             >
+              Start an Audit
+            </Link>
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-md px-4 py-2 text-sm font-medium text-[#FAF7F2] transition-all hover:brightness-110"
+              style={{ backgroundColor: '#C4522A' }}
+            >
+              Book a Strategy Call
+            </a>
+          </div>
+
+          {/* Mobile toggle */}
+          <button
+            type="button"
+            className="relative h-8 w-8 text-[#1A2B1A] md:hidden"
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle menu"
+            aria-expanded={open}
+          >
+            <Menu className={cn('absolute inset-0 h-8 w-8 transition-all duration-300', open ? 'opacity-0 rotate-90 scale-0' : 'opacity-100')} />
+            <X    className={cn('absolute inset-0 h-8 w-8 transition-all duration-300', open ? 'opacity-100' : 'opacity-0 -rotate-90 scale-0')} />
+          </button>
+        </div>
+
+        {/* Mobile menu */}
+        <div className={cn(
+          'overflow-hidden border-t border-[#E8E0D4] bg-[#FAF7F2] transition-all duration-300 md:hidden',
+          open ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
+        )}>
+          <div className="space-y-1 px-4 py-4">
+            {navLinks.map((item, i) =>
+              item.external ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block rounded-md px-3 py-2 text-base font-light text-[#7A7468] transition-colors hover:bg-[#F2EDE4] hover:text-[#1A2B1A]"
+                  style={{ transitionDelay: open ? `${i * 40}ms` : '0ms' }}
+                  onClick={() => setOpen(false)}
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={cn(
+                    'block rounded-md px-3 py-2 text-base font-light transition-colors',
+                    pathname === item.href
+                      ? 'bg-[#F2EDE4] text-[#1A2B1A] font-medium'
+                      : 'text-[#7A7468] hover:bg-[#F2EDE4] hover:text-[#1A2B1A]'
+                  )}
+                  style={{ transitionDelay: open ? `${i * 40}ms` : '0ms' }}
+                  onClick={() => setOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              )
+            )}
+            <div className="space-y-2 border-t border-[#E8E0D4] pt-4 mt-2">
               <Link
-                href="/solutions"
-                className="inline-flex w-full items-center justify-center rounded-md border border-zinc-600 bg-zinc-900 px-4 py-2 text-sm font-medium text-zinc-100 transition-all duration-200 hover:border-zinc-400"
-                onClick={() => setMobileMenuOpen(false)}
+                href="/audit"
+                className="block w-full rounded-md border border-[#DDD6CC] px-4 py-2.5 text-center text-sm font-light text-[#1A2B1A] transition-colors hover:border-[#C4522A]"
+                onClick={() => setOpen(false)}
               >
-                Explore Solutions
+                Start an Audit
               </Link>
               <a
                 href={CALENDLY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center rounded-md bg-gradient-to-r from-amber-300 to-purple-400 px-4 py-2 text-sm font-medium text-zinc-950 transition-colors hover:brightness-105"
-                onClick={() => setMobileMenuOpen(false)}
+                className="block w-full rounded-md px-4 py-2.5 text-center text-sm font-medium text-[#FAF7F2] transition-all hover:brightness-110"
+                style={{ backgroundColor: '#C4522A' }}
+                onClick={() => setOpen(false)}
               >
                 Book a Strategy Call
               </a>
@@ -196,4 +181,3 @@ export default function Navbar() {
     </>
   )
 }
-
