@@ -13,21 +13,21 @@ export default function MindfulLogo({
   size = 40,
   color = '#1A2B1A',
   accentColor = '#C4522A',
-  leafColor = '#4E642D',
+  leafColor,
   className = '',
   title = 'Mindful Tech logo',
 }: MindfulLogoProps) {
-  const node = (cx: number, cy: number, r = 5, fill = color) => (
+  const node = (cx: number, cy: number, r = 5.5, fill = color) => (
     <circle cx={cx} cy={cy} r={r} fill={fill} />
   )
 
-  const leaf = (cx: number, cy: number, rotate: number, rx = 7, ry = 10) => (
+  const leaf = (cx: number, cy: number, rotate: number, rx = 7, ry = 11) => (
     <ellipse
       cx={cx}
       cy={cy}
       rx={rx}
       ry={ry}
-      fill={leafColor}
+      fill={leafColor ?? color}
       transform={`rotate(${rotate} ${cx} ${cy})`}
     />
   )
@@ -35,8 +35,8 @@ export default function MindfulLogo({
   return (
     <svg
       width={size}
-      height={size * 1.18}
-      viewBox="0 0 160 188"
+      height={size * 1.34}
+      viewBox="0 0 180 240"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
@@ -44,44 +44,52 @@ export default function MindfulLogo({
       role="img"
     >
       <g stroke={color} strokeWidth="6" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M80 172V28" />
-        <path d="M80 62C70 70 62 79 58 92" />
-        <path d="M80 62C90 70 98 79 102 92" />
-        <path d="M80 88C66 92 54 101 46 114" />
-        <path d="M80 88C94 92 106 101 114 114" />
-        <path d="M80 118C69 122 61 132 58 145" />
-        <path d="M80 118C91 122 99 132 102 145" />
-        <path d="M58 92H20" />
-        <path d="M102 92H140" />
-        <path d="M58 92L28 72" />
-        <path d="M102 92L132 72" />
-        <path d="M46 114L24 130" />
-        <path d="M114 114L136 130" />
-        <path d="M58 145L38 160" />
-        <path d="M102 145L122 160" />
-        <path d="M72 48L58 36" />
-        <path d="M88 48L102 36" />
+        <path d="M90 214V30" />
+
+        <path d="M90 60C78 70 68 82 60 100" />
+        <path d="M90 60C102 70 112 82 120 100" />
+
+        <path d="M90 88C72 92 58 103 48 120" />
+        <path d="M90 88C108 92 122 103 132 120" />
+
+        <path d="M90 122C77 132 70 148 66 166" />
+        <path d="M90 122C103 132 110 148 114 166" />
+
+        <path d="M60 100H28" />
+        <path d="M120 100H152" />
+        <path d="M60 100L36 78" />
+        <path d="M120 100L144 78" />
+
+        <path d="M48 120L30 138" />
+        <path d="M132 120L150 138" />
+
+        <path d="M66 166L44 190" />
+        <path d="M114 166L136 190" />
+
+        <path d="M82 48L64 34" />
+        <path d="M98 48L116 34" />
       </g>
 
       <g>
-        {node(80, 22, 10)}
-        {node(80, 176, 8)}
-        {node(20, 92, 9)}
-        {node(140, 92, 9)}
-        {node(28, 72, 7)}
-        {node(132, 72, 7)}
-        {node(24, 130, 7)}
-        {node(136, 130, 7)}
-        {node(38, 160, 6, accentColor)}
-        {node(122, 160, 6, accentColor)}
-        {node(58, 36, 7)}
-        {node(102, 36, 7)}
-        {node(58, 145, 5, '#7C7A3A')}
-        {node(102, 145, 5, '#7C7A3A')}
-        {leaf(42, 58, -52)}
-        {leaf(118, 58, 52)}
-        {leaf(34, 104, -68, 6, 9)}
-        {leaf(126, 104, 68, 6, 9)}
+        {node(90, 22, 9.5)}
+        {node(90, 220, 8.5)}
+        {node(28, 100, 8)}
+        {node(152, 100, 8)}
+        {node(36, 78, 6.5)}
+        {node(144, 78, 6.5)}
+        {node(30, 138, 6.5)}
+        {node(150, 138, 6.5)}
+        {node(44, 190, 6.5, accentColor)}
+        {node(136, 190, 6.5, accentColor)}
+        {node(64, 34, 7.5)}
+        {node(116, 34, 7.5)}
+        {node(66, 166, 5.5)}
+        {node(114, 166, 5.5)}
+
+        {leaf(48, 64, -48)}
+        {leaf(132, 64, 48)}
+        {leaf(42, 116, -58, 6, 9)}
+        {leaf(138, 116, 58, 6, 9)}
       </g>
     </svg>
   )

@@ -41,12 +41,12 @@ Also run a visual pass in browser after build.
 
 ### `components/MindfulLogo.tsx`
 
-Replaced the old logo SVG with a new inline vector mark inspired by the user's simpler logo reference:
+Replaced the old logo SVG with a new inline vector mark inspired by the user's simpler logo reference. After the first pass, the user said the logo still did not look right, so the mark was revised again to be taller, simpler, more symmetric, and more legible in the nav/footer:
 
 - Tree/circuit trunk and branching structure.
 - Forest nodes.
 - Small terracotta accent nodes.
-- Olive leaf shapes.
+- Optional leaf shapes that default to the main logo color unless `leafColor` is passed.
 - Accepts `size`, `color`, `accentColor`, `leafColor`, `className`, and `title`.
 
 Notes:
