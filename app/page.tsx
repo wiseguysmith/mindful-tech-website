@@ -3,7 +3,6 @@
 import { useEffect } from 'react'
 import Link from 'next/link'
 import { ArrowRight, Check } from 'lucide-react'
-import MindfulLogo from '@/components/MindfulLogo'
 import { CALENDLY_URL } from '@/lib/site-data'
 
 function useReveal() {
@@ -96,6 +95,13 @@ const trustItems = [
   'Strategic Education',
 ]
 
+const heroSignals = [
+  'Lead flow mapped',
+  'Follow-up automated',
+  'Tools connected',
+  'Team capacity restored',
+]
+
 function PrimaryButton({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <Link
@@ -164,14 +170,32 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="flex justify-center lg:justify-end lg:pr-10">
-              <div className="relative flex h-[360px] w-full max-w-[360px] items-center justify-center">
-                <div className="absolute inset-8 rounded-full bg-cream-200/70" />
-                <MindfulLogo
-                  size={235}
-                  color="#1A2B1A"
-                  className="relative"
-                />
+            <div className="hidden lg:flex justify-end">
+              <div className="relative w-full max-w-md rounded-lg border border-cream-300 bg-cream-200/70 p-6">
+                <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full border border-cream-300" />
+                <div className="relative">
+                  <p className="text-xs font-medium uppercase tracking-[0.16em] text-terracotta-400">
+                    Operational Architecture
+                  </p>
+                  <div className="mt-8 space-y-4">
+                    {heroSignals.map((signal, index) => (
+                      <div key={signal} className="flex items-center gap-4">
+                        <div className="flex h-9 w-9 items-center justify-center rounded-full border border-cream-400 bg-cream-100 text-xs font-medium text-forest-500">
+                          {String(index + 1).padStart(2, '0')}
+                        </div>
+                        <div className="h-px flex-1 bg-cream-400" />
+                        <div className="flex min-w-[190px] items-center gap-2 rounded-md border border-cream-300 bg-cream-100 px-3 py-2">
+                          <Check className="h-4 w-4 text-terracotta-400" />
+                          <span className="text-sm font-light text-forest-500">{signal}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="mt-8 border-l border-terracotta-400 pl-4 text-sm font-light leading-[1.65] text-muted-text">
+                    A calmer operating system starts with understanding where the work actually
+                    breaks.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
