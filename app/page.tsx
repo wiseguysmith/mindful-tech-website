@@ -164,15 +164,13 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="flex justify-center lg:justify-end">
-              <div className="relative">
-                <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cream-200/60" />
+            <div className="flex justify-center lg:justify-end lg:pr-10">
+              <div className="relative flex h-[360px] w-full max-w-[360px] items-center justify-center">
+                <div className="absolute inset-8 rounded-full bg-cream-200/70" />
                 <MindfulLogo
-                  size={310}
+                  size={235}
                   color="#1A2B1A"
-                  accentColor="#C4522A"
-                  leafColor="#4E642D"
-                  className="relative max-w-[280px] md:max-w-[320px]"
+                  className="relative"
                 />
               </div>
             </div>

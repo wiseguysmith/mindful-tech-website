@@ -51,8 +51,10 @@ export default function Navbar() {
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-4 sm:px-6 lg:px-8">
 
           {/* Logo */}
-          <Link href="/" className="group flex items-center gap-2.5 shrink-0">
-            <MindfulLogo size={32} color="#1A2B1A" accentColor="#C4522A" />
+          <Link href="/" className="group flex h-12 shrink-0 items-center gap-3">
+            <span className="flex h-10 w-8 items-center justify-center">
+              <MindfulLogo size={27} color="#1A2B1A" className="-translate-y-px" />
+            </span>
             <span className="text-base font-light tracking-tight text-[#1A2B1A] transition-colors group-hover:text-[#C4522A]">
               mindful tech
             </span>

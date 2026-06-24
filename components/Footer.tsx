@@ -10,7 +10,9 @@ export default function Footer() {
         {/* Top row */}
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
           <div className="flex items-center gap-3">
-            <MindfulLogo size={32} color="#FAF7F2" accentColor="#C4522A" />
+            <span className="flex h-11 w-9 items-center justify-center">
+              <MindfulLogo size={30} color="#FAF7F2" className="-translate-y-px" />
+            </span>
             <div>
               <p className="text-sm font-light text-[#FAF7F2]">mindful tech</p>
               <p className="text-xs font-light text-[#9DB89A]">{footerContent.tagline}</p>
