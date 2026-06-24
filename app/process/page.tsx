@@ -28,7 +28,7 @@ export default function ProcessPage() {
               {processSteps.map((step, idx) => (
                 <div key={idx} className="relative">
                   <Card hover className="text-center h-full">
-                    <div className="w-12 h-12 rounded-full bg-electric-teal text-near-black flex items-center justify-center text-xl font-bold mx-auto mb-4">
+                    <div className="w-12 h-12 rounded-full bg-terracotta-400 text-cream-50 flex items-center justify-center text-xl font-bold mx-auto mb-4">
                       {step.step}
                     </div>
                     <h3 className="text-lg font-bold text-near-black mb-2">{step.title}</h3>
@@ -52,7 +52,7 @@ export default function ProcessPage() {
               <ul className="space-y-4">
                 {whatWeNeed.map((item, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-electric-teal mt-0.5 flex-shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-terracotta-400 mt-0.5 flex-shrink-0" />
                     <span className="text-slate-700">{item}</span>
                   </li>
                 ))}
@@ -66,7 +66,7 @@ export default function ProcessPage() {
               href={CALENDLY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 transition-all duration-200 rounded-md"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-terracotta-400 text-cream-50 hover:brightness-110 transition-all duration-200 rounded-md"
             >
               Book a Strategy Call
             </a>

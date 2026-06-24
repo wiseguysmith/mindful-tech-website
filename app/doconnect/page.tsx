@@ -14,7 +14,7 @@ export default function DocconnectPage() {
   return (
     <>
       <Section background="cream" padding="xl" className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-soft-white to-electric-teal/5" />
+        <div className="absolute inset-0 bg-gradient-to-br from-cream-100 via-cream-200 to-forest-50/20" />
         <Container className="relative">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-near-black mb-4">
@@ -29,7 +29,7 @@ export default function DocconnectPage() {
             {doconnectContent.services.map((service, idx) => (
               <Card key={idx} hover>
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-electric-teal mt-0.5 flex-shrink-0" />
+                  <CheckCircle2 className="w-5 h-5 text-terracotta-400 mt-0.5 flex-shrink-0" />
                   <span className="text-slate-700">{service}</span>
                 </div>
               </Card>
@@ -41,7 +41,7 @@ export default function DocconnectPage() {
               href={DOCONNECT_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 transition-all duration-200 rounded-md"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-terracotta-400 text-cream-50 hover:brightness-110 transition-all duration-200 rounded-md"
             >
               Notarize Now
             </a>
@@ -49,19 +49,19 @@ export default function DocconnectPage() {
               href={CALENDLY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 transition-all duration-200 rounded-md"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-terracotta-400 text-cream-50 hover:brightness-110 transition-all duration-200 rounded-md"
             >
               {doconnectContent.ctas[0].label}
             </a>
             <Link
               href="/doconnect#use-cases"
-              className="inline-flex items-center justify-center px-6 py-3 text-base font-medium border-2 border-electric-teal text-electric-teal hover:bg-electric-teal hover:text-near-black transition-all duration-200 rounded-md"
+              className="inline-flex items-center justify-center px-6 py-3 text-base font-medium border border-forest-400 text-forest-500 hover:bg-forest-500 hover:text-cream-50 transition-all duration-200 rounded-md"
             >
               {doconnectContent.ctas[1].label}
             </Link>
             <Link
               href="/doconnect/apply"
-              className="inline-flex items-center justify-center px-6 py-3 text-base font-medium border-2 border-electric-teal text-electric-teal hover:bg-electric-teal hover:text-near-black transition-all duration-200 rounded-md"
+              className="inline-flex items-center justify-center px-6 py-3 text-base font-medium border border-forest-400 text-forest-500 hover:bg-forest-500 hover:text-cream-50 transition-all duration-200 rounded-md"
             >
               {doconnectContent.ctas[2].label}
             </Link>
@@ -106,17 +106,17 @@ export default function DocconnectPage() {
       <Section background="charcoal" padding="xl">
         <Container size="md">
           <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-soft-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-cream-100 mb-4">
               Ready to build a Docconnect workflow?
             </h2>
-            <p className="text-xl text-slate-300 mb-8">
+            <p className="text-xl text-cream-500 mb-8">
               Let&apos;s design the right integration for your business.
             </p>
             <a
               href={CALENDLY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 transition-all duration-200 rounded-md"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-terracotta-400 text-cream-50 hover:brightness-110 transition-all duration-200 rounded-md"
             >
               Book a Strategy Call
             </a>

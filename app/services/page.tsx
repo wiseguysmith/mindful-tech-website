@@ -103,7 +103,7 @@ export default function ServicesPage() {
                   href={CALENDLY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center w-full px-4 py-2 text-sm font-medium border-2 border-electric-teal text-electric-teal hover:bg-electric-teal hover:text-near-black transition-colors rounded-md"
+                  className="inline-flex items-center justify-center w-full px-4 py-2 text-sm font-medium border border-forest-400 text-forest-500 hover:bg-forest-500 hover:text-cream-50 transition-colors rounded-md"
                 >
                   Book a Call
                 </a>
@@ -155,7 +155,7 @@ export default function ServicesPage() {
                   href={CALENDLY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center w-full px-4 py-2 text-sm font-medium border-2 border-electric-teal text-electric-teal hover:bg-electric-teal hover:text-near-black transition-colors rounded-md"
+                  className="inline-flex items-center justify-center w-full px-4 py-2 text-sm font-medium border border-forest-400 text-forest-500 hover:bg-forest-500 hover:text-cream-50 transition-colors rounded-md"
                 >
                   Request Audit
                 </a>
@@ -206,7 +206,7 @@ export default function ServicesPage() {
               href={CALENDLY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 transition-colors rounded-md"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-terracotta-400 text-cream-50 hover:brightness-110 transition-colors rounded-md"
             >
               Book a 20-min Fit Call
             </a>

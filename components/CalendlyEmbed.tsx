@@ -41,7 +41,7 @@ export default function CalendlyEmbed({ className }: CalendlyEmbedProps) {
               href={CALENDLY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-6 py-3 text-base font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 transition-colors rounded-md"
+              className="inline-flex items-center justify-center px-6 py-3 text-base font-medium bg-terracotta-400 text-cream-50 hover:brightness-110 transition-colors rounded-md"
             >
               Open Calendar in New Window
             </a>

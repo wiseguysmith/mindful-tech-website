@@ -27,7 +27,7 @@ export default function DocconnectApplyPage() {
 
         <p className="text-center text-sm text-slate-500 mt-8">
           Prefer to talk first?{' '}
-          <Link href="/contact" className="text-electric-teal hover:underline">
+          <Link href="/contact" className="text-terracotta-400 hover:underline">
             Contact us
           </Link>
           {' '}or{' '}
@@ -35,7 +35,7 @@ export default function DocconnectApplyPage() {
             href="https://calendly.com/mindfultechnology"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-electric-teal hover:underline"
+            className="text-terracotta-400 hover:underline"
           >
             book a strategy call
           </a>

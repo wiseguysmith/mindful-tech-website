@@ -9,16 +9,9 @@ interface CardProps {
   id?: string
 }
 
-/**
- * Card Component
- * 
- * As your CTO mentor: Cards are containers for related content. Notice how
- * we make padding configurable but provide sensible defaults. The hover prop
- * adds subtle interactivity without heavy animations (as per requirements).
- */
-export default function Card({ 
-  children, 
-  className, 
+export default function Card({
+  children,
+  className,
   padding = 'md',
   hover = false,
   id,
@@ -33,9 +26,9 @@ export default function Card({
     <div
       id={id}
       className={cn(
-        'rounded-xl border border-zinc-800 bg-zinc-900/60 text-zinc-200',
+        'rounded-lg border border-cream-300 bg-cream-200/70 text-forest-500',
         paddings[padding],
-        hover && 'transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-600 hover:bg-zinc-900',
+        hover && 'transition-all duration-200 hover:border-terracotta-300 hover:bg-cream-100',
         className
       )}
     >
@@ -43,4 +36,3 @@ export default function Card({
     </div>
   )
 }
-

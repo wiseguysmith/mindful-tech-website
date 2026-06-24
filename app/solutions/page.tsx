@@ -39,7 +39,7 @@ export default function SolutionsPage() {
                   <ul className="space-y-2">
                     {solution.features.map((feature, fIdx) => (
                       <li key={fIdx} className="flex items-start gap-2 text-sm">
-                        <CheckCircle2 className="w-4 h-4 text-electric-teal mt-0.5 flex-shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-terracotta-400 mt-0.5 flex-shrink-0" />
                         <span className="text-slate-700">{feature}</span>
                       </li>
                     ))}
@@ -55,13 +55,13 @@ export default function SolutionsPage() {
               href={CALENDLY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 transition-all duration-200 rounded-md"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-terracotta-400 text-cream-50 hover:brightness-110 transition-all duration-200 rounded-md"
             >
               Book a Strategy Call
             </a>
             <p className="mt-6 text-sm text-slate-500">
               Or explore{' '}
-              <Link href="/doconnect" className="text-electric-teal hover:underline">
+              <Link href="/doconnect" className="text-terracotta-400 hover:underline">
                 Docconnect
               </Link>
               {' '}for protocol-specific workflows.

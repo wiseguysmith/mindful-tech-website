@@ -66,7 +66,7 @@ export default function DoconnectOnboardingForm() {
   if (submitStatus === 'success') {
     return (
       <Card className="text-center py-12">
-        <CheckCircle2 className="w-16 h-16 text-electric-teal mx-auto mb-4" />
+        <CheckCircle2 className="w-16 h-16 text-terracotta-400 mx-auto mb-4" />
         <h3 className="text-xl font-bold text-near-black mb-2">Application Received</h3>
         <p className="text-slate-600">
           We&apos;ll review your information and reach out shortly to discuss your Docconnect workflow.
@@ -89,7 +89,7 @@ export default function DoconnectOnboardingForm() {
             required
             value={formData.name}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-electric-teal focus:border-electric-teal"
+            className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-terracotta-400 focus:border-terracotta-400"
           />
         </div>
         <div>
@@ -103,7 +103,7 @@ export default function DoconnectOnboardingForm() {
             required
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-electric-teal focus:border-electric-teal"
+            className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-terracotta-400 focus:border-terracotta-400"
           />
         </div>
         <div>
@@ -117,7 +117,7 @@ export default function DoconnectOnboardingForm() {
             required
             value={formData.company}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-electric-teal focus:border-electric-teal"
+            className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-terracotta-400 focus:border-terracotta-400"
           />
         </div>
         <div>
@@ -131,7 +131,7 @@ export default function DoconnectOnboardingForm() {
             value={formData.role}
             onChange={handleChange}
             placeholder="e.g. Operations Lead, Founder"
-            className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-electric-teal focus:border-electric-teal"
+            className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-terracotta-400 focus:border-terracotta-400"
           />
         </div>
         <div>
@@ -146,7 +146,7 @@ export default function DoconnectOnboardingForm() {
             value={formData.useCase}
             onChange={handleChange}
             placeholder="Describe your Docconnect workflow goals..."
-            className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-electric-teal focus:border-electric-teal"
+            className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-terracotta-400 focus:border-terracotta-400"
           />
         </div>
         <div>
@@ -160,7 +160,7 @@ export default function DoconnectOnboardingForm() {
             value={formData.currentStack}
             onChange={handleChange}
             placeholder="e.g. HubSpot, Docconnect, custom CRM"
-            className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-electric-teal focus:border-electric-teal"
+            className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-terracotta-400 focus:border-terracotta-400"
           />
         </div>
         <div>
@@ -172,7 +172,7 @@ export default function DoconnectOnboardingForm() {
             name="timeline"
             value={formData.timeline}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-electric-teal focus:border-electric-teal"
+            className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-terracotta-400 focus:border-terracotta-400"
           >
             <option value="">Select...</option>
             <option value="asap">ASAP</option>

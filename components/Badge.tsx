@@ -7,24 +7,17 @@ interface BadgeProps {
   className?: string
 }
 
-/**
- * Badge Component
- * 
- * As your CTO mentor: Badges are small UI elements for labels, status, or tags.
- * Keep them simple and consistent. This component uses a variant system similar
- * to Button for consistency across the design system.
- */
 export default function Badge({ children, variant = 'default', className }: BadgeProps) {
   const variants = {
-    default: 'bg-zinc-800 text-zinc-100',
-    gold: 'bg-gradient-to-r from-amber-300/20 to-purple-400/20 text-amber-100',
-    outline: 'border border-zinc-600 text-zinc-300',
+    default: 'bg-forest-100 text-forest-500',
+    gold: 'bg-gold-100 text-gold-500',
+    outline: 'border border-cream-400 text-forest-400',
   }
 
   return (
     <span
       className={cn(
-        'inline-flex items-center px-3 py-1 rounded-full text-sm font-medium',
+        'inline-flex items-center rounded-full px-3 py-1 text-sm font-medium',
         variants[variant],
         className
       )}
@@ -33,4 +26,3 @@ export default function Badge({ children, variant = 'default', className }: Badg
     </span>
   )
 }
-

@@ -54,7 +54,7 @@ export default function PrivacyPage() {
 
           <h2 className="text-xl font-semibold text-near-black">Contact</h2>
           <p>For privacy-related questions or to exercise your rights, contact us at{' '}
-            <a href="mailto:info@mindfultech.services" className="text-electric-teal hover:underline">info@mindfultech.services</a>.
+            <a href="mailto:info@mindfultech.services" className="text-terracotta-400 hover:underline">info@mindfultech.services</a>.
           </p>
         </div>
       </div>

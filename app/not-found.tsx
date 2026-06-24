@@ -26,7 +26,7 @@ export default function NotFound() {
             <h1 className="text-8xl md:text-9xl font-bold text-near-black/20 mb-4">
               404
             </h1>
-            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-electric-teal to-transparent mx-auto"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-terracotta-400 to-transparent mx-auto"></div>
           </div>
 
           {/* Message */}
@@ -42,7 +42,7 @@ export default function NotFound() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 transition-all duration-200 rounded-md w-full sm:w-auto"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-terracotta-400 text-cream-50 hover:brightness-110 transition-all duration-200 rounded-md w-full sm:w-auto"
             >
               <Home className="w-5 h-5 mr-2" />
               Go Home

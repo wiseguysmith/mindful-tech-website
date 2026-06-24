@@ -4,128 +4,85 @@ interface MindfulLogoProps {
   size?: number
   color?: string
   accentColor?: string
+  leafColor?: string
   className?: string
+  title?: string
 }
 
 export default function MindfulLogo({
   size = 40,
   color = '#1A2B1A',
-  accentColor = '#B8860B',
+  accentColor = '#C4522A',
+  leafColor = '#4E642D',
   className = '',
+  title = 'Mindful Tech logo',
 }: MindfulLogoProps) {
-  // Leaf shape: teardrop / organic node used in canopy
-  const Leaf = ({ cx, cy, r = 7 }: { cx: number; cy: number; r?: number }) => (
-    <ellipse cx={cx} cy={cy} rx={r * 0.72} ry={r} fill={color} />
+  const node = (cx: number, cy: number, r = 5, fill = color) => (
+    <circle cx={cx} cy={cy} r={r} fill={fill} />
   )
 
-  // Circuit node: clean circle used in roots
-  const Node = ({ cx, cy, r = 5 }: { cx: number; cy: number; r?: number }) => (
-    <circle cx={cx} cy={cy} r={r} fill={color} />
+  const leaf = (cx: number, cy: number, rotate: number, rx = 7, ry = 10) => (
+    <ellipse
+      cx={cx}
+      cy={cy}
+      rx={rx}
+      ry={ry}
+      fill={leafColor}
+      transform={`rotate(${rotate} ${cx} ${cy})`}
+    />
   )
 
   return (
     <svg
       width={size}
-      height={size * 1.3}
-      viewBox="0 0 160 208"
+      height={size * 1.18}
+      viewBox="0 0 160 188"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      aria-label="Mindful Tech logo"
+      aria-label={title}
+      role="img"
     >
-      {/* ══ TRUNK ══ */}
-      <line x1="80" y1="158" x2="80" y2="52"
-        stroke={color} strokeWidth="5" strokeLinecap="round" />
+      <g stroke={color} strokeWidth="6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M80 172V28" />
+        <path d="M80 62C70 70 62 79 58 92" />
+        <path d="M80 62C90 70 98 79 102 92" />
+        <path d="M80 88C66 92 54 101 46 114" />
+        <path d="M80 88C94 92 106 101 114 114" />
+        <path d="M80 118C69 122 61 132 58 145" />
+        <path d="M80 118C91 122 99 132 102 145" />
+        <path d="M58 92H20" />
+        <path d="M102 92H140" />
+        <path d="M58 92L28 72" />
+        <path d="M102 92L132 72" />
+        <path d="M46 114L24 130" />
+        <path d="M114 114L136 130" />
+        <path d="M58 145L38 160" />
+        <path d="M102 145L122 160" />
+        <path d="M72 48L58 36" />
+        <path d="M88 48L102 36" />
+      </g>
 
-      {/* ══ CENTER UPPER BRANCH ══ */}
-      <line x1="80" y1="52" x2="80" y2="28"
-        stroke={color} strokeWidth="3.5" strokeLinecap="round" />
-      {/* Apex leaf */}
-      <Leaf cx={80} cy={20} r={9} />
-
-      {/* ══ UPPER LEFT BRANCHES ══ */}
-      {/* Inner upper-left */}
-      <line x1="80" y1="62" x2="54" y2="38"
-        stroke={color} strokeWidth="2.8" strokeLinecap="round" />
-      <Leaf cx={48} cy={31} r={8} />
-
-      {/* Outer upper-left */}
-      <line x1="80" y1="72" x2="32" y2="44"
-        stroke={color} strokeWidth="2.8" strokeLinecap="round" />
-      <Leaf cx={24} cy={37} r={8} />
-
-      {/* ══ UPPER RIGHT BRANCHES ══ */}
-      {/* Inner upper-right */}
-      <line x1="80" y1="62" x2="106" y2="38"
-        stroke={color} strokeWidth="2.8" strokeLinecap="round" />
-      <Leaf cx={112} cy={31} r={8} />
-
-      {/* Outer upper-right */}
-      <line x1="80" y1="72" x2="128" y2="44"
-        stroke={color} strokeWidth="2.8" strokeLinecap="round" />
-      <Leaf cx={136} cy={37} r={8} />
-
-      {/* ══ MID-LEFT BRANCHES (more horizontal, circuit-like) ══ */}
-      {/* Mid-left upper arm */}
-      <line x1="80" y1="95" x2="42" y2="80"
-        stroke={color} strokeWidth="2.5" strokeLinecap="round" />
-      {/* Extends left */}
-      <line x1="42" y1="80" x2="18" y2="72"
-        stroke={color} strokeWidth="2.2" strokeLinecap="round" />
-      <Leaf cx={10} cy={68} r={7.5} />
-
-      {/* Mid-left lower arm */}
-      <line x1="42" y1="80" x2="28" y2="96"
-        stroke={color} strokeWidth="2.2" strokeLinecap="round" />
-      <Leaf cx={22} cy={103} r={7} />
-
-      {/* ══ MID-RIGHT BRANCHES ══ */}
-      {/* Mid-right upper arm */}
-      <line x1="80" y1="95" x2="118" y2="80"
-        stroke={color} strokeWidth="2.5" strokeLinecap="round" />
-      {/* Extends right */}
-      <line x1="118" y1="80" x2="142" y2="72"
-        stroke={color} strokeWidth="2.2" strokeLinecap="round" />
-      <Leaf cx={150} cy={68} r={7.5} />
-
-      {/* Mid-right lower arm */}
-      <line x1="118" y1="80" x2="132" y2="96"
-        stroke={color} strokeWidth="2.2" strokeLinecap="round" />
-      <Leaf cx={138} cy={103} r={7} />
-
-      {/* ══ ROOTS — circuit board style ══ */}
-      {/* Trunk to root junction horizontal bar */}
-      <line x1="38" y1="158" x2="122" y2="158"
-        stroke={color} strokeWidth="2.8" strokeLinecap="round" />
-
-      {/* Left root: curve down then left */}
-      <path
-        d="M 38 158 Q 26 158 26 170 L 26 182"
-        stroke={color} strokeWidth="2.5" strokeLinecap="round" fill="none" />
-      <Node cx={26} cy={188} r={6} />
-
-      {/* Right root: curve down then right */}
-      <path
-        d="M 122 158 Q 134 158 134 170 L 134 182"
-        stroke={color} strokeWidth="2.5" strokeLinecap="round" fill="none" />
-      <Node cx={134} cy={188} r={6} />
-
-      {/* Left far horizontal extension */}
-      <line x1="38" y1="158" x2="16" y2="158"
-        stroke={color} strokeWidth="2.2" strokeLinecap="round" />
-      <Node cx={10} cy={158} r={5.5} />
-
-      {/* Right far horizontal extension */}
-      <line x1="122" y1="158" x2="144" y2="158"
-        stroke={color} strokeWidth="2.2" strokeLinecap="round" />
-      <Node cx={150} cy={158} r={5.5} />
-
-      {/* Center trunk drops to gold accent node */}
-      <line x1="80" y1="158" x2="80" y2="182"
-        stroke={color} strokeWidth="2.5" strokeLinecap="round" />
-      {/* Gold/accent center root node */}
-      <circle cx={80} cy={190} r={8} fill={accentColor} />
-      <circle cx={80} cy={190} r={3.5} fill={color} opacity="0.5" />
+      <g>
+        {node(80, 22, 10)}
+        {node(80, 176, 8)}
+        {node(20, 92, 9)}
+        {node(140, 92, 9)}
+        {node(28, 72, 7)}
+        {node(132, 72, 7)}
+        {node(24, 130, 7)}
+        {node(136, 130, 7)}
+        {node(38, 160, 6, accentColor)}
+        {node(122, 160, 6, accentColor)}
+        {node(58, 36, 7)}
+        {node(102, 36, 7)}
+        {node(58, 145, 5, '#7C7A3A')}
+        {node(102, 145, 5, '#7C7A3A')}
+        {leaf(42, 58, -52)}
+        {leaf(118, 58, 52)}
+        {leaf(34, 104, -68, 6, 9)}
+        {leaf(126, 104, 68, 6, 9)}
+      </g>
     </svg>
   )
 }

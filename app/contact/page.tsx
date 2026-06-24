@@ -221,13 +221,13 @@ export default function ContactPage() {
                 href={CALENDLY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-6 py-3 text-base font-medium bg-electric-teal text-near-black hover:bg-electric-teal/90 transition-colors rounded-md"
+                className="inline-flex items-center justify-center px-6 py-3 text-base font-medium bg-terracotta-400 text-cream-50 hover:brightness-110 transition-colors rounded-md"
               >
                 Book a Call
               </a>
               <a
                 href="mailto:info@mindfultech.services"
-                className="inline-flex items-center justify-center px-6 py-3 text-base font-medium border-2 border-electric-teal text-electric-teal hover:bg-electric-teal hover:text-near-black transition-colors rounded-md"
+                className="inline-flex items-center justify-center px-6 py-3 text-base font-medium border border-forest-400 text-forest-500 hover:bg-forest-500 hover:text-cream-50 transition-colors rounded-md"
               >
                 Email Us
               </a>
