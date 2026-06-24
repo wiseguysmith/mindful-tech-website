@@ -39,20 +39,19 @@ Also run a visual pass in browser after build.
 
 ## Files Changed
 
-### `components/MindfulLogo.tsx`
+### `components/MindfulLogo.tsx` and `public/mindful-logo-mask.png`
 
-Replaced the old logo SVG with a new inline vector mark inspired by the user's simpler logo reference. After the first pass, the user said the logo still did not look right, so the mark was revised again to be taller, simpler, more symmetric, and more legible in the nav/footer:
+Replaced the old hand-built logo SVG approach after the user said the approximation looked bad. The current implementation uses the user's simple logo reference as the source of truth:
 
-- Tree/circuit trunk and branching structure.
-- Forest nodes.
-- Small terracotta accent nodes.
-- Optional leaf shapes that default to the main logo color unless `leafColor` is passed.
-- Accepts `size`, `color`, `accentColor`, `leafColor`, `className`, and `title`.
+- `public/mindful-logo-mask.png` is a transparent mask extracted from the user's simple tree/circuit reference.
+- `components/MindfulLogo.tsx` renders that mask as a tintable one-color mark using CSS `mask` / `-webkit-mask`.
+- This lets the same logo work on light backgrounds (`color="#1A2B1A"`) and dark footer backgrounds (`color="#FAF7F2"`).
+- The component still accepts `accentColor` and `leafColor` for compatibility, but they are currently unused.
 
 Notes:
-- This is a hand-drawn vector approximation, not an exact trace of the raster reference.
+- This is much closer to the user's intended simple logo than the hand-drawn SVG, but it is a raster mask derived from a low-resolution screenshot.
+- For final production, ask the user for the original transparent/vector logo file if available.
 - It should be visually inspected in navbar, homepage hero, and footer.
-- Nav logo may need small sizing/alignment tuning because the new SVG aspect ratio is different from the previous logo.
 
 ### `components/Section.tsx`
 
