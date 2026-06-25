@@ -40,11 +40,23 @@ export default function Footer() {
                 { name: 'Automation', href: '/solutions' },
                 { name: 'Tokenization', href: '/tokenization' },
                 { name: 'Docconnect', href: '/doconnect' },
+                { name: 'Demo', href: 'https://demo.mindfultech.services', external: true },
               ].map((l) => (
                 <li key={l.name}>
-                  <Link href={l.href} className="text-sm font-light text-[#C8BFB2] transition-colors hover:text-[#FAF7F2]">
-                    {l.name}
-                  </Link>
+                  {'external' in l && l.external ? (
+                    <a
+                      href={l.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-light text-[#C8BFB2] transition-colors hover:text-[#FAF7F2]"
+                    >
+                      {l.name}
+                    </a>
+                  ) : (
+                    <Link href={l.href} className="text-sm font-light text-[#C8BFB2] transition-colors hover:text-[#FAF7F2]">
+                      {l.name}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

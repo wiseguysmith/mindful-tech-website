@@ -8,6 +8,8 @@ import { CALENDLY_URL } from '@/lib/site-data'
 import { cn } from '@/lib/utils'
 import MindfulLogo from './MindfulLogo'
 
+const DEMO_URL = 'https://demo.mindfultech.services'
+
 const navLinks = [
   { name: 'What We Do',   href: '/solutions' },
   { name: 'The Audit',    href: '/audit' },
@@ -92,6 +94,14 @@ export default function Navbar() {
 
           {/* Desktop CTAs */}
           <div className="hidden items-center gap-3 md:flex">
+            <a
+              href={DEMO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-md border border-[#DDD6CC] bg-transparent px-4 py-2 text-sm font-light text-[#1A2B1A] transition-all hover:border-[#C4522A] hover:text-[#C4522A]"
+            >
+              View Demo
+            </a>
             <Link
               href="/audit"
               className="rounded-md border border-[#DDD6CC] bg-transparent px-4 py-2 text-sm font-light text-[#1A2B1A] transition-all hover:border-[#C4522A] hover:text-[#C4522A]"
@@ -159,6 +169,15 @@ export default function Navbar() {
               )
             )}
             <div className="space-y-2 border-t border-[#E8E0D4] pt-4 mt-2">
+              <a
+                href={DEMO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full rounded-md border border-[#DDD6CC] px-4 py-2.5 text-center text-sm font-light text-[#1A2B1A] transition-colors hover:border-[#C4522A]"
+                onClick={() => setOpen(false)}
+              >
+                View Demo
+              </a>
               <Link
                 href="/audit"
                 className="block w-full rounded-md border border-[#DDD6CC] px-4 py-2.5 text-center text-sm font-light text-[#1A2B1A] transition-colors hover:border-[#C4522A]"
